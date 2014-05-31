@@ -19,12 +19,4 @@
 //    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import "GKPlaceAutocompleteQuery.h"
-#import "GKGeocodingQuery.h"
-
-extern NSString *const kGoogleKitAPIKey;
-
-@interface GoogleKit : NSObject
-
-+ (GoogleKit *)sharedInstance;
-
-@end
+#import "GKGeocoderQuery.h"

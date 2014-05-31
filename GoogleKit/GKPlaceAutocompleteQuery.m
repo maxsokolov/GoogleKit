@@ -62,12 +62,10 @@ static NSString *const kGoogleKitPlaceAutocompleteURL = @"https://maps.googleapi
     return [NSURL URLWithString:url];
 }
 
-- (void)handleQueryError:(NSError *)error {
+- (void)handleQueryError:(NSDictionary *)response error:(NSError *)error {
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (self.completionHandler)
-            self.completionHandler(nil, error);
-    });
+    if (self.completionHandler)
+        self.completionHandler(nil, error);
 }
 
 - (void)handleQueryResponse:(NSDictionary *)response {
@@ -79,10 +77,8 @@ static NSString *const kGoogleKitPlaceAutocompleteURL = @"https://maps.googleapi
         [places addObject:[[GKPlaceAutocomplete alloc] initWithDictionary:place]];
     }
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (self.completionHandler)
-            self.completionHandler(places, nil);
-    });
+    if (self.completionHandler)
+        self.completionHandler(places, nil);
 }
 
 #pragma mark - Public methods

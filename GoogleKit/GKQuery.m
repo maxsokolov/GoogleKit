@@ -51,7 +51,10 @@
         
         if (connectionError) {
 
-            [self handleQueryError:connectionError];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self handleQueryError:nil error:connectionError];
+            });
+
             return;
         }
         
@@ -60,20 +63,28 @@
 
         if (error) {
 
-            [self handleQueryError:error];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self handleQueryError:nil error:error];
+            });
+
             return;
         }
 
         if ([[json objectForKey:@"status"] isEqualToString:@"OK"] ||
             [[json objectForKey:@"status"] isEqualToString:@"ZERO_RESULTS"]) {
 
-            [self handleQueryResponse:json];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self handleQueryResponse:json];
+            });
+            
             return;
         }
         
         // OVER_QUERY_LIMIT, REQUEST_DENIED, INVALID_REQUEST etc.
         NSDictionary *userInfo = [NSDictionary dictionaryWithObject:[json objectForKey:@"status"] forKey:NSLocalizedDescriptionKey];
-        [self handleQueryError:[NSError errorWithDomain:@"com.googlekit" code:0 userInfo:userInfo]];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self handleQueryError:json error:[NSError errorWithDomain:@"com.googlekit" code:0 userInfo:userInfo]];
+        });
     }];
 }
 
@@ -82,20 +93,20 @@
     [self.backgroundQueue cancelAllOperations];
 }
 
-#pragma mark - Methods to override
+#pragma mark - GKQueryProtocol
 
 - (NSURL *)queryURL {
-
+    
     return nil;
 }
 
-- (void)handleQueryError:(NSError *)error {
-
+- (void)handleQueryError:(NSDictionary *)response error:(NSError *)error {
+    
     return;
 }
 
 - (void)handleQueryResponse:(NSDictionary *)response {
-
+    
     return;
 }
 

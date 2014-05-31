@@ -21,17 +21,28 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 
-typedef void (^GKQueryCompletionBlock)(NSArray *results, NSError *error);
+typedef void (^GKQueryCompletionBlock)(id results, NSError *error);
 
-@interface GKQuery : NSObject
+@protocol GKQueryProtocol <NSObject>
+@required
+- (NSURL *)queryURL;
+- (void)handleQueryError:(NSDictionary *)response error:(NSError *)error;
+- (void)handleQueryResponse:(NSDictionary *)response;
+@end
+
+@interface GKQuery : NSObject <GKQueryProtocol>
 
 @property (nonatomic, copy) GKQueryCompletionBlock completionHandler;
-
-@property (nonatomic, assign) BOOL sensor;
 @property (nonatomic, strong) NSString *key;
 
+// Maps API for Business https://developers.google.com/maps/documentation/business/webservices/
+
+@property (nonatomic, strong) NSString *clientID;
+@property (nonatomic, strong) NSString *signature;
+
+@property (nonatomic, assign) BOOL sensor;
+
 + (GKQuery *)query;
-- (NSURL *)queryURL;
 - (void)performQuery;
 - (void)cancelQuery;
 

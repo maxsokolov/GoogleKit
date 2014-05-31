@@ -9,12 +9,14 @@
 #import "UIRootViewController.h"
 #import <MapKit/MapKit.h>
 
+NSString *const kGoogleKitAPIKey = @"AIzaSyDYSyHklqn-3aFjic9XatFN5fm8b5Uz15M";
+
 @interface UIRootViewController () <MKMapViewDelegate>
 
 @property (nonatomic, strong) MKMapView *mapView;
 
 @property (nonatomic, strong) GKPlaceAutocompleteQuery *autocompleteQuery;
-@property (nonatomic, strong) GKGeocodingQuery *geocodingQuery;
+@property (nonatomic, strong) GKGeocoderQuery *geocoderQuery;
 
 @end
 
@@ -38,8 +40,9 @@
     self.autocompleteQuery.key = kGoogleKitAPIKey;
     self.autocompleteQuery.input = @"чичерина москва";
     
-    self.geocodingQuery = [[GKGeocodingQuery alloc] init];
-    self.geocodingQuery.key = kGoogleKitAPIKey;
+    self.geocoderQuery = [[GKGeocoderQuery alloc] init];
+    self.geocoderQuery.key = kGoogleKitAPIKey;
+    self.geocoderQuery.language = @"ru";
 }
 
 - (void)handleGesture:(UITapGestureRecognizer *)recognizer {
@@ -47,19 +50,18 @@
     CGPoint touchPoint = [recognizer locationInView:self.mapView];
     CLLocationCoordinate2D coordinate = [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
     
-    self.geocodingQuery.location = coordinate;
-    [self.geocodingQuery lookupLocation:^(NSArray *results, NSError *error) {
+    self.geocoderQuery.location = coordinate;
+    [self.geocoderQuery lookupLocation:^(NSArray *results, NSError *error) {
+        
+        GKPlaceDetails *place = [results firstObject];
        
-        for (GKPlaceDetails *place in results) {
-            
-            NSLog(@"adr: %@", place.formattedAddress);
-        }
+        NSLog(@"adr: %@ %@", place.route, place.streetNumber);
     }];
 }
 
 #pragma mark - MKMapViewDelegate
 
-- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
+/*- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
     
     self.mapView.centerCoordinate = userLocation.location.coordinate;
     
@@ -78,6 +80,6 @@
             }
         }];
     }
-}
+}*/
 
 @end

@@ -18,21 +18,23 @@
 //    IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 //    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "GKGeocodingQuery.h"
+#import "GKGeocoderQuery.h"
 
-static NSString *const kGoogleKitGeocodingURL = @"https://maps.googleapis.com/maps/api/geocode/json?sensor=%@&key=%@";
+static NSString *const kGKGeocoderURL = @"https://maps.googleapis.com/maps/api/geocode/json?sensor=%@&key=%@";
 
-@interface GKGeocodingQuery ()
+@interface GKGeocoderQuery ()
 
 @property (nonatomic, assign, getter = isReverseGeocoding) BOOL reverseGeocoding;
 
 @end
 
-@implementation GKGeocodingQuery
+@implementation GKGeocoderQuery
+
+#pragma mark - GKQueryProtocol
 
 - (NSURL *)queryURL {
-    
-    NSMutableString *url = [NSMutableString stringWithFormat:kGoogleKitGeocodingURL, self.sensor ? @"true" : @"false", self.key];
+
+    NSMutableString *url = [NSMutableString stringWithFormat:kGKGeocoderURL, self.sensor ? @"true" : @"false", self.key];
     
     if (self.isReverseGeocoding) {
         
@@ -57,12 +59,10 @@ static NSString *const kGoogleKitGeocodingURL = @"https://maps.googleapis.com/ma
     return [NSURL URLWithString:url];
 }
 
-- (void)handleQueryError:(NSError *)error {
+- (void)handleQueryError:(NSDictionary *)response error:(NSError *)error {
 
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (self.completionHandler)
-            self.completionHandler(nil, error);
-    });
+    if (self.completionHandler)
+        self.completionHandler(response, error);
 }
 
 - (void)handleQueryResponse:(NSDictionary *)response {
@@ -75,10 +75,8 @@ static NSString *const kGoogleKitGeocodingURL = @"https://maps.googleapis.com/ma
         [places addObject:[[GKPlaceDetails alloc] initWithDictionary:dictionary]];
     }
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (self.completionHandler)
-            self.completionHandler(places, nil);
-    });
+    if (self.completionHandler)
+        self.completionHandler(places, nil);
 }
 
 #pragma mark - Public methods

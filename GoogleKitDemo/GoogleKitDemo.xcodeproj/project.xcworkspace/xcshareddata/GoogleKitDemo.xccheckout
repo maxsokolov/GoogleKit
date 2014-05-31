@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>5AEDFB36-F0E5-4465-A45F-4C74CFBD4206</string>
+	<key>IDESourceControlProjectName</key>
+	<string>GoogleKitDemo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F236E49D-983F-46E5-8724-2B13CAD030AA</key>
+		<string>https://github.com/maxsokolov/GoogleKit.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>GoogleKitDemo/GoogleKitDemo.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F236E49D-983F-46E5-8724-2B13CAD030AA</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/maxsokolov/GoogleKit.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F236E49D-983F-46E5-8724-2B13CAD030AA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F236E49D-983F-46E5-8724-2B13CAD030AA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>GoogleKit</string>
+		</dict>
+	</array>
+</dict>
+</plist>

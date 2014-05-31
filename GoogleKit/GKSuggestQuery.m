@@ -36,10 +36,8 @@ static NSString *const kGoogleKitSuggestqueriesURL = @"http://suggestqueries.goo
 
 - (void)handleQueryError:(NSError *)error {
 
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (self.completionHandler)
-            self.completionHandler(nil, error);
-    });
+    if (self.completionHandler)
+        self.completionHandler(nil, error);
 }
 
 - (void)handleQueryResponse:(NSDictionary *)response {
@@ -68,10 +66,8 @@ static NSString *const kGoogleKitSuggestqueriesURL = @"http://suggestqueries.goo
         }
     }
 
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (self.completionHandler)
-            self.completionHandler(suggestions, nil);
-    });
+    if (self.completionHandler)
+        self.completionHandler(suggestions, nil);
 }
 
 #pragma mark - Public methods

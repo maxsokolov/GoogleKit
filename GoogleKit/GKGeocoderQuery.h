@@ -18,28 +18,26 @@
 //    IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 //    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "GoogleKit.h"
+// API Reference https://developers.google.com/maps/documentation/geocoding/
 
-NSString *const kGoogleKitAPIKey = @"AIzaSyDYSyHklqn-3aFjic9XatFN5fm8b5Uz15M";
+#import "GKQuery.h"
+#import "GKPlaceDetails.h"
 
-@implementation GoogleKit
+@interface GKGeocoderQuery : GKQuery
 
-+ (GoogleKit *)sharedInstance {
-    static GoogleKit* _instance;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _instance = [[GoogleKit alloc] init];
-    });
-    return _instance;
-}
+@property (nonatomic, strong) NSString *address;
 
-- (instancetype)init {
+@property (nonatomic, assign) CLLocationCoordinate2D location;
 
-    self = [super init];
-    if (self) {
+@property (nonatomic, assign) CGSize bounds;
 
-    }
-    return self;
-}
+@property (nonatomic, strong) NSString *language;
+
+@property (nonatomic, strong) NSString *region;
+
+@property (nonatomic, strong) NSString *components;
+
+- (void)lookupLocation:(GKQueryCompletionBlock)completionHandler;
+- (void)lookupAddress:(GKQueryCompletionBlock)completionHandler;
 
 @end

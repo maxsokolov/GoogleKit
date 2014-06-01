@@ -28,9 +28,9 @@
 
 @implementation GKQuery
 
-+ (GKQuery *)query {
++ (instancetype)query {
 
-    return [[GKQuery alloc] init];
+    return [[self alloc] init];
 }
 
 - (id)init {

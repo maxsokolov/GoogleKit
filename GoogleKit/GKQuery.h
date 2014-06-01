@@ -21,7 +21,7 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 
-typedef void (^GKQueryCompletionBlock)(id results, NSError *error);
+typedef void (^GKQueryCompletionBlock)(id result, NSError *error);
 
 @protocol GKQueryProtocol <NSObject>
 @required
@@ -42,7 +42,7 @@ typedef void (^GKQueryCompletionBlock)(id results, NSError *error);
 
 @property (nonatomic, assign) BOOL sensor;
 
-+ (GKQuery *)query;
++ (instancetype)query;
 - (void)performQuery;
 - (void)cancelQuery;
 

@@ -27,7 +27,7 @@
 
 @property (nonatomic, strong) NSString *input;
 
-@property (nonatomic, assign) NSUInteger offset;
+@property (nonatomic, assign) NSInteger offset;
 
 @property (nonatomic, assign) CLLocationCoordinate2D location;
 

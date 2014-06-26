@@ -18,10 +18,12 @@
 //    IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 //    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+// API https://developers.google.com/maps/documentation/geocoding/#Types
+
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 
-@interface GKPlaceDetails : NSObject
+@interface GKGeocoderQueryResult : NSObject
 
 @property (nonatomic, strong, readonly) NSString *formattedAddress;
 @property (nonatomic, strong, readonly) NSString *name;

@@ -21,7 +21,7 @@
 // API Reference https://developers.google.com/maps/documentation/geocoding/
 
 #import "GKQuery.h"
-#import "GKPlaceDetails.h"
+#import "GKGeocoderQueryResult.h"
 
 @interface GKGeocoderQuery : GKQuery
 

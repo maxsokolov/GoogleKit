@@ -20,7 +20,9 @@
 
 #import "GKPlacesQuery.h"
 
-static NSString *const kGKPlacesURL = @"https://maps.googleapis.com/maps/api/place/nearbysearch/json?sensor=%@&key=%@";
+static NSString *const kGKPlacesNearbySearchURL = @"https://maps.googleapis.com/maps/api/place/nearbysearch/json?sensor=%@&key=%@";
+static NSString *const kGKPlacesTextSearchURL   = @"https://maps.googleapis.com/maps/api/place/textsearch/json?sensor=%@&key=%@";
+static NSString *const kGKPlacesRadarSearchURL  = @"https://maps.googleapis.com/maps/api/place/radarsearch/json?sensor=%@&key=%@";
 
 @interface GKPlacesQuery ()
 
@@ -44,7 +46,7 @@ static NSString *const kGKPlacesURL = @"https://maps.googleapis.com/maps/api/pla
 
 - (NSURL *)queryURL {
 
-    NSMutableString *url = [NSMutableString stringWithFormat:kGKPlacesURL, self.sensor ? @"true" : @"false", self.key];
+    NSMutableString *url = [NSMutableString stringWithFormat:kGKPlacesNearbySearchURL, self.sensor ? @"true" : @"false", self.key];
 
     if (self.location.latitude != -1) {
         [url appendFormat:@"&location=%f,%f", self.location.latitude, self.location.longitude];
@@ -114,6 +116,16 @@ static NSString *const kGKPlacesURL = @"https://maps.googleapis.com/maps/api/pla
 
     self.completionHandler = completionHandler;
     [self performQuery];
+}
+
+- (void)textSearch:(GKQueryCompletionBlock)completionHandler {
+    
+    
+}
+
+- (void)radarSearch:(GKQueryCompletionBlock)completionHandler {
+    
+    
 }
 
 - (BOOL)nextPage {

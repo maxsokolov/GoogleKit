@@ -34,6 +34,7 @@
 // optional
 
 @property (nonatomic, strong) NSString *keyword;
+@property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) NSString *language;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, assign) BOOL opennow;
@@ -48,6 +49,9 @@
 @property (nonatomic, strong, readonly) NSString *pageToken;
 
 - (void)nearbySearch:(GKQueryCompletionBlock)completionHandler;
+- (void)textSearch:(GKQueryCompletionBlock)completionHandler;
+- (void)radarSearch:(GKQueryCompletionBlock)completionHandler;
+
 - (BOOL)nextPage;
 
 @end

@@ -18,9 +18,9 @@
 //    IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 //    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "GKPlaceDetails.h"
+#import "GKGeocoderQueryResult.h"
 
-@implementation GKPlaceDetails
+@implementation GKGeocoderQueryResult
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     
@@ -33,7 +33,7 @@
             NSString *type = [[addressComponent objectForKey:@"types"] firstObject];
             NSString *name = [addressComponent objectForKey:@"long_name"];
             if ([type isEqualToString:@"street_address"]) {
-            
+                
                 _streetAddress = name;
             }
             else if ([type isEqualToString:@"route"]) {
@@ -81,11 +81,11 @@
                 _neighborhood = name;
             }
             else if ([type isEqualToString:@"premise"]) {
-
+                
                 _premise = name;
             }
             else if ([type isEqualToString:@"subpremise"]) {
-
+                
                 _subpremise = name;
             }
             else if ([type isEqualToString:@"postal_code"]) {
@@ -125,7 +125,7 @@
                 _room = name;
             }
         }
-
+        
         _formattedAddress = [dictionary objectForKey:@"formatted_address"];
         _name = [dictionary objectForKey:@"name"];
         

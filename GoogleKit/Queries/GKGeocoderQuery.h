@@ -18,8 +18,21 @@
 //    IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 //    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "GKPlacesQuery.h"
-#import "GKPlaceAutocompleteQuery.h"
-#import "GKGeocoderQuery.h"
-#import "GKSuggestQuery.h"
-#import "GKTranslateQuery.h"
+// API Reference https://developers.google.com/maps/documentation/geocoding/
+
+#import "GKQuery.h"
+#import "GKPlaceDetails.h"
+
+@interface GKGeocoderQuery : GKQuery
+
+@property (nonatomic, strong) NSString *address;
+@property (nonatomic, assign) CLLocationCoordinate2D location;
+@property (nonatomic, assign) CGSize bounds;
+@property (nonatomic, strong) NSString *language;
+@property (nonatomic, strong) NSString *region;
+@property (nonatomic, strong) NSString *components;
+
+- (void)lookupLocation:(GKQueryCompletionBlock)completionHandler;
+- (void)lookupAddress:(GKQueryCompletionBlock)completionHandler;
+
+@end

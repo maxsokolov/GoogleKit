@@ -48,7 +48,7 @@
 
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[self queryURL] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0f];
     [NSURLConnection sendAsynchronousRequest:request queue:self.backgroundQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        
+
         if (connectionError) {
 
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -57,7 +57,7 @@
 
             return;
         }
-        
+
         NSError *error = nil;
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
 
@@ -76,10 +76,10 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self handleQueryResponse:json];
             });
-            
+
             return;
         }
-        
+
         // OVER_QUERY_LIMIT, REQUEST_DENIED, INVALID_REQUEST etc.
         NSDictionary *userInfo = [NSDictionary dictionaryWithObject:[json objectForKey:@"status"] forKey:NSLocalizedDescriptionKey];
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -96,17 +96,17 @@
 #pragma mark - GKQueryProtocol
 
 - (NSURL *)queryURL {
-    
+
     return nil;
 }
 
 - (void)handleQueryError:(NSDictionary *)response error:(NSError *)error {
-    
+
     return;
 }
 
 - (void)handleQueryResponse:(NSDictionary *)response {
-    
+
     return;
 }
 

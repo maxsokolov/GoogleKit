@@ -18,8 +18,27 @@
 //    IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 //    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "GKPlacesQuery.h"
-#import "GKPlaceAutocompleteQuery.h"
-#import "GKGeocoderQuery.h"
-#import "GKSuggestQuery.h"
-#import "GKTranslateQuery.h"
+// API https://developers.google.com/places/documentation/search#PlaceSearchPaging
+
+#import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
+
+@interface GKPlacesQueryResult : NSObject
+
+@property (nonatomic, strong, readonly) NSString *formattedAddress;
+@property (nonatomic, assign, readonly) CLLocationCoordinate2D location;
+@property (nonatomic, strong, readonly) NSString *icon;
+@property (nonatomic, strong, readonly) NSString *Id;
+@property (nonatomic, strong, readonly) NSString *name;
+@property (nonatomic, assign, readonly) CGFloat rating;
+@property (nonatomic, strong, readonly) NSString *reference;
+@property (nonatomic, strong, readonly) NSArray *types;
+
+@property (nonatomic, assign, readonly) BOOL openNow;
+@property (nonatomic, assign, readonly) NSInteger priceLevel;
+@property (nonatomic, strong, readonly) NSString *placeId;
+@property (nonatomic, strong, readonly) NSString *vicinity;
+
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
+@end

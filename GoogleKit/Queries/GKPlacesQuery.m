@@ -18,44 +18,69 @@
 //    IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 //    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "GKGeocoderQuery.h"
+#import "GKPlacesQuery.h"
 
-static NSString *const kGKGeocoderURL = @"https://maps.googleapis.com/maps/api/geocode/json?sensor=%@&key=%@";
+static NSString *const kGKPlacesURL = @"https://maps.googleapis.com/maps/api/place/nearbysearch/json?sensor=%@&key=%@";
 
-@interface GKGeocoderQuery ()
-
-@property (nonatomic, assign, getter = isReverseGeocoding) BOOL reverseGeocoding;
+@interface GKPlacesQuery ()
 
 @end
 
-@implementation GKGeocoderQuery
+@implementation GKPlacesQuery
+
+- (id)init {
+    
+    self = [super init];
+    if (self) {
+
+        self.minprice = -1;
+        self.maxprice = -1;
+        self.radius = 500;
+    }
+    return self;
+}
 
 #pragma mark - GKQueryProtocol
 
 - (NSURL *)queryURL {
 
-    NSMutableString *url = [NSMutableString stringWithFormat:kGKGeocoderURL, self.sensor ? @"true" : @"false", self.key];
-    
-    if (self.isReverseGeocoding) {
-        
-        if (self.location.latitude != -1) {
-            [url appendFormat:@"&latlng=%f,%f", self.location.latitude, self.location.longitude];
-        }
+    NSMutableString *url = [NSMutableString stringWithFormat:kGKPlacesURL, self.sensor ? @"true" : @"false", self.key];
+
+    if (self.location.latitude != -1) {
+        [url appendFormat:@"&location=%f,%f", self.location.latitude, self.location.longitude];
+    }
+    if (self.radius != 0) {
+        [url appendFormat:@"&radius=%ld", self.radius];
+    }
+    if (self.rankByDistance) {
+        [url appendString:@"&rankby=distance"];
     }
     else {
-        
-        if (self.address) {
-            [url appendFormat:@"&address=%@", self.address];
-        }
+        [url appendString:@"&rankby=prominence"];
     }
     
+    if (self.keyword) {
+        [url appendFormat:@"&keyword=%@", self.keyword];
+    }
     if (self.language) {
         [url appendFormat:@"&language=%@", self.language];
     }
-    if (self.components ) {
-        [url appendFormat:@"&components=%@", self.components];
+    if (self.minprice != -1) {
+        [url appendFormat:@"&minprice=%ld", self.minprice];
     }
-    
+    if (self.maxprice != -1) {
+        [url appendFormat:@"&maxprice=%ld", self.maxprice];
+    }
+    if (self.name) {
+        [url appendFormat:@"&name=%@", [self.name stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    }
+    if (self.opennow) {
+        [url appendString:@"&opennow=true"];
+    }
+    if (self.types) {
+        [url appendFormat:@"&types=%@", [self.types componentsJoinedByString:@"|"]];
+    }
+
     return [NSURL URLWithString:url];
 }
 
@@ -67,12 +92,16 @@ static NSString *const kGKGeocoderURL = @"https://maps.googleapis.com/maps/api/g
 
 - (void)handleQueryResponse:(NSDictionary *)response {
     
+    NSLog(@"%@", response);
+    
+    _pageToken = [response objectForKey:@"next_page_token"];
+    
     NSArray *results = [response objectForKey:@"results"];
     NSMutableArray *places = [NSMutableArray array];
-    
+
     for (NSDictionary *dictionary in results) {
 
-        [places addObject:[[GKPlaceDetails alloc] initWithDictionary:dictionary]];
+        [places addObject:[[GKPlacesQueryResult alloc] initWithDictionary:dictionary]];
     }
     
     if (self.completionHandler)
@@ -81,24 +110,19 @@ static NSString *const kGKGeocoderURL = @"https://maps.googleapis.com/maps/api/g
 
 #pragma mark - Public methods
 
-- (void)lookupLocation:(GKQueryCompletionBlock)completionHandler {
-    
-    [self cancelQuery];
+- (void)nearbySearch:(GKQueryCompletionBlock)completionHandler {
 
-    self.reverseGeocoding = YES;
     self.completionHandler = completionHandler;
-    
     [self performQuery];
 }
 
-- (void)lookupAddress:(GKQueryCompletionBlock)completionHandler {
+- (BOOL)nextPage {
     
-    [self cancelQuery];
+    if (!_pageToken) return NO;
     
-    self.reverseGeocoding = NO;
-    self.completionHandler = completionHandler;
-
-    [self performQuery];
+    
+    
+    return YES;
 }
 
 @end

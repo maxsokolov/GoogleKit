@@ -17,6 +17,7 @@ NSString *const kGoogleKitAPIKey = @"AIzaSyDYSyHklqn-3aFjic9XatFN5fm8b5Uz15M";
 
 @property (nonatomic, strong) GKPlaceAutocompleteQuery *autocompleteQuery;
 @property (nonatomic, strong) GKGeocoderQuery *geocoderQuery;
+@property (nonatomic, strong) GKPlacesQuery *placesQuery;
 
 @end
 
@@ -50,12 +51,23 @@ NSString *const kGoogleKitAPIKey = @"AIzaSyDYSyHklqn-3aFjic9XatFN5fm8b5Uz15M";
     CGPoint touchPoint = [recognizer locationInView:self.mapView];
     CLLocationCoordinate2D coordinate = [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
     
-    self.geocoderQuery.location = coordinate;
+    /*self.geocoderQuery.location = coordinate;
     [self.geocoderQuery lookupLocation:^(NSArray *results, NSError *error) {
         
         GKPlaceDetails *place = [results firstObject];
        
         NSLog(@"adr: %@ %@", place.route, place.streetNumber);
+    }];*/
+
+    GKPlacesQuery *query = [GKPlacesQuery query];
+    query.key = kGoogleKitAPIKey;
+    query.types = @[@"car_repair"];
+    query.radius = 3000;
+    query.language = @"ru";
+    query.location = coordinate;
+    [query nearbySearch:^(NSArray *result, NSError *error) {
+       
+        
     }];
 }
 

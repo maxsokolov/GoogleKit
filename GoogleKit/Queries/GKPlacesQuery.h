@@ -18,26 +18,36 @@
 //    IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 //    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-// API Reference https://developers.google.com/maps/documentation/geocoding/
+// API https://developers.google.com/places/documentation/search
 
 #import "GKQuery.h"
-#import "GKPlaceDetails.h"
+#import "GKPlacesQueryResult.h"
 
-@interface GKGeocoderQuery : GKQuery
+@interface GKPlacesQuery : GKQuery
 
-@property (nonatomic, strong) NSString *address;
+// required
 
 @property (nonatomic, assign) CLLocationCoordinate2D location;
+@property (nonatomic, assign) NSUInteger radius;
+@property (nonatomic, assign) BOOL rankByDistance;
 
-@property (nonatomic, assign) CGSize bounds;
+// optional
 
+@property (nonatomic, strong) NSString *keyword;
 @property (nonatomic, strong) NSString *language;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, assign) BOOL opennow;
 
-@property (nonatomic, strong) NSString *region;
+// https://developers.google.com/places/documentation/supported_types
+@property (nonatomic, strong) NSArray *types;
 
-@property (nonatomic, strong) NSString *components;
+// 0...4
+@property (nonatomic, assign) NSInteger minprice;
+@property (nonatomic, assign) NSInteger maxprice;
 
-- (void)lookupLocation:(GKQueryCompletionBlock)completionHandler;
-- (void)lookupAddress:(GKQueryCompletionBlock)completionHandler;
+@property (nonatomic, strong, readonly) NSString *pageToken;
+
+- (void)nearbySearch:(GKQueryCompletionBlock)completionHandler;
+- (BOOL)nextPage;
 
 @end

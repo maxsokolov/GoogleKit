@@ -26,9 +26,7 @@
 @interface GKPlaceDetailsQuery : GKQuery
 
 @property (nonatomic, strong) NSString *reference;
-
 @property (nonatomic, strong) NSString *extensions;
-
 @property (nonatomic, strong) NSString *language;
 
 - (void)fetchDetails:(GKQueryCompletionBlock)completionHandler;

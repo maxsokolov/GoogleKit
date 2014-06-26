@@ -41,10 +41,8 @@ static NSString *const kGoogleKitPlaceDetailsURL = @"https://maps.googleapis.com
 
 - (void)handleQueryError:(NSDictionary *)response error:(NSError *)error {
 
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (self.completionHandler)
-            self.completionHandler(nil, error);
-    });
+    if (self.completionHandler)
+        self.completionHandler(nil, error);
 }
 
 - (void)handleQueryResponse:(NSDictionary *)response {

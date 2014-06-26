@@ -24,7 +24,7 @@ static NSString *const kGoogleKitPlaceDetailsURL = @"https://maps.googleapis.com
 
 @implementation GKPlaceDetailsQuery
 
-#pragma mark - Query
+#pragma mark - GKQueryProtocol
 
 - (NSURL *)queryURL {
     
@@ -46,25 +46,27 @@ static NSString *const kGoogleKitPlaceDetailsURL = @"https://maps.googleapis.com
 }
 
 - (void)handleQueryResponse:(NSDictionary *)response {
-    
-    //NSDictionary *dictionary = [response objectForKey:@"result"];
-    //GKPlaceDetails *placeDetails = [[GKPlaceDetails alloc] initWithDictionary:dictionary];
+
+    NSLog(@"%@", response);
+
+    if (self.completionHandler)
+        self.completionHandler([[GKPlaceDetailsQueryResult alloc] initWithDictionary:[response objectForKey:@"result"]], nil);
 }
 
 #pragma mark - Public methods
 
 - (void)fetchDetails:(GKQueryCompletionBlock)completionHandler {
-    
+
     self.completionHandler = completionHandler;
-    
+
     if (!self.reference || !self.reference.length) {
-        
+
         if (self.completionHandler)
             self.completionHandler([NSArray array], nil);
         
         return;
     }
-    
+
     [self performQuery];
 }
 

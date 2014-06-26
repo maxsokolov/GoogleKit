@@ -21,7 +21,7 @@
 // API Reference https://developers.google.com/places/documentation/details
 
 #import "GKQuery.h"
-#import "GKPlaceDetails.h"
+#import "GKPlaceDetailsQueryResult.h"
 
 @interface GKPlaceDetailsQuery : GKQuery
 

@@ -37,7 +37,7 @@ static NSString *const kGKGeocoderURL = @"https://maps.googleapis.com/maps/api/g
     NSMutableString *url = [NSMutableString stringWithFormat:kGKGeocoderURL, self.sensor ? @"true" : @"false", self.key];
     
     if (self.isReverseGeocoding) {
-        
+
         if (self.location.latitude != -1) {
             [url appendFormat:@"&latlng=%f,%f", self.location.latitude, self.location.longitude];
         }
@@ -48,7 +48,7 @@ static NSString *const kGKGeocoderURL = @"https://maps.googleapis.com/maps/api/g
             [url appendFormat:@"&address=%@", self.address];
         }
     }
-    
+
     if (self.language) {
         [url appendFormat:@"&language=%@", self.language];
     }

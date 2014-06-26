@@ -23,3 +23,4 @@
 #import "GKGeocoderQuery.h"
 #import "GKSuggestQuery.h"
 #import "GKTranslateQuery.h"
+#import "GKPlaceDetailsQuery.h"

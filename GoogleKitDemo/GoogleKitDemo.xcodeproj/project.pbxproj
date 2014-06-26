@@ -27,6 +27,7 @@
 		DAD8A540195C942500C74117 /* GKPlaceAutocomplete.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD8A53D195C942500C74117 /* GKPlaceAutocomplete.m */; };
 		DAD8A541195C942500C74117 /* GKPlaceDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD8A53F195C942500C74117 /* GKPlaceDetails.m */; };
 		DAD8A544195C945F00C74117 /* GKPlacesQueryResult.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD8A543195C945F00C74117 /* GKPlacesQueryResult.m */; };
+		DAD8A54D195CC1CA00C74117 /* GKPlaceDetailsQueryResult.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD8A54C195CC1CA00C74117 /* GKPlaceDetailsQueryResult.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,8 @@
 		DAD8A53F195C942500C74117 /* GKPlaceDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKPlaceDetails.m; sourceTree = "<group>"; };
 		DAD8A542195C945F00C74117 /* GKPlacesQueryResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKPlacesQueryResult.h; sourceTree = "<group>"; };
 		DAD8A543195C945F00C74117 /* GKPlacesQueryResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKPlacesQueryResult.m; sourceTree = "<group>"; };
+		DAD8A54B195CC1CA00C74117 /* GKPlaceDetailsQueryResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKPlaceDetailsQueryResult.h; sourceTree = "<group>"; };
+		DAD8A54C195CC1CA00C74117 /* GKPlaceDetailsQueryResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKPlaceDetailsQueryResult.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +193,8 @@
 			children = (
 				DAD8A542195C945F00C74117 /* GKPlacesQueryResult.h */,
 				DAD8A543195C945F00C74117 /* GKPlacesQueryResult.m */,
+				DAD8A54B195CC1CA00C74117 /* GKPlaceDetailsQueryResult.h */,
+				DAD8A54C195CC1CA00C74117 /* GKPlaceDetailsQueryResult.m */,
 				DAD8A53C195C942500C74117 /* GKPlaceAutocomplete.h */,
 				DAD8A53D195C942500C74117 /* GKPlaceAutocomplete.m */,
 				DAD8A53E195C942500C74117 /* GKPlaceDetails.h */,
@@ -298,6 +303,7 @@
 				DAD8A540195C942500C74117 /* GKPlaceAutocomplete.m in Sources */,
 				DABC595B19104CDB00ADA4C3 /* UIRootViewController.m in Sources */,
 				DAD8A530195C925A00C74117 /* GKPlacesQuery.m in Sources */,
+				DAD8A54D195CC1CA00C74117 /* GKPlaceDetailsQueryResult.m in Sources */,
 				DAD8A52F195C925A00C74117 /* GKPlaceDetailsQuery.m in Sources */,
 				DAD8A544195C945F00C74117 /* GKPlacesQueryResult.m in Sources */,
 				DABC592719102C6A00ADA4C3 /* main.m in Sources */,

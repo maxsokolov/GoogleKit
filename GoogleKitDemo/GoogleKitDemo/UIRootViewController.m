@@ -59,7 +59,7 @@ NSString *const kGoogleKitAPIKey = @"AIzaSyDYSyHklqn-3aFjic9XatFN5fm8b5Uz15M";
         NSLog(@"adr: %@ %@", place.route, place.streetNumber);
     }];*/
 
-    GKPlacesQuery *query = [GKPlacesQuery query];
+    /*GKPlacesQuery *query = [GKPlacesQuery query];
     query.key = kGoogleKitAPIKey;
     query.types = @[@"car_repair"];
     query.radius = 3000;
@@ -68,6 +68,15 @@ NSString *const kGoogleKitAPIKey = @"AIzaSyDYSyHklqn-3aFjic9XatFN5fm8b5Uz15M";
     [query nearbySearch:^(NSArray *result, NSError *error) {
        
         
+    }];*/
+
+    GKPlaceDetailsQuery *query = [GKPlaceDetailsQuery query];
+    query.key = kGoogleKitAPIKey;
+    query.language = @"ru";
+    query.reference = @"CoQBfwAAAEkNF33Byo-dLTwpI_e48RvxYR1iGj32Zmol3Dj7dVVhgUN6feBgpsIyjTmlazY5H6PAolAUTEj8VVeSoxGHUxrYydn4tM8_79u27PIwqUDVDWgIoxXjg9uHQSMpfNDfnTCWgbo7uPpfChX5lOy75c8Mx3RjSbKmlGGL-dw-LAlvEhDXIjJvvKiPxWfU4NG2n9J8GhQNyWy6xLc5iimEvGolriVHsppq4g";
+    [query fetchDetails:^(GKPlaceDetailsQueryResult *result, NSError *error) {
+
+        NSLog(@"x: %@ %@ %@", result.streetNumber, result.country, error);
     }];
 }
 

@@ -23,7 +23,7 @@
 @implementation GKGeocoderQueryResult
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
-    
+
     self = [super init];
     if (self) {
         

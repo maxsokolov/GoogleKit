@@ -46,7 +46,14 @@
 
 - (void)performQuery {
 
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[self queryURL] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0f];
+    NSURL *url = [self queryURL];
+    if (!url) {
+
+        [self handleQueryError:nil error:[NSError errorWithDomain:@"com.googlekit" code:0 userInfo:@{ NSLocalizedDescriptionKey: @"bad url" }]];
+        return;
+    }
+
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0f];
     [NSURLConnection sendAsynchronousRequest:request queue:self.backgroundQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
 
         if (connectionError) {
@@ -81,9 +88,8 @@
         }
 
         // OVER_QUERY_LIMIT, REQUEST_DENIED, INVALID_REQUEST etc.
-        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:[json objectForKey:@"status"] forKey:NSLocalizedDescriptionKey];
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self handleQueryError:json error:[NSError errorWithDomain:@"com.googlekit" code:0 userInfo:userInfo]];
+            [self handleQueryError:json error:[NSError errorWithDomain:@"com.googlekit" code:0 userInfo:@{ NSLocalizedDescriptionKey: [json objectForKey:@"status"] }]];
         });
     }];
 }

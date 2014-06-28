@@ -26,7 +26,7 @@
     
     self = [super init];
     if (self) {
-        
+
         NSArray *addressComponents = [dictionary objectForKey:@"address_components"];
         for (NSDictionary *addressComponent in addressComponents) {
             

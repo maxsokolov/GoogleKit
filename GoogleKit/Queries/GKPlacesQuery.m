@@ -20,11 +20,13 @@
 
 #import "GKPlacesQuery.h"
 
-static NSString *const kGKPlacesNearbySearchURL = @"https://maps.googleapis.com/maps/api/place/nearbysearch/json?sensor=%@&key=%@";
-static NSString *const kGKPlacesTextSearchURL   = @"https://maps.googleapis.com/maps/api/place/textsearch/json?sensor=%@&key=%@";
-static NSString *const kGKPlacesRadarSearchURL  = @"https://maps.googleapis.com/maps/api/place/radarsearch/json?sensor=%@&key=%@";
+static NSString *const kGKPlacesQueryNearbySearchURL = @"https://maps.googleapis.com/maps/api/place/nearbysearch/json?sensor=%@&key=%@";
+static NSString *const kGKPlacesQueryTextSearchURL   = @"https://maps.googleapis.com/maps/api/place/textsearch/json?sensor=%@&key=%@";
+static NSString *const kGKPlacesQueryRadarSearchURL  = @"https://maps.googleapis.com/maps/api/place/radarsearch/json?sensor=%@&key=%@";
 
 @interface GKPlacesQuery ()
+
+@property (nonatomic, strong) NSString *baseURL;
 
 @end
 
@@ -37,7 +39,8 @@ static NSString *const kGKPlacesRadarSearchURL  = @"https://maps.googleapis.com/
 
         self.minprice = -1;
         self.maxprice = -1;
-        self.radius = 500;
+        self.radius = 1000;
+        self.rankByDistance = YES;
     }
     return self;
 }
@@ -46,7 +49,7 @@ static NSString *const kGKPlacesRadarSearchURL  = @"https://maps.googleapis.com/
 
 - (NSURL *)queryURL {
 
-    NSMutableString *url = [NSMutableString stringWithFormat:kGKPlacesNearbySearchURL, self.sensor ? @"true" : @"false", self.key];
+    NSMutableString *url = [NSMutableString stringWithFormat:self.baseURL, self.sensor ? @"true" : @"false", self.key];
 
     if (self.location.latitude != -1) {
         [url appendFormat:@"&location=%f,%f", self.location.latitude, self.location.longitude];
@@ -114,18 +117,29 @@ static NSString *const kGKPlacesRadarSearchURL  = @"https://maps.googleapis.com/
 
 - (void)nearbySearch:(GKQueryCompletionBlock)completionHandler {
 
+    _pageToken = nil;
     self.completionHandler = completionHandler;
+    self.baseURL = kGKPlacesQueryNearbySearchURL;
+
     [self performQuery];
 }
 
 - (void)textSearch:(GKQueryCompletionBlock)completionHandler {
+
+    _pageToken = nil;
+    self.completionHandler = completionHandler;
+    self.baseURL = kGKPlacesQueryTextSearchURL;
     
-    
+    [self performQuery];
 }
 
 - (void)radarSearch:(GKQueryCompletionBlock)completionHandler {
-    
-    
+
+    _pageToken = nil;
+    self.completionHandler = completionHandler;
+    self.baseURL = kGKPlacesQueryRadarSearchURL;
+
+    [self performQuery];
 }
 
 - (BOOL)nextPage {

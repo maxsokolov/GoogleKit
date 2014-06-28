@@ -55,7 +55,7 @@ static NSString *const kGKGeocoderURL = @"https://maps.googleapis.com/maps/api/g
     if (self.components ) {
         [url appendFormat:@"&components=%@", self.components];
     }
-    
+
     return [NSURL URLWithString:url];
 }
 

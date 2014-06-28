@@ -43,6 +43,7 @@
 /* Begin PBXFileReference section */
 		DAA9C50F195CDC5A00514690 /* GKGeocoderQueryResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKGeocoderQueryResult.h; sourceTree = "<group>"; };
 		DAA9C510195CDC5A00514690 /* GKGeocoderQueryResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKGeocoderQueryResult.m; sourceTree = "<group>"; };
+		DAA9C512195ED9A000514690 /* GoogleKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoogleKit.h; sourceTree = "<group>"; };
 		DABC591719102C6A00ADA4C3 /* GoogleKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoogleKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DABC591A19102C6A00ADA4C3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DABC591C19102C6A00ADA4C3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -55,7 +56,6 @@
 		DABC592A19102C6A00ADA4C3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		DABC592C19102C6A00ADA4C3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DABC593219102C6A00ADA4C3 /* GoogleKitDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoogleKitDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DABC594C19102CEC00ADA4C3 /* GoogleKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleKit.h; sourceTree = "<group>"; };
 		DABC595919104CDB00ADA4C3 /* UIRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIRootViewController.h; sourceTree = "<group>"; };
 		DABC595A19104CDB00ADA4C3 /* UIRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIRootViewController.m; sourceTree = "<group>"; };
 		DAD8A51F195C925A00C74117 /* GKGeocoderQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKGeocoderQuery.h; sourceTree = "<group>"; };
@@ -180,7 +180,7 @@
 		DABC594919102CBA00ADA4C3 /* GoogleKit */ = {
 			isa = PBXGroup;
 			children = (
-				DABC594C19102CEC00ADA4C3 /* GoogleKit.h */,
+				DAA9C512195ED9A000514690 /* GoogleKit.h */,
 				DA662E17195AC74300966876 /* Queries */,
 				DAD8A53B195C941600C74117 /* Results */,
 			);

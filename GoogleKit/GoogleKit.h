@@ -18,9 +18,14 @@
 //    IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 //    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+#ifndef GoogleKit_h
+#define GoogleKit_h
+
 #import "GKPlacesQuery.h"
 #import "GKPlaceAutocompleteQuery.h"
 #import "GKGeocoderQuery.h"
-#import "GKSuggestQuery.h"
-#import "GKTranslateQuery.h"
 #import "GKPlaceDetailsQuery.h"
+#import "GKTranslateQuery.h"
+#import "GKSuggestQuery.h"
+
+#endif

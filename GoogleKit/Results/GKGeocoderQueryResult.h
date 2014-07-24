@@ -21,7 +21,7 @@
 // API https://developers.google.com/maps/documentation/geocoding/#Types
 
 #import <Foundation/Foundation.h>
-#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface GKGeocoderQueryResult : NSObject
 

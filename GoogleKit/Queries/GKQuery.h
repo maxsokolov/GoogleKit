@@ -19,7 +19,7 @@
 //    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 typedef void (^GKQueryCompletionBlock)(id result, NSError *error);
 

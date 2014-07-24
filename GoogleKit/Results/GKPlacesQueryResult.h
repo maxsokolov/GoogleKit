@@ -21,7 +21,7 @@
 // API https://developers.google.com/places/documentation/search#PlaceSearchPaging
 
 #import <Foundation/Foundation.h>
-#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface GKPlacesQueryResult : NSObject
 

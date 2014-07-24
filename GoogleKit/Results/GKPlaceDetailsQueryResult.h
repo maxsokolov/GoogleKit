@@ -21,7 +21,7 @@
 // API https://developers.google.com/places/documentation/details#PlaceDetailsResponses
 
 #import <Foundation/Foundation.h>
-#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface GKPlaceDetailsQueryResult : NSObject
 

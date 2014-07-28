@@ -1,3 +1,5 @@
+# GoogleKit
+
 Under development
 
 #### Usage
@@ -20,3 +22,7 @@ query.location = CLLocationCoordinate2DMake(0.0f, 0.0f);
     }
 }];
 ```
+
+## License
+
+GoogleKit is available under the MIT license. See the LICENSE file for more information.

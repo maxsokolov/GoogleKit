@@ -30,8 +30,8 @@
 @property (nonatomic, assign) CLLocationCoordinate2D location;
 @property (nonatomic, assign) CGFloat radius;
 @property (nonatomic, strong) NSString *language;
-@property (nonatomic, strong) NSString *types;
-@property (nonatomic, strong) NSString *components;
+@property (nonatomic, strong) NSArray *types;
+@property (nonatomic, strong) NSArray *components;
 
 - (void)fetchPlaces:(GKQueryCompletionBlock)completionHandler;
 

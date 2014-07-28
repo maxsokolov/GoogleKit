@@ -39,7 +39,6 @@
     if (self) {
 
         self.backgroundQueue = [[NSOperationQueue alloc] init];
-        self.sensor = YES;
     }
     return self;
 }

@@ -20,9 +20,9 @@
 
 #import "GKPlacesQuery.h"
 
-static NSString *const kGKPlacesQueryNearbySearchURL = @"https://maps.googleapis.com/maps/api/place/nearbysearch/json?sensor=%@&key=%@";
-static NSString *const kGKPlacesQueryTextSearchURL   = @"https://maps.googleapis.com/maps/api/place/textsearch/json?sensor=%@&key=%@";
-static NSString *const kGKPlacesQueryRadarSearchURL  = @"https://maps.googleapis.com/maps/api/place/radarsearch/json?sensor=%@&key=%@";
+static NSString *const kGKPlacesQueryNearbySearchURL = @"https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=%@";
+static NSString *const kGKPlacesQueryTextSearchURL   = @"https://maps.googleapis.com/maps/api/place/textsearch/json?key=%@";
+static NSString *const kGKPlacesQueryRadarSearchURL  = @"https://maps.googleapis.com/maps/api/place/radarsearch/json?key=%@";
 
 @interface GKPlacesQuery ()
 
@@ -49,7 +49,7 @@ static NSString *const kGKPlacesQueryRadarSearchURL  = @"https://maps.googleapis
 
 - (NSURL *)queryURL {
 
-    NSMutableString *url = [NSMutableString stringWithFormat:self.baseURL, self.sensor ? @"true" : @"false", self.key];
+    NSMutableString *url = [NSMutableString stringWithFormat:self.baseURL, self.key];
 
     if (self.location.latitude != -1) {
         [url appendFormat:@"&location=%f,%f", self.location.latitude, self.location.longitude];
@@ -92,7 +92,7 @@ static NSString *const kGKPlacesQueryRadarSearchURL  = @"https://maps.googleapis
 - (void)handleQueryError:(NSDictionary *)response error:(NSError *)error {
 
     if (self.completionHandler)
-        self.completionHandler(response, error);
+        self.completionHandler(nil, error);
 }
 
 - (void)handleQueryResponse:(NSDictionary *)response {
@@ -106,7 +106,7 @@ static NSString *const kGKPlacesQueryRadarSearchURL  = @"https://maps.googleapis
 
     for (NSDictionary *dictionary in results) {
 
-        [places addObject:[[GKPlacesQueryResult alloc] initWithDictionary:dictionary]];
+        [places addObject:[[GKPlace alloc] initWithDictionary:dictionary]];
     }
     
     if (self.completionHandler)
@@ -124,7 +124,7 @@ static NSString *const kGKPlacesQueryRadarSearchURL  = @"https://maps.googleapis
     [self performQuery];
 }
 
-- (void)textSearch:(GKQueryCompletionBlock)completionHandler {
+- (void)textSearch:(void (^)(NSArray *results, NSError *error))completionHandler {
 
     _pageToken = nil;
     self.completionHandler = completionHandler;

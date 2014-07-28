@@ -21,7 +21,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-typedef void (^GKQueryCompletionBlock)(id result, NSError *error);
+typedef void (^GKQueryCompletionBlock)(id results, NSError *error);
 
 @protocol GKQueryProtocol <NSObject>
 @required
@@ -39,8 +39,6 @@ typedef void (^GKQueryCompletionBlock)(id result, NSError *error);
 
 @property (nonatomic, strong) NSString *clientID;
 @property (nonatomic, strong) NSString *signature;
-
-@property (nonatomic, assign) BOOL sensor;
 
 + (instancetype)query;
 - (void)performQuery;

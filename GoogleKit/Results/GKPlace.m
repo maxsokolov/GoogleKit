@@ -18,52 +18,16 @@
 //    IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 //    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "GKPlaceDetailsQueryResult.h"
+#import "GKPlace.h"
 
-@implementation GKPlaceDetailsQueryResult
+@implementation GKPlace
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
-    
+
     self = [super init];
     if (self) {
 
-        NSArray *addressComponents = [dictionary objectForKey:@"address_components"];
-        for (NSDictionary *addressComponent in addressComponents) {
-            
-            NSString *type = [[addressComponent objectForKey:@"types"] firstObject];
-            NSString *name = [addressComponent objectForKey:@"long_name"];
-            if ([type isEqualToString:@"street_number"]) {
-
-                _streetNumber = name;
-            }
-            else if ([type isEqualToString:@"route"]) {
-
-                _route = name;
-            }
-            else if ([type isEqualToString:@"locality"]) {
-
-                _locality = name;
-            }
-            else if ([type isEqualToString:@"administrative_area_level_1"]) {
-
-                _administrativeAreaLevel1 = name;
-            }
-            else if ([type isEqualToString:@"administrative_area_level_2"]) {
-
-                _administrativeAreaLevel2 = name;
-            }
-            else if ([type isEqualToString:@"country"]) {
-
-                _country = name;
-            }
-            else if ([type isEqualToString:@"postal_code"]) {
-
-                _postalCode = name;
-            }
-        }
-
         _formattedAddress = [dictionary objectForKey:@"formatted_address"];
-        _formattedPhoneNumber = [dictionary objectForKey:@"formatted_phone_number"];
 
         CGFloat lat = [[[[dictionary objectForKey:@"geometry"] objectForKey:@"location"] objectForKey:@"lat"] floatValue];
         CGFloat lng = [[[[dictionary objectForKey:@"geometry"] objectForKey:@"location"] objectForKey:@"lng"] floatValue];
@@ -71,14 +35,15 @@
 
         _icon = [dictionary objectForKey:@"icon"];
         _Id = [dictionary objectForKey:@"id"];
-        _internationalPhoneNumber = [dictionary objectForKey:@"international_phone_number"];
         _name = [dictionary objectForKey:@"name"];
         _rating = [[dictionary objectForKey:@"rating"] floatValue];
         _reference = [dictionary objectForKey:@"reference"];
-        _vicinity = [dictionary objectForKey:@"vicinity"];
-        _url = [NSURL URLWithString:[dictionary objectForKey:@"url"]];
-        _website = [NSURL URLWithString:[dictionary objectForKey:@"website"]];
+        _types = [dictionary objectForKey:@"types"];
+
+        _openNow = [[[dictionary objectForKey:@"opening_hours"] objectForKey:@"open_now"] boolValue];
+        _priceLevel = [[dictionary objectForKey:@"price_level"] integerValue];
         _placeId = [dictionary objectForKey:@"place_id"];
+        _vicinity = [dictionary objectForKey:@"vicinity"];
     }
     return self;
 }

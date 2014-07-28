@@ -20,15 +20,15 @@
 
 #import "GKPlaceDetailsQuery.h"
 
-static NSString *const kGoogleKitPlaceDetailsURL = @"https://maps.googleapis.com/maps/api/place/details/json?reference=%@&sensor=%@&key=%@";
+static NSString *const kGoogleKitPlaceDetailsURL = @"https://maps.googleapis.com/maps/api/place/details/json?reference=%@&key=%@";
 
 @implementation GKPlaceDetailsQuery
 
 #pragma mark - GKQueryProtocol
 
 - (NSURL *)queryURL {
-    
-    NSMutableString *url = [NSMutableString stringWithFormat:kGoogleKitPlaceDetailsURL, self.reference, self.sensor ? @"true" : @"false", self.key];
+
+    NSMutableString *url = [NSMutableString stringWithFormat:kGoogleKitPlaceDetailsURL, self.reference, self.key];
     if (self.extensions) {
         [url appendFormat:@"&extensions=%@", self.extensions];
     }
@@ -47,22 +47,20 @@ static NSString *const kGoogleKitPlaceDetailsURL = @"https://maps.googleapis.com
 
 - (void)handleQueryResponse:(NSDictionary *)response {
 
-    NSLog(@"%@", response);
-
     if (self.completionHandler)
-        self.completionHandler([[GKPlaceDetailsQueryResult alloc] initWithDictionary:[response objectForKey:@"result"]], nil);
+        self.completionHandler([[GKPlaceDetails alloc] initWithDictionary:[response objectForKey:@"result"]], nil);
 }
 
 #pragma mark - Public methods
 
-- (void)fetchDetails:(GKQueryCompletionBlock)completionHandler {
+- (void)fetchDetails:(GKPlaceDetailsQueryCompletionBlock)completionHandler {
 
     self.completionHandler = completionHandler;
 
     if (!self.reference || !self.reference.length) {
 
         if (self.completionHandler)
-            self.completionHandler([NSArray array], nil);
+            self.completionHandler(nil, nil);
         
         return;
     }

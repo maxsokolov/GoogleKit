@@ -20,7 +20,13 @@
 
 #import "GKPlaceAutocompleteQuery.h"
 
-static NSString *const kGoogleKitPlaceAutocompleteURL = @"https://maps.googleapis.com/maps/api/place/autocomplete/json?input=%@&sensor=%@&key=%@";
+static NSString *const kGoogleKitPlaceAutocompleteURL = @"https://maps.googleapis.com/maps/api/place/autocomplete/json?input=%@&key=%@";
+
+@interface GKPlaceAutocompleteQuery ()
+
+@property (nonatomic, strong) NSCache *cache;
+
+@end
 
 @implementation GKPlaceAutocompleteQuery
 
@@ -28,8 +34,9 @@ static NSString *const kGoogleKitPlaceAutocompleteURL = @"https://maps.googleapi
     
     self = [super init];
     if (self) {
-        
-        self.radius = 100.0f;
+
+        self.cache = [[NSCache alloc] init];        
+        self.radius = 10000.0f;
     }
     return self;
 }
@@ -37,9 +44,9 @@ static NSString *const kGoogleKitPlaceAutocompleteURL = @"https://maps.googleapi
 #pragma mark - Query
 
 - (NSURL *)queryURL {
-    
-    NSMutableString *url = [NSMutableString stringWithFormat:kGoogleKitPlaceAutocompleteURL, [self.input stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], self.sensor ? @"true" : @"false", self.key];
-    
+
+    NSMutableString *url = [NSMutableString stringWithFormat:kGoogleKitPlaceAutocompleteURL, [self.input stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], self.key];
+
     if (self.offset != NSNotFound) {
         [url appendFormat:@"&offset=%ld", self.offset];
     }
@@ -53,12 +60,15 @@ static NSString *const kGoogleKitPlaceAutocompleteURL = @"https://maps.googleapi
         [url appendFormat:@"&language=%@", self.language];
     }
     if (self.types) {
-        [url appendFormat:@"&types=%@", self.types];
+        [url appendFormat:@"&types=%@", [self.types componentsJoinedByString:@"|"]];
+    }
+    else {
+        [url appendString:@"&types=geocode"];
     }
     if (self.components) {
-        [url appendFormat:@"&components=%@", self.components];
+        [url appendFormat:@"&components=%@", [self.components componentsJoinedByString:@"|"]];
     }
-    
+
     return [NSURL URLWithString:url];
 }
 
@@ -71,6 +81,8 @@ static NSString *const kGoogleKitPlaceAutocompleteURL = @"https://maps.googleapi
 - (void)handleQueryResponse:(NSDictionary *)response {
     
     NSArray *array = [response objectForKey:@"predictions"];
+
+    [self.cache setObject:array forKey:self.input];
     
     NSMutableArray *places = [NSMutableArray array];
     for (NSDictionary *place in array) {
@@ -92,6 +104,15 @@ static NSString *const kGoogleKitPlaceAutocompleteURL = @"https://maps.googleapi
         if (self.completionHandler)
             self.completionHandler([NSArray array], nil);
         
+        return;
+    }
+
+    NSArray *array = [self.cache objectForKey:self.input];
+    if (array) {
+
+        if (self.completionHandler)
+            self.completionHandler(array, nil);
+
         return;
     }
     

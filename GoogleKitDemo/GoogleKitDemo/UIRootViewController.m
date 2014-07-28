@@ -48,8 +48,8 @@ NSString *const kGoogleKitAPIKey = @"AIzaSyDYSyHklqn-3aFjic9XatFN5fm8b5Uz15M";
 
 - (void)handleGesture:(UITapGestureRecognizer *)recognizer {
     
-    CGPoint touchPoint = [recognizer locationInView:self.mapView];
-    CLLocationCoordinate2D coordinate = [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
+    //CGPoint touchPoint = [recognizer locationInView:self.mapView];
+    //CLLocationCoordinate2D coordinate = [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
     
     /*self.geocoderQuery.location = coordinate;
     [self.geocoderQuery lookupLocation:^(NSArray *results, NSError *error) {
@@ -70,14 +70,14 @@ NSString *const kGoogleKitAPIKey = @"AIzaSyDYSyHklqn-3aFjic9XatFN5fm8b5Uz15M";
         
     }];*/
 
-    GKPlaceDetailsQuery *query = [GKPlaceDetailsQuery query];
+    /*GKPlaceDetailsQuery *query = [GKPlaceDetailsQuery query];
     query.key = kGoogleKitAPIKey;
     query.language = @"ru";
     query.reference = @"CoQBfwAAAEkNF33Byo-dLTwpI_e48RvxYR1iGj32Zmol3Dj7dVVhgUN6feBgpsIyjTmlazY5H6PAolAUTEj8VVeSoxGHUxrYydn4tM8_79u27PIwqUDVDWgIoxXjg9uHQSMpfNDfnTCWgbo7uPpfChX5lOy75c8Mx3RjSbKmlGGL-dw-LAlvEhDXIjJvvKiPxWfU4NG2n9J8GhQNyWy6xLc5iimEvGolriVHsppq4g";
     [query fetchDetails:^(GKPlaceDetailsQueryResult *result, NSError *error) {
 
         NSLog(@"x: %@ %@ %@", result.streetNumber, result.country, error);
-    }];
+    }];*/
 }
 
 #pragma mark - MKMapViewDelegate

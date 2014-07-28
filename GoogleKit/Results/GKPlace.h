@@ -18,33 +18,26 @@
 //    IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 //    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-// API https://developers.google.com/places/documentation/details#PlaceDetailsResponses
+// API https://developers.google.com/places/documentation/search#PlaceSearchPaging
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface GKPlaceDetailsQueryResult : NSObject
+@interface GKPlace : NSObject
 
-@property (nonatomic, strong, readonly) NSString *streetNumber;
-@property (nonatomic, strong, readonly) NSString *route;
-@property (nonatomic, strong, readonly) NSString *locality;
-@property (nonatomic, strong, readonly) NSString *administrativeAreaLevel1;
-@property (nonatomic, strong, readonly) NSString *administrativeAreaLevel2;
-@property (nonatomic, strong, readonly) NSString *country;
-@property (nonatomic, strong, readonly) NSString *postalCode;
 @property (nonatomic, strong, readonly) NSString *formattedAddress;
-@property (nonatomic, strong, readonly) NSString *formattedPhoneNumber;
 @property (nonatomic, assign, readonly) CLLocationCoordinate2D location;
 @property (nonatomic, strong, readonly) NSString *icon;
 @property (nonatomic, strong, readonly) NSString *Id;
-@property (nonatomic, strong, readonly) NSString *internationalPhoneNumber;
 @property (nonatomic, strong, readonly) NSString *name;
 @property (nonatomic, assign, readonly) CGFloat rating;
 @property (nonatomic, strong, readonly) NSString *reference;
-@property (nonatomic, strong, readonly) NSURL *url;
-@property (nonatomic, strong, readonly) NSString *vicinity;
-@property (nonatomic, strong, readonly) NSURL *website;
+@property (nonatomic, strong, readonly) NSArray *types;
+
+@property (nonatomic, assign, readonly) BOOL openNow;
+@property (nonatomic, assign, readonly) NSInteger priceLevel;
 @property (nonatomic, strong, readonly) NSString *placeId;
+@property (nonatomic, strong, readonly) NSString *vicinity;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

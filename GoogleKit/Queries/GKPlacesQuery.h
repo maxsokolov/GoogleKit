@@ -21,7 +21,7 @@
 // API https://developers.google.com/places/documentation/search
 
 #import "GKQuery.h"
-#import "GKPlacesQueryResult.h"
+#import "GKPlace.h"
 
 @interface GKPlacesQuery : GKQuery
 
@@ -49,7 +49,7 @@
 @property (nonatomic, strong, readonly) NSString *pageToken;
 
 - (void)nearbySearch:(GKQueryCompletionBlock)completionHandler;
-- (void)textSearch:(GKQueryCompletionBlock)completionHandler;
+- (void)textSearch:(void (^)(NSArray *results, NSError *error))completionHandler;
 - (void)radarSearch:(GKQueryCompletionBlock)completionHandler;
 
 - (BOOL)nextPage;

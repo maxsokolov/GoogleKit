@@ -20,7 +20,7 @@
 
 #import "GKGeocoderQuery.h"
 
-static NSString *const kGKGeocoderURL = @"https://maps.googleapis.com/maps/api/geocode/json?sensor=%@&key=%@";
+static NSString *const kGKGeocoderURL = @"https://maps.googleapis.com/maps/api/geocode/json?key=%@";
 
 @interface GKGeocoderQuery ()
 
@@ -34,7 +34,7 @@ static NSString *const kGKGeocoderURL = @"https://maps.googleapis.com/maps/api/g
 
 - (NSURL *)queryURL {
 
-    NSMutableString *url = [NSMutableString stringWithFormat:kGKGeocoderURL, self.sensor ? @"true" : @"false", self.key];
+    NSMutableString *url = [NSMutableString stringWithFormat:kGKGeocoderURL, self.key];
     
     if (self.isReverseGeocoding) {
 
@@ -62,7 +62,7 @@ static NSString *const kGKGeocoderURL = @"https://maps.googleapis.com/maps/api/g
 - (void)handleQueryError:(NSDictionary *)response error:(NSError *)error {
 
     if (self.completionHandler)
-        self.completionHandler(response, error);
+        self.completionHandler(nil, error);
 }
 
 - (void)handleQueryResponse:(NSDictionary *)response {

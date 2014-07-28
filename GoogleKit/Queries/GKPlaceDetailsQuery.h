@@ -21,14 +21,19 @@
 // API Reference https://developers.google.com/places/documentation/details
 
 #import "GKQuery.h"
-#import "GKPlaceDetailsQueryResult.h"
+#import "GKPlaceDetails.h"
+
+typedef void (^GKPlaceDetailsQueryCompletionBlock)(GKPlaceDetails *place, NSError *error);
 
 @interface GKPlaceDetailsQuery : GKQuery
 
+@property (nonatomic, copy) GKPlaceDetailsQueryCompletionBlock completionHandler;
+
+@property (nonatomic, strong) NSString *placeId;
 @property (nonatomic, strong) NSString *reference;
 @property (nonatomic, strong) NSString *extensions;
 @property (nonatomic, strong) NSString *language;
 
-- (void)fetchDetails:(GKQueryCompletionBlock)completionHandler;
+- (void)fetchDetails:(GKPlaceDetailsQueryCompletionBlock)completionHandler;
 
 @end

@@ -69,10 +69,10 @@ static NSString *const kGKGeocoderURL = @"https://maps.googleapis.com/maps/api/g
     
     NSArray *results = [response objectForKey:@"results"];
     NSMutableArray *places = [NSMutableArray array];
-    
+
     for (NSDictionary *dictionary in results) {
 
-        [places addObject:[[GKGeocoderQueryResult alloc] initWithDictionary:dictionary]];
+        [places addObject:[[GKGeocoderPlace alloc] initWithDictionary:dictionary]];
     }
     
     if (self.completionHandler)

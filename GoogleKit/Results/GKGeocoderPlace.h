@@ -23,7 +23,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface GKGeocoderQueryResult : NSObject
+@interface GKGeocoderPlace : NSObject
 
 @property (nonatomic, strong, readonly) NSString *formattedAddress;
 @property (nonatomic, strong, readonly) NSString *name;

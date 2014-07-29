@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DAA9C511195CDC5A00514690 /* GKGeocoderQueryResult.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA9C510195CDC5A00514690 /* GKGeocoderQueryResult.m */; };
+		DAA9C511195CDC5A00514690 /* GKGeocoderPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA9C510195CDC5A00514690 /* GKGeocoderPlace.m */; };
 		DABC591B19102C6A00ADA4C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DABC591A19102C6A00ADA4C3 /* Foundation.framework */; };
 		DABC591D19102C6A00ADA4C3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DABC591C19102C6A00ADA4C3 /* CoreGraphics.framework */; };
 		DABC591F19102C6A00ADA4C3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DABC591E19102C6A00ADA4C3 /* UIKit.framework */; };
@@ -41,8 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		DAA9C50F195CDC5A00514690 /* GKGeocoderQueryResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKGeocoderQueryResult.h; sourceTree = "<group>"; };
-		DAA9C510195CDC5A00514690 /* GKGeocoderQueryResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKGeocoderQueryResult.m; sourceTree = "<group>"; };
+		DAA9C50F195CDC5A00514690 /* GKGeocoderPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKGeocoderPlace.h; sourceTree = "<group>"; };
+		DAA9C510195CDC5A00514690 /* GKGeocoderPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKGeocoderPlace.m; sourceTree = "<group>"; };
 		DAA9C512195ED9A000514690 /* GoogleKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoogleKit.h; sourceTree = "<group>"; };
 		DABC591719102C6A00ADA4C3 /* GoogleKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoogleKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DABC591A19102C6A00ADA4C3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -195,8 +195,8 @@
 				DAD8A543195C945F00C74117 /* GKPlace.m */,
 				DAD8A54B195CC1CA00C74117 /* GKPlaceDetails.h */,
 				DAD8A54C195CC1CA00C74117 /* GKPlaceDetails.m */,
-				DAA9C50F195CDC5A00514690 /* GKGeocoderQueryResult.h */,
-				DAA9C510195CDC5A00514690 /* GKGeocoderQueryResult.m */,
+				DAA9C50F195CDC5A00514690 /* GKGeocoderPlace.h */,
+				DAA9C510195CDC5A00514690 /* GKGeocoderPlace.m */,
 				DAD8A53C195C942500C74117 /* GKPlaceAutocomplete.h */,
 				DAD8A53D195C942500C74117 /* GKPlaceAutocomplete.m */,
 			);
@@ -305,7 +305,7 @@
 				DAD8A530195C925A00C74117 /* GKPlacesQuery.m in Sources */,
 				DAD8A54D195CC1CA00C74117 /* GKPlaceDetails.m in Sources */,
 				DAD8A52F195C925A00C74117 /* GKPlaceDetailsQuery.m in Sources */,
-				DAA9C511195CDC5A00514690 /* GKGeocoderQueryResult.m in Sources */,
+				DAA9C511195CDC5A00514690 /* GKGeocoderPlace.m in Sources */,
 				DAD8A544195C945F00C74117 /* GKPlace.m in Sources */,
 				DABC592719102C6A00ADA4C3 /* main.m in Sources */,
 				DAD8A52D195C925A00C74117 /* GKGeocoderQuery.m in Sources */,

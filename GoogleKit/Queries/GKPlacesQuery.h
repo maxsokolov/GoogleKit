@@ -43,8 +43,8 @@
 @property (nonatomic, strong) NSArray *types;
 
 // 0...4
-@property (nonatomic, assign) NSInteger minprice;
-@property (nonatomic, assign) NSInteger maxprice;
+@property (nonatomic, assign) NSUInteger minprice;
+@property (nonatomic, assign) NSUInteger maxprice;
 
 @property (nonatomic, strong, readonly) NSString *pageToken;
 

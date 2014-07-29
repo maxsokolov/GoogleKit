@@ -26,7 +26,7 @@
 @interface GKPlaceAutocompleteQuery : GKQuery
 
 @property (nonatomic, strong) NSString *input;
-@property (nonatomic, assign) NSInteger offset;
+@property (nonatomic, assign) NSUInteger offset;
 @property (nonatomic, assign) CLLocationCoordinate2D location;
 @property (nonatomic, assign) CGFloat radius;
 @property (nonatomic, strong) NSString *language;

@@ -20,6 +20,8 @@
 
 #import "GKGeocoderQuery.h"
 
+// TODO: add cache
+
 static NSString *const kGKGeocoderURL = @"https://maps.googleapis.com/maps/api/geocode/json?key=%@";
 
 @interface GKGeocoderQuery ()

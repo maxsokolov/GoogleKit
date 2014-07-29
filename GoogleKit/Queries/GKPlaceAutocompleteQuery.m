@@ -48,7 +48,7 @@ static NSString *const kGoogleKitPlaceAutocompleteURL = @"https://maps.googleapi
     NSMutableString *url = [NSMutableString stringWithFormat:kGoogleKitPlaceAutocompleteURL, [self.input stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], self.key];
 
     if (self.offset != NSNotFound) {
-        [url appendFormat:@"&offset=%ld", self.offset];
+        [url appendFormat:@"&offset=%ld", (unsigned long)self.offset];
     }
     if (self.location.latitude != -1) {
         [url appendFormat:@"&location=%f,%f", self.location.latitude, self.location.longitude];

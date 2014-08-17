@@ -47,14 +47,14 @@ static NSString *const kGoogleKitPlaceAutocompleteURL = @"https://maps.googleapi
 
     NSMutableString *url = [NSMutableString stringWithFormat:kGoogleKitPlaceAutocompleteURL, [self.input stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], self.key];
 
-    if (self.offset != NSNotFound) {
-        [url appendFormat:@"&offset=%ld", (unsigned long)self.offset];
+    if (self.offset != 0) {
+        [url appendFormat:@"&offset=%@", @(self.offset)];
     }
     if (self.location.latitude != -1) {
         [url appendFormat:@"&location=%f,%f", self.location.latitude, self.location.longitude];
     }
-    if (self.radius != NSNotFound) {
-        [url appendFormat:@"&radius=%f", self.radius];
+    if (self.radius != 0) {
+        [url appendFormat:@"&radius=%@", @(self.radius)];
     }
     if (self.language) {
         [url appendFormat:@"&language=%@", self.language];
@@ -79,7 +79,7 @@ static NSString *const kGoogleKitPlaceAutocompleteURL = @"https://maps.googleapi
 }
 
 - (void)handleQueryResponse:(NSDictionary *)response {
-    
+
     NSArray *array = [response objectForKey:@"predictions"];
 
     [self.cache setObject:array forKey:self.input];

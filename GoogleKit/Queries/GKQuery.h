@@ -37,7 +37,7 @@ typedef void (^GKQueryCompletionBlock)(id results, NSError *error);
 
 // Maps API for Business https://developers.google.com/maps/documentation/business/webservices/
 
-@property (nonatomic, strong) NSString *clientID;
+@property (nonatomic, strong) NSString *clientId;
 @property (nonatomic, strong) NSString *signature;
 
 + (instancetype)query;

@@ -18,12 +18,12 @@
 //    IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 //    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-// API https://developers.google.com/maps/documentation/geocoding/#Types
+#import "GKObject.h"
 
-#import <Foundation/Foundation.h>
-#import <CoreLocation/CoreLocation.h>
-
-@interface GKGeocoderPlace : NSObject
+/*
+ @see https://developers.google.com/maps/documentation/geocoding/#Types
+ */
+@interface GKGeocoderPlace : GKObject
 
 @property (nonatomic, strong, readonly) NSString *formattedAddress;
 @property (nonatomic, strong, readonly) NSString *name;
@@ -51,7 +51,5 @@
 @property (nonatomic, strong, readonly) NSString *floor;
 @property (nonatomic, strong, readonly) NSString *room;
 @property (nonatomic, assign, readonly) CLLocationCoordinate2D location;
-
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

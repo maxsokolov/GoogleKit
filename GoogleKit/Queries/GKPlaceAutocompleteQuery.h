@@ -18,18 +18,27 @@
 //    IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 //    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-// API Reference https://developers.google.com/places/documentation/autocomplete
-
 #import "GKQuery.h"
 #import "GKPlaceAutocomplete.h"
 
+/*
+ @see https://developers.google.com/places/documentation/autocomplete
+ */
 @interface GKPlaceAutocompleteQuery : GKQuery
 
 @property (nonatomic, strong) NSString *input;
 @property (nonatomic, assign) NSUInteger offset;
+@property (nonatomic, assign) NSUInteger radius;
 @property (nonatomic, assign) CLLocationCoordinate2D location;
-@property (nonatomic, assign) CGFloat radius;
+
+/*
+ @see https://developers.google.com/maps/faq#languagesupport
+ */
 @property (nonatomic, strong) NSString *language;
+
+/*
+ @see https://developers.google.com/places/documentation/autocomplete#place_types
+ */
 @property (nonatomic, strong) NSArray *types;
 @property (nonatomic, strong) NSArray *components;
 

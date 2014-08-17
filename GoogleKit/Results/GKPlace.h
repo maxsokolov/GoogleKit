@@ -20,10 +20,9 @@
 
 // API https://developers.google.com/places/documentation/search#PlaceSearchPaging
 
-#import <Foundation/Foundation.h>
-#import <CoreLocation/CoreLocation.h>
+#import "GKObject.h"
 
-@interface GKPlace : NSObject
+@interface GKPlace : GKObject
 
 @property (nonatomic, strong, readonly) NSString *formattedAddress;
 @property (nonatomic, assign, readonly) CLLocationCoordinate2D location;
@@ -38,7 +37,5 @@
 @property (nonatomic, assign, readonly) NSInteger priceLevel;
 @property (nonatomic, strong, readonly) NSString *placeId;
 @property (nonatomic, strong, readonly) NSString *vicinity;
-
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

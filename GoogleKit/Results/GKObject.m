@@ -18,23 +18,17 @@
 //    IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 //    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-// API Reference https://developers.google.com/places/documentation/autocomplete
-
 #import "GKObject.h"
 
-@interface GKPlaceAutocompleteTerm : GKObject
+@implementation GKObject
 
-@property (nonatomic, strong, readonly) NSString *value;
-@property (nonatomic, assign, readonly) NSUInteger offset;
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    
+    self = [super init];
+    if (self) {
 
-@end
-
-@interface GKPlaceAutocomplete : GKObject
-
-@property (nonatomic, strong, readonly) NSString *description;
-@property (nonatomic, strong, readonly) NSString *Id;
-@property (nonatomic, strong, readonly) NSString *reference;
-@property (nonatomic, strong, readonly) NSString *placeId;
-@property (nonatomic, strong, readonly) NSArray *terms;
+    }
+    return self;
+}
 
 @end

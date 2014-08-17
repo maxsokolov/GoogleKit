@@ -20,10 +20,9 @@
 
 // API https://developers.google.com/places/documentation/details#PlaceDetailsResponses
 
-#import <Foundation/Foundation.h>
-#import <CoreLocation/CoreLocation.h>
+#import "GKObject.h"
 
-@interface GKPlaceDetails : NSObject
+@interface GKPlaceDetails : GKObject
 
 @property (nonatomic, strong, readonly) NSString *streetNumber;
 @property (nonatomic, strong, readonly) NSString *route;
@@ -45,7 +44,5 @@
 @property (nonatomic, strong, readonly) NSString *vicinity;
 @property (nonatomic, strong, readonly) NSURL *website;
 @property (nonatomic, strong, readonly) NSString *placeId;
-
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

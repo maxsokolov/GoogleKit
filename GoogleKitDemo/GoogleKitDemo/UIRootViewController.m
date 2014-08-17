@@ -39,11 +39,22 @@ NSString *const kGoogleKitAPIKey = @"AIzaSyDYSyHklqn-3aFjic9XatFN5fm8b5Uz15M";
     
     self.autocompleteQuery = [[GKPlaceAutocompleteQuery alloc] init];
     self.autocompleteQuery.key = kGoogleKitAPIKey;
-    self.autocompleteQuery.input = @"чичерина москва";
+    self.autocompleteQuery.input = @"кра";
+    self.autocompleteQuery.language = @"ru";
+    self.autocompleteQuery.components = @[ @"country:ru" ];
+    self.autocompleteQuery.location = CLLocationCoordinate2DMake(55.738407f, 37.612306f);
+    self.autocompleteQuery.radius = 50000;
     
-    self.geocoderQuery = [[GKGeocoderQuery alloc] init];
-    self.geocoderQuery.key = kGoogleKitAPIKey;
-    self.geocoderQuery.language = @"ru";
+    [self.autocompleteQuery fetchPlaces:^(NSArray *results, NSError *error) {
+       
+        for (GKPlaceAutocomplete *place in results) {
+            
+            NSLog(@"\n%@", place.description);
+            
+            for (GKPlaceAutocompleteTerm *term in place.terms)
+                NSLog(@"%@", term.value);
+        }
+    }];
 }
 
 - (void)handleGesture:(UITapGestureRecognizer *)recognizer {

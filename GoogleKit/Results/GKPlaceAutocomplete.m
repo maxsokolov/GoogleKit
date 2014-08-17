@@ -20,6 +20,21 @@
 
 #import "GKPlaceAutocomplete.h"
 
+@implementation GKPlaceAutocompleteTerm
+
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    
+    self = [super init];
+    if (self) {
+        
+        _value = [dictionary objectForKey:@"value"];
+        _offset = [[dictionary objectForKey:@"offset"] integerValue];
+    }
+    return self;
+}
+
+@end
+
 @implementation GKPlaceAutocomplete
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
@@ -27,9 +42,16 @@
     self = [super init];
     if (self) {
         
-        _name = [dictionary objectForKey:@"description"];
-        _identifier = [dictionary objectForKey:@"id"];
+        _description = [dictionary objectForKey:@"description"];
+        _Id = [dictionary objectForKey:@"id"];
         _reference = [dictionary objectForKey:@"reference"];
+        _placeId = [dictionary objectForKey:@"place_id"];
+        
+        NSMutableArray *terms = [NSMutableArray array];
+        for (NSDictionary *term in [dictionary objectForKey:@"terms"])
+            [terms addObject:[[GKPlaceAutocompleteTerm alloc] initWithDictionary:term]];
+
+        _terms = [NSArray arrayWithArray:terms];
     }
     return self;
 }

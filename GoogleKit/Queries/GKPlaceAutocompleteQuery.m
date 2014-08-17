@@ -82,7 +82,7 @@ static NSString *const kGoogleKitPlaceAutocompleteURL = @"https://maps.googleapi
 
     NSArray *array = [response objectForKey:@"predictions"];
 
-    [self.cache setObject:array forKey:self.input];
+    //[self.cache setObject:array forKey:self.input];
     
     NSMutableArray *places = [NSMutableArray array];
     for (NSDictionary *place in array) {

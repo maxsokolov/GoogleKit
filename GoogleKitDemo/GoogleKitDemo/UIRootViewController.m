@@ -19,6 +19,8 @@ NSString *const kGoogleKitAPIKey = @"AIzaSyDYSyHklqn-3aFjic9XatFN5fm8b5Uz15M";
 @property (nonatomic, strong) GKGeocoderQuery *geocoderQuery;
 @property (nonatomic, strong) GKPlacesQuery *placesQuery;
 
+@property (nonatomic, strong) UITextField *textField;
+
 @end
 
 @implementation UIRootViewController
@@ -54,6 +56,26 @@ NSString *const kGoogleKitAPIKey = @"AIzaSyDYSyHklqn-3aFjic9XatFN5fm8b5Uz15M";
             for (GKPlaceAutocompleteTerm *term in place.terms)
                 NSLog(@"%@", term.value);
         }
+    }];
+    
+    self.textField = [[UITextField alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 240.0f, 30.0f)];
+    self.textField.backgroundColor = [UIColor darkGrayColor];
+    self.textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    self.textField.autocorrectionType = UITextAutocorrectionTypeNo;
+    self.textField.textColor = [UIColor whiteColor];
+    
+        self.navigationItem.titleView = self.textField;
+    
+    [self.textField addTarget:self action:@selector(textFieldDidChangeValue:) forControlEvents:UIControlEventEditingChanged];
+}
+
+- (void)textFieldDidChangeValue:(UITextField *)textField {
+    
+    self.autocompleteQuery.input = textField.text;
+    self.autocompleteQuery.location = CLLocationCoordinate2DMake(55.738407f, 37.612306f);
+    [self.autocompleteQuery fetchPlaces:^(NSArray *results, NSError *error) {
+        
+        NSLog(@"%@", results);
     }];
 }
 

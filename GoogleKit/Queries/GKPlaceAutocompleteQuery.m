@@ -37,6 +37,7 @@ static NSString *const kGoogleKitPlaceAutocompleteURL = @"https://maps.googleapi
 
         self.cache = [[NSCache alloc] init];        
         self.radius = 10000.0f;
+        self.offset = 0;
     }
     return self;
 }
@@ -72,25 +73,28 @@ static NSString *const kGoogleKitPlaceAutocompleteURL = @"https://maps.googleapi
     return [NSURL URLWithString:url];
 }
 
-- (void)handleQueryError:(NSDictionary *)response error:(NSError *)error {
+- (void)handleQueryResponse:(NSDictionary *)response error:(NSError *)error {
     
-    if (self.completionHandler)
-        self.completionHandler(nil, error);
-}
-
-- (void)handleQueryResponse:(NSDictionary *)response {
+    if (error) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (self.completionHandler)
+                self.completionHandler(nil, error);
+        });
+        return;
+    }
 
     NSArray *array = [response objectForKey:@"predictions"];
 
-    //[self.cache setObject:array forKey:self.input];
-    
     NSMutableArray *places = [NSMutableArray array];
     for (NSDictionary *place in array) {
         [places addObject:[[GKPlaceAutocomplete alloc] initWithDictionary:place]];
     }
-    
-    if (self.completionHandler)
-        self.completionHandler(places, nil);
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.completionHandler)
+            self.completionHandler(places, nil);
+    });
 }
 
 #pragma mark - Public methods

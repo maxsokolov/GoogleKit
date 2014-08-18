@@ -39,16 +39,21 @@ static NSString *const kGoogleKitPlaceDetailsURL = @"https://maps.googleapis.com
     return [NSURL URLWithString:url];
 }
 
-- (void)handleQueryError:(NSDictionary *)response error:(NSError *)error {
-
-    if (self.completionHandler)
-        self.completionHandler(nil, error);
-}
-
-- (void)handleQueryResponse:(NSDictionary *)response {
-
-    if (self.completionHandler)
-        self.completionHandler([[GKPlaceDetails alloc] initWithDictionary:[response objectForKey:@"result"]], nil);
+- (void)handleQueryResponse:(NSDictionary *)response error:(NSError *)error {
+    
+    if (error) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (self.completionHandler)
+                self.completionHandler(nil, error);
+        });
+        return;
+    }
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.completionHandler)
+            self.completionHandler([[GKPlaceDetails alloc] initWithDictionary:[response objectForKey:@"result"]], nil);
+    });
 }
 
 #pragma mark - Public methods

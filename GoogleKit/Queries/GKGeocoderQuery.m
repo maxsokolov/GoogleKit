@@ -61,13 +61,16 @@ static NSString *const kGKGeocoderURL = @"https://maps.googleapis.com/maps/api/g
     return [NSURL URLWithString:url];
 }
 
-- (void)handleQueryError:(NSDictionary *)response error:(NSError *)error {
+- (void)handleQueryResponse:(NSDictionary *)response error:(NSError *)error {
+    
+    if (error) {
 
-    if (self.completionHandler)
-        self.completionHandler(nil, error);
-}
-
-- (void)handleQueryResponse:(NSDictionary *)response {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (self.completionHandler)
+                self.completionHandler(nil, error);
+        });
+        return;
+    }
     
     NSArray *results = [response objectForKey:@"results"];
     NSMutableArray *places = [NSMutableArray array];
@@ -77,8 +80,10 @@ static NSString *const kGKGeocoderURL = @"https://maps.googleapis.com/maps/api/g
         [places addObject:[[GKGeocoderPlace alloc] initWithDictionary:dictionary]];
     }
     
-    if (self.completionHandler)
-        self.completionHandler(places, nil);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.completionHandler)
+            self.completionHandler(places, nil);
+    });
 }
 
 #pragma mark - Public methods

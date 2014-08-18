@@ -89,15 +89,16 @@ static NSString *const kGKPlacesQueryRadarSearchURL  = @"https://maps.googleapis
     return [NSURL URLWithString:url];
 }
 
-- (void)handleQueryError:(NSDictionary *)response error:(NSError *)error {
-
-    if (self.completionHandler)
-        self.completionHandler(nil, error);
-}
-
-- (void)handleQueryResponse:(NSDictionary *)response {
+- (void)handleQueryResponse:(NSDictionary *)response error:(NSError *)error {
     
-    NSLog(@"%@", response);
+    if (error) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (self.completionHandler)
+                self.completionHandler(nil, error);
+        });
+        return;
+    }
     
     _pageToken = [response objectForKey:@"next_page_token"];
     
@@ -109,8 +110,10 @@ static NSString *const kGKPlacesQueryRadarSearchURL  = @"https://maps.googleapis
         [places addObject:[[GKPlace alloc] initWithDictionary:dictionary]];
     }
     
-    if (self.completionHandler)
-        self.completionHandler(places, nil);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.completionHandler)
+            self.completionHandler(places, nil);
+    });
 }
 
 #pragma mark - Public methods

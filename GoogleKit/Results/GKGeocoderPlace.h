@@ -21,6 +21,7 @@
 #import "GKObject.h"
 
 /*
+ Description
  @see https://developers.google.com/maps/documentation/geocoding/#Types
  */
 @interface GKGeocoderPlace : GKObject

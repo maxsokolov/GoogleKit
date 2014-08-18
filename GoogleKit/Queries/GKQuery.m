@@ -20,9 +20,9 @@
 
 #import "GKQuery.h"
 
-@interface GKQuery ()
+@interface GKQuery () <NSURLSessionDelegate>
 
-@property (nonatomic, strong) NSOperationQueue *backgroundQueue;
+@property (nonatomic, strong) NSURLSessionDataTask *sessionTask;
 
 @end
 
@@ -33,69 +33,49 @@
     return [[self alloc] init];
 }
 
-- (id)init {
-
-    self = [super init];
-    if (self) {
-
-        self.backgroundQueue = [[NSOperationQueue alloc] init];
-    }
-    return self;
-}
-
 - (void)performQuery {
 
     NSURL *url = [self queryURL];
     if (!url) {
 
-        [self handleQueryError:nil error:[NSError errorWithDomain:@"com.googlekit" code:0 userInfo:@{ NSLocalizedDescriptionKey: @"bad url" }]];
+        [self handleQueryResponse:nil error:[NSError errorWithDomain:GK_ERROR_DOMAIN code:0 userInfo:@{ NSLocalizedDescriptionKey: @"bad url" }]];
         return;
     }
 
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0f];
-    [NSURLConnection sendAsynchronousRequest:request queue:self.backgroundQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-
-        if (connectionError) {
-
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self handleQueryError:nil error:connectionError];
-            });
-
-            return;
-        }
-
-        NSError *error = nil;
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    self.sessionTask = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 
         if (error) {
 
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self handleQueryError:nil error:error];
-            });
+            [self handleQueryResponse:nil error:error];
+            return;
+        }
 
+        NSError *jsonError = nil;
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
+
+        if (jsonError) {
+
+            [self handleQueryResponse:nil error:jsonError];
             return;
         }
 
         if ([[json objectForKey:@"status"] isEqualToString:@"OK"] ||
             [[json objectForKey:@"status"] isEqualToString:@"ZERO_RESULTS"]) {
 
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self handleQueryResponse:json];
-            });
-
+            [self handleQueryResponse:json error:nil];
             return;
         }
 
         // OVER_QUERY_LIMIT, REQUEST_DENIED, INVALID_REQUEST etc.
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self handleQueryError:json error:[NSError errorWithDomain:@"com.googlekit" code:0 userInfo:@{ NSLocalizedDescriptionKey: [json objectForKey:@"status"] }]];
-        });
+        [self handleQueryResponse:nil error:[NSError errorWithDomain:GK_ERROR_DOMAIN code:0 userInfo:@{ NSLocalizedDescriptionKey: [json objectForKey:@"status"] }]];
     }];
+    [self.sessionTask resume];
 }
 
 - (void)cancelQuery {
 
-    [self.backgroundQueue cancelAllOperations];
+    if (self.sessionTask)
+        [self.sessionTask cancel];
 }
 
 #pragma mark - GKQueryProtocol
@@ -105,12 +85,7 @@
     return nil;
 }
 
-- (void)handleQueryError:(NSDictionary *)response error:(NSError *)error {
-
-    return;
-}
-
-- (void)handleQueryResponse:(NSDictionary *)response {
+- (void)handleQueryResponse:(NSDictionary *)response error:(NSError *)error {
 
     return;
 }

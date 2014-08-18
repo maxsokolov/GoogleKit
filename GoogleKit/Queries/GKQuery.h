@@ -21,13 +21,14 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
+#define GK_ERROR_DOMAIN @"com.googlekit.errordomain"
+
 typedef void (^GKQueryCompletionBlock)(id results, NSError *error);
 
 @protocol GKQueryProtocol <NSObject>
 @required
 - (NSURL *)queryURL;
-- (void)handleQueryError:(NSDictionary *)response error:(NSError *)error;
-- (void)handleQueryResponse:(NSDictionary *)response;
+- (void)handleQueryResponse:(NSDictionary *)response error:(NSError *)error;
 @end
 
 @interface GKQuery : NSObject <GKQueryProtocol>
@@ -35,8 +36,10 @@ typedef void (^GKQueryCompletionBlock)(id results, NSError *error);
 @property (nonatomic, copy) GKQueryCompletionBlock completionHandler;
 @property (nonatomic, strong) NSString *key;
 
-// Maps API for Business https://developers.google.com/maps/documentation/business/webservices/
-
+/**
+ * Description
+ * @see maps api for business https://developers.google.com/maps/documentation/business/webservices/
+ */
 @property (nonatomic, strong) NSString *clientId;
 @property (nonatomic, strong) NSString *signature;
 

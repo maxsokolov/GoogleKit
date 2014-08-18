@@ -39,7 +39,10 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, assign) BOOL opennow;
 
-// https://developers.google.com/places/documentation/supported_types
+/*
+ Description
+ @see https://developers.google.com/places/documentation/supported_types
+ */
 @property (nonatomic, strong) NSArray *types;
 
 // 0...4

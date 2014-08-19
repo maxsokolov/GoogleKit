@@ -18,8 +18,6 @@
 //    IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 //    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-// API Reference https://developers.google.com/places/documentation/autocomplete
-
 #import "GKObject.h"
 
 @interface GKPlaceAutocompleteTerm : GKObject
@@ -29,6 +27,10 @@
 
 @end
 
+/*
+ Description
+ @see https://developers.google.com/places/documentation/autocomplete
+ */
 @interface GKPlaceAutocomplete : GKObject
 
 @property (nonatomic, strong, readonly) NSString *description;

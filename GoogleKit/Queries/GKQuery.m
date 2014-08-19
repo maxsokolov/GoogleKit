@@ -20,7 +20,7 @@
 
 #import "GKQuery.h"
 
-@interface GKQuery () <NSURLSessionDelegate>
+@interface GKQuery ()
 
 @property (nonatomic, strong) NSURLSessionDataTask *sessionTask;
 

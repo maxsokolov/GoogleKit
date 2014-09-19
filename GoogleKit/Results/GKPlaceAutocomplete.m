@@ -41,8 +41,8 @@
     
     self = [super init];
     if (self) {
-        
-        _description = [dictionary objectForKey:@"description"];
+
+        _textDescription = [dictionary objectForKey:@"description"];
         _Id = [dictionary objectForKey:@"id"];
         _reference = [dictionary objectForKey:@"reference"];
         _placeId = [dictionary objectForKey:@"place_id"];

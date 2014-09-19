@@ -33,7 +33,7 @@
  */
 @interface GKPlaceAutocomplete : GKObject
 
-@property (nonatomic, strong, readonly) NSString *description;
+@property (nonatomic, strong, readonly) NSString *textDescription;
 @property (nonatomic, strong, readonly) NSString *Id;
 @property (nonatomic, strong, readonly) NSString *reference;
 @property (nonatomic, strong, readonly) NSString *placeId;

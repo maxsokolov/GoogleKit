@@ -10,29 +10,29 @@
 	<string>GoogleKitDemo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>F236E49D-983F-46E5-8724-2B13CAD030AA</key>
+		<key>91FDBEF35FC5199B3C3709942106EBAD917093A0</key>
 		<string>https://github.com/maxsokolov/GoogleKit.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>GoogleKitDemo/GoogleKitDemo.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>F236E49D-983F-46E5-8724-2B13CAD030AA</key>
+		<key>91FDBEF35FC5199B3C3709942106EBAD917093A0</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/maxsokolov/GoogleKit.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>F236E49D-983F-46E5-8724-2B13CAD030AA</string>
+	<string>91FDBEF35FC5199B3C3709942106EBAD917093A0</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>F236E49D-983F-46E5-8724-2B13CAD030AA</string>
+			<string>91FDBEF35FC5199B3C3709942106EBAD917093A0</string>
 			<key>IDESourceControlWCCName</key>
 			<string>GoogleKit</string>
 		</dict>

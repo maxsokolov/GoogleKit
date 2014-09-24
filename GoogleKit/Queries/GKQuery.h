@@ -47,4 +47,7 @@ typedef void (^GKQueryCompletionBlock)(id results, NSError *error);
 - (void)performQuery;
 - (void)cancelQuery;
 
+// debug
++ (void)loggingEnabled:(BOOL)enabled;
+
 @end

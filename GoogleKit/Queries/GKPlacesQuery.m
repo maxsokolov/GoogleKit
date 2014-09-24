@@ -55,7 +55,7 @@ static NSString *const kGKPlacesQueryRadarSearchURL  = @"https://maps.googleapis
         [url appendFormat:@"&location=%f,%f", self.location.latitude, self.location.longitude];
     }
     if (self.radius != 0) {
-        [url appendFormat:@"&radius=%ld", (unsigned long)self.radius];
+        [url appendFormat:@"&radius=%@", @(self.radius)];
     }
     if (self.rankByDistance) {
         [url appendString:@"&rankby=distance"];
@@ -63,7 +63,6 @@ static NSString *const kGKPlacesQueryRadarSearchURL  = @"https://maps.googleapis
     else {
         [url appendString:@"&rankby=prominence"];
     }
-    
     if (self.keyword) {
         [url appendFormat:@"&keyword=%@", self.keyword];
     }
@@ -71,10 +70,10 @@ static NSString *const kGKPlacesQueryRadarSearchURL  = @"https://maps.googleapis
         [url appendFormat:@"&language=%@", self.language];
     }
     if (self.minprice != -1) {
-        [url appendFormat:@"&minprice=%ld", (unsigned long)self.minprice];
+        [url appendFormat:@"&minprice=%@", @(self.minprice)];
     }
     if (self.maxprice != -1) {
-        [url appendFormat:@"&maxprice=%ld", (unsigned long)self.maxprice];
+        [url appendFormat:@"&maxprice=%@", @(self.maxprice)];
     }
     if (self.name) {
         [url appendFormat:@"&name=%@", [self.name stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
@@ -82,7 +81,7 @@ static NSString *const kGKPlacesQueryRadarSearchURL  = @"https://maps.googleapis
     if (self.opennow) {
         [url appendString:@"&opennow=true"];
     }
-    if (self.types) {
+    if (self.types && self.types.count > 0) {
         [url appendFormat:@"&types=%@", [self.types componentsJoinedByString:@"|"]];
     }
 

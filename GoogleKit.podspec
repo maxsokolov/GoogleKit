@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                  = "GoogleKit"
-  s.version               = "0.0.1"
+  s.version               = "0.1"
   s.summary               = "An objective-c wrapper around the various Google API's"
   s.homepage              = "https://github.com/maxsokolov/GoogleKit"
   s.license               = { :type => 'MIT', :file => 'LICENSE' }

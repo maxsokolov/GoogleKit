@@ -20,6 +20,8 @@
 
 #import "GKQuery.h"
 
+static BOOL _logging;
+
 @interface GKQuery ()
 
 @property (nonatomic, strong) NSURLSessionDataTask *sessionTask;
@@ -53,6 +55,9 @@
         NSError *jsonError = nil;
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
 
+        if (_logging)
+            NSLog(@"GK REQUEST: %@\nGK RESPONSE: %@", url, json);
+
         if (jsonError) {
 
             [self handleQueryResponse:nil error:jsonError];
@@ -76,6 +81,11 @@
 
     if (self.sessionTask)
         [self.sessionTask cancel];
+}
+
++ (void)loggingEnabled:(BOOL)enabled {
+
+    _logging = enabled;
 }
 
 #pragma mark - GKQueryProtocol

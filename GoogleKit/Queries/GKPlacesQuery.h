@@ -18,11 +18,13 @@
 //    IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 //    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-// API https://developers.google.com/places/documentation/search
-
 #import "GKQuery.h"
 #import "GKPlace.h"
 
+/**
+ * Description
+ * @see https://developers.google.com/places/documentation/search
+ */
 @interface GKPlacesQuery : GKQuery
 
 // required
@@ -51,8 +53,22 @@
 
 @property (nonatomic, strong, readonly) NSString *pageToken;
 
+/*
+ Description
+ @see https://developers.google.com/places/documentation/search#PlaceSearchRequests
+ */
 - (void)nearbySearch:(GKQueryCompletionBlock)completionHandler;
+
+/*
+ Description
+ @see https://developers.google.com/places/documentation/search#TextSearchRequests
+ */
 - (void)textSearch:(void (^)(NSArray *results, NSError *error))completionHandler;
+
+/*
+ Description
+ @see https://developers.google.com/places/documentation/search#RadarSearchRequests
+ */
 - (void)radarSearch:(GKQueryCompletionBlock)completionHandler;
 
 - (BOOL)nextPage;

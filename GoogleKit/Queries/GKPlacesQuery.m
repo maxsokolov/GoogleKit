@@ -40,7 +40,7 @@ static NSString *const kGKPlacesQueryRadarSearchURL  = @"https://maps.googleapis
         self.minprice = -1;
         self.maxprice = -1;
         self.radius = 1000;
-        self.rankByDistance = YES;
+        self.rankByDistance = NO;
     }
     return self;
 }
@@ -54,14 +54,15 @@ static NSString *const kGKPlacesQueryRadarSearchURL  = @"https://maps.googleapis
     if (self.location.latitude != -1) {
         [url appendFormat:@"&location=%f,%f", self.location.latitude, self.location.longitude];
     }
-    if (self.radius != 0) {
-        [url appendFormat:@"&radius=%@", @(self.radius)];
-    }
     if (self.rankByDistance) {
         [url appendString:@"&rankby=distance"];
     }
     else {
         [url appendString:@"&rankby=prominence"];
+
+        if (self.radius != 0) {
+            [url appendFormat:@"&radius=%@", @(self.radius)];
+        }
     }
     if (self.keyword) {
         [url appendFormat:@"&keyword=%@", self.keyword];

@@ -72,7 +72,7 @@ static BOOL _logging;
         }
 
         // OVER_QUERY_LIMIT, REQUEST_DENIED, INVALID_REQUEST etc.
-        [self handleQueryResponse:nil error:[NSError errorWithDomain:GK_ERROR_DOMAIN code:0 userInfo:@{ NSLocalizedDescriptionKey: [json objectForKey:@"status"] }]];
+        [self handleQueryResponse:nil error:[NSError errorWithDomain:GK_ERROR_DOMAIN code:0 userInfo:json]];
     }];
     [self.sessionTask resume];
 }

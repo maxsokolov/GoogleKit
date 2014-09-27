@@ -39,6 +39,7 @@
         _rating = [[dictionary objectForKey:@"rating"] floatValue];
         _reference = [dictionary objectForKey:@"reference"];
         _types = [dictionary objectForKey:@"types"];
+        _scope = [dictionary objectForKey:@"scope"];
 
         _openNow = [[[dictionary objectForKey:@"opening_hours"] objectForKey:@"open_now"] boolValue];
         _priceLevel = [[dictionary objectForKey:@"price_level"] integerValue];

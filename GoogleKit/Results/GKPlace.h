@@ -33,6 +33,7 @@
 @property (nonatomic, strong, readonly) NSString *name;
 @property (nonatomic, assign, readonly) CGFloat rating;
 @property (nonatomic, strong, readonly) NSString *reference;
+@property (nonatomic, strong, readonly) NSString *scope;
 @property (nonatomic, strong, readonly) NSArray *types;
 
 @property (nonatomic, assign, readonly) BOOL openNow;

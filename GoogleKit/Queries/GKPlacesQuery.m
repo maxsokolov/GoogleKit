@@ -65,7 +65,7 @@ static NSString *const kGKPlacesQueryRadarSearchURL  = @"https://maps.googleapis
         }
     }
     if (self.keyword) {
-        [url appendFormat:@"&keyword=%@", self.keyword];
+        [url appendFormat:@"&keyword=%@", [self.keyword stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     }
     if (self.language) {
         [url appendFormat:@"&language=%@", self.language];

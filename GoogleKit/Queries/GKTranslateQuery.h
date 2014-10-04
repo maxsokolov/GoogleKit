@@ -18,10 +18,12 @@
 //    IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 //    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-// API Reference https://developers.google.com/translate/v2/using_rest
-
 #import <Foundation/Foundation.h>
 
+/**
+ * Description
+ * @see https://developers.google.com/translate/v2/using_rest
+ */
 @interface GKTranslateQuery : NSObject
 
 @end

@@ -23,6 +23,12 @@
 
 #define GK_ERROR_DOMAIN @"com.googlekit.errordomain"
 
+typedef NS_ENUM(NSInteger, GKQueryErrorCode) {
+
+    kGKQueryErrorQueryCancelled = 1,
+    kGKQueryErrorInternal
+};
+
 typedef void (^GKQueryCompletionBlock)(id results, NSError *error);
 
 @protocol GKQueryProtocol <NSObject>
@@ -46,6 +52,8 @@ typedef void (^GKQueryCompletionBlock)(id results, NSError *error);
 + (instancetype)query;
 - (void)performQuery;
 - (void)cancelQuery;
+
++ (void)provideAPIKey:(NSString *)APIKey;
 
 // debug
 + (void)loggingEnabled:(BOOL)enabled;

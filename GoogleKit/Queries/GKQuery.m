@@ -21,6 +21,7 @@
 #import "GKQuery.h"
 
 static BOOL _logging;
+static NSString *_APIKey = nil;
 
 @interface GKQuery ()
 
@@ -86,6 +87,20 @@ static BOOL _logging;
 + (void)loggingEnabled:(BOOL)enabled {
 
     _logging = enabled;
+}
+
++ (void)provideAPIKey:(NSString *)APIKey {
+
+    _APIKey = APIKey;
+}
+
+#pragma mark - Properties
+
+- (NSString *)key {
+
+    if (!_key)
+        return _APIKey;
+    return _key;
 }
 
 #pragma mark - GKQueryProtocol

@@ -36,10 +36,8 @@
 @property (nonatomic, strong, readonly) NSString *formattedAddress;
 @property (nonatomic, strong, readonly) NSString *formattedPhoneNumber;
 @property (nonatomic, strong, readonly) NSString *icon;
-@property (nonatomic, strong, readonly) NSString *Id;
 @property (nonatomic, strong, readonly) NSString *internationalPhoneNumber;
 @property (nonatomic, strong, readonly) NSString *name;
-@property (nonatomic, strong, readonly) NSString *reference;
 @property (nonatomic, strong, readonly) NSString *vicinity;
 @property (nonatomic, strong, readonly) NSString *placeId;
 @property (nonatomic, strong, readonly) NSURL *url;

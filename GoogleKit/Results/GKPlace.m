@@ -34,10 +34,8 @@
         _location = CLLocationCoordinate2DMake(lat, lng);
 
         _icon = [dictionary objectForKey:@"icon"];
-        _Id = [dictionary objectForKey:@"id"];
         _name = [dictionary objectForKey:@"name"];
         _rating = [[dictionary objectForKey:@"rating"] floatValue];
-        _reference = [dictionary objectForKey:@"reference"];
         _types = [dictionary objectForKey:@"types"];
         _scope = [dictionary objectForKey:@"scope"];
 

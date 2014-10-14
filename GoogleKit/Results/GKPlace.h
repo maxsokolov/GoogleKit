@@ -29,10 +29,8 @@
 @property (nonatomic, strong, readonly) NSString *formattedAddress;
 @property (nonatomic, assign, readonly) CLLocationCoordinate2D location;
 @property (nonatomic, strong, readonly) NSString *icon;
-@property (nonatomic, strong, readonly) NSString *Id;
 @property (nonatomic, strong, readonly) NSString *name;
 @property (nonatomic, assign, readonly) CGFloat rating;
-@property (nonatomic, strong, readonly) NSString *reference;
 @property (nonatomic, strong, readonly) NSString *scope;
 @property (nonatomic, strong, readonly) NSArray *types;
 

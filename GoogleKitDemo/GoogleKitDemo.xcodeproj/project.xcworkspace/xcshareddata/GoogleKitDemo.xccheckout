@@ -14,7 +14,7 @@
 		<string>https://github.com/maxsokolov/GoogleKit.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>GoogleKitDemo/GoogleKitDemo.xcodeproj/project.xcworkspace</string>
+	<string>GoogleKitDemo/GoogleKitDemo.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>91FDBEF35FC5199B3C3709942106EBAD917093A0</key>

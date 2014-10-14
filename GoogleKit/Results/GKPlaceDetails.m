@@ -70,11 +70,9 @@
         _location = CLLocationCoordinate2DMake(lat, lng);
 
         _icon = [dictionary objectForKey:@"icon"];
-        _Id = [dictionary objectForKey:@"id"];
         _internationalPhoneNumber = [dictionary objectForKey:@"international_phone_number"];
         _name = [dictionary objectForKey:@"name"];
         _rating = [[dictionary objectForKey:@"rating"] floatValue];
-        _reference = [dictionary objectForKey:@"reference"];
         _vicinity = [dictionary objectForKey:@"vicinity"];
         _url = [NSURL URLWithString:[dictionary objectForKey:@"url"]];
         _website = [NSURL URLWithString:[dictionary objectForKey:@"website"]];

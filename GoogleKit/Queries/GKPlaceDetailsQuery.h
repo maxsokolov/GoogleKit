@@ -18,19 +18,20 @@
 //    IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 //    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-// API Reference https://developers.google.com/places/documentation/details
-
 #import "GKQuery.h"
 #import "GKPlaceDetails.h"
 
 typedef void (^GKPlaceDetailsQueryCompletionBlock)(GKPlaceDetails *place, NSError *error);
 
+/*
+ Description
+ @see https://developers.google.com/places/documentation/details
+ */
 @interface GKPlaceDetailsQuery : GKQuery
 
 @property (nonatomic, copy) GKPlaceDetailsQueryCompletionBlock completionHandler;
 
 @property (nonatomic, strong) NSString *placeId;
-@property (nonatomic, strong) NSString *reference;
 @property (nonatomic, strong) NSString *extensions;
 @property (nonatomic, strong) NSString *language;
 

@@ -20,7 +20,7 @@
 
 #import "GKPlaceDetailsQuery.h"
 
-static NSString *const kGoogleKitPlaceDetailsURL = @"https://maps.googleapis.com/maps/api/place/details/json?reference=%@&key=%@";
+static NSString *const kGoogleKitPlaceDetailsURL = @"https://maps.googleapis.com/maps/api/place/details/json?placeid=%@&key=%@";
 
 @implementation GKPlaceDetailsQuery
 
@@ -28,7 +28,7 @@ static NSString *const kGoogleKitPlaceDetailsURL = @"https://maps.googleapis.com
 
 - (NSURL *)queryURL {
 
-    NSMutableString *url = [NSMutableString stringWithFormat:kGoogleKitPlaceDetailsURL, self.reference, self.key];
+    NSMutableString *url = [NSMutableString stringWithFormat:kGoogleKitPlaceDetailsURL, self.placeId, self.key];
     if (self.extensions) {
         [url appendFormat:@"&extensions=%@", self.extensions];
     }
@@ -61,15 +61,6 @@ static NSString *const kGoogleKitPlaceDetailsURL = @"https://maps.googleapis.com
 - (void)fetchDetails:(GKPlaceDetailsQueryCompletionBlock)completionHandler {
 
     self.completionHandler = completionHandler;
-
-    if (!self.reference || !self.reference.length) {
-
-        if (self.completionHandler)
-            self.completionHandler(nil, nil);
-        
-        return;
-    }
-
     [self performQuery];
 }
 

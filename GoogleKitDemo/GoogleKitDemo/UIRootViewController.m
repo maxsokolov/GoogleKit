@@ -39,7 +39,7 @@ NSString *const kGoogleKitAPIKey = @"AIzaSyDYSyHklqn-3aFjic9XatFN5fm8b5Uz15M";
     UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
     [self.mapView addGestureRecognizer:recognizer];
     
-    self.autocompleteQuery = [[GKPlaceAutocompleteQuery alloc] init];
+    /*self.autocompleteQuery = [[GKPlaceAutocompleteQuery alloc] init];
     self.autocompleteQuery.key = kGoogleKitAPIKey;
     self.autocompleteQuery.input = @"кра";
     self.autocompleteQuery.language = @"ru";
@@ -56,7 +56,7 @@ NSString *const kGoogleKitAPIKey = @"AIzaSyDYSyHklqn-3aFjic9XatFN5fm8b5Uz15M";
             for (GKPlaceAutocompleteTerm *term in place.terms)
                 NSLog(@"%@", term.value);
         }
-    }];
+    }];*/
     
     self.textField = [[UITextField alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 240.0f, 30.0f)];
     self.textField.backgroundColor = [UIColor darkGrayColor];
@@ -81,8 +81,8 @@ NSString *const kGoogleKitAPIKey = @"AIzaSyDYSyHklqn-3aFjic9XatFN5fm8b5Uz15M";
 
 - (void)handleGesture:(UITapGestureRecognizer *)recognizer {
     
-    //CGPoint touchPoint = [recognizer locationInView:self.mapView];
-    //CLLocationCoordinate2D coordinate = [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
+    CGPoint touchPoint = [recognizer locationInView:self.mapView];
+    CLLocationCoordinate2D coordinate = [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
     
     /*self.geocoderQuery.location = coordinate;
     [self.geocoderQuery lookupLocation:^(NSArray *results, NSError *error) {
@@ -91,17 +91,21 @@ NSString *const kGoogleKitAPIKey = @"AIzaSyDYSyHklqn-3aFjic9XatFN5fm8b5Uz15M";
        
         NSLog(@"adr: %@ %@", place.route, place.streetNumber);
     }];*/
+    
+    [GKQuery loggingEnabled:YES];
 
-    /*GKPlacesQuery *query = [GKPlacesQuery query];
+    GKPlacesQuery *query = [GKPlacesQuery query];
     query.key = kGoogleKitAPIKey;
     query.types = @[@"car_repair"];
     query.radius = 3000;
     query.language = @"ru";
     query.location = coordinate;
-    [query nearbySearch:^(NSArray *result, NSError *error) {
+    [query nearbySearch:^(NSArray *result, NSString *nextPageToken, NSError *error) {
        
+        NSLog(@"GOT TOKEN: %@", nextPageToken);
         
-    }];*/
+        return nextPageToken;
+    }];
 
     /*GKPlaceDetailsQuery *query = [GKPlaceDetailsQuery query];
     query.key = kGoogleKitAPIKey;

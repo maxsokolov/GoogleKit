@@ -21,6 +21,8 @@
 #import "GKQuery.h"
 #import "GKPlace.h"
 
+typedef NSString* (^GKPlacesQueryCompletionBlock)(NSArray *results, NSString *nextPageToken, NSError *error);
+
 /**
  * Description
  * @see https://developers.google.com/places/documentation/search
@@ -41,6 +43,8 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, assign) BOOL opennow;
 
+@property (nonatomic, strong) NSString *nextPageToken;
+
 /*
  Description
  @see https://developers.google.com/places/documentation/supported_types
@@ -51,26 +55,22 @@
 @property (nonatomic, assign) NSUInteger minprice;
 @property (nonatomic, assign) NSUInteger maxprice;
 
-@property (nonatomic, strong, readonly) NSString *pageToken;
-
 /*
  Description
  @see https://developers.google.com/places/documentation/search#PlaceSearchRequests
  */
-- (void)nearbySearch:(GKQueryCompletionBlock)completionHandler;
+- (void)nearbySearch:(GKPlacesQueryCompletionBlock)completionHandler;
 
 /*
  Description
  @see https://developers.google.com/places/documentation/search#TextSearchRequests
  */
-- (void)textSearch:(void (^)(NSArray *results, NSError *error))completionHandler;
+- (void)textSearch:(GKPlacesQueryCompletionBlock)completionHandler;
 
 /*
  Description
  @see https://developers.google.com/places/documentation/search#RadarSearchRequests
  */
-- (void)radarSearch:(GKQueryCompletionBlock)completionHandler;
-
-- (BOOL)nextPage;
+- (void)radarSearch:(GKPlacesQueryCompletionBlock)completionHandler;
 
 @end

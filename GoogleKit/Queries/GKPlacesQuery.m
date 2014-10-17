@@ -26,6 +26,7 @@ static NSString *const kGKPlacesQueryRadarSearchURL  = @"https://maps.googleapis
 
 @interface GKPlacesQuery ()
 
+@property (nonatomic, copy) GKPlacesQueryCompletionBlock completionHandler;
 @property (nonatomic, strong) NSString *baseURL;
 
 @end
@@ -50,6 +51,12 @@ static NSString *const kGKPlacesQueryRadarSearchURL  = @"https://maps.googleapis
 - (NSURL *)queryURL {
 
     NSMutableString *url = [NSMutableString stringWithFormat:self.baseURL, self.key];
+
+    if (self.nextPageToken && self.nextPageToken.length > 0) {
+
+        [url appendFormat:@"&pagetoken=%@", self.nextPageToken];
+        return [NSURL URLWithString:url];
+    }
 
     if (self.location.latitude != -1) {
         [url appendFormat:@"&location=%f,%f", self.location.latitude, self.location.longitude];
@@ -92,15 +99,15 @@ static NSString *const kGKPlacesQueryRadarSearchURL  = @"https://maps.googleapis
 - (void)handleQueryResponse:(NSDictionary *)response error:(NSError *)error {
     
     if (error) {
-        
+
         dispatch_async(dispatch_get_main_queue(), ^{
             if (self.completionHandler)
-                self.completionHandler(nil, error);
+                self.completionHandler(nil, nil, error);
         });
         return;
     }
     
-    _pageToken = [response objectForKey:@"next_page_token"];
+    NSString *nextPageToken = [response objectForKey:@"next_page_token"];
     
     NSArray *results = [response objectForKey:@"results"];
     NSMutableArray *places = [NSMutableArray array];
@@ -109,49 +116,45 @@ static NSString *const kGKPlacesQueryRadarSearchURL  = @"https://maps.googleapis
 
         [places addObject:[[GKPlace alloc] initWithDictionary:dictionary]];
     }
-    
+
     dispatch_async(dispatch_get_main_queue(), ^{
-        if (self.completionHandler)
-            self.completionHandler(places, nil);
+        if (self.completionHandler) {
+            self.nextPageToken = self.completionHandler(places, nextPageToken, nil);
+            if (self.nextPageToken) {
+
+                [self performSelector:@selector(performQuery) withObject:nil afterDelay:2.0f];
+            }
+        }
     });
 }
 
 #pragma mark - Public methods
 
-- (void)nearbySearch:(GKQueryCompletionBlock)completionHandler {
+- (void)nearbySearch:(GKPlacesQueryCompletionBlock)completionHandler {
 
-    _pageToken = nil;
+    self.nextPageToken = nil;
     self.completionHandler = completionHandler;
     self.baseURL = kGKPlacesQueryNearbySearchURL;
 
     [self performQuery];
 }
 
-- (void)textSearch:(void (^)(NSArray *results, NSError *error))completionHandler {
+- (void)textSearch:(GKPlacesQueryCompletionBlock)completionHandler {
 
-    _pageToken = nil;
+    self.nextPageToken = nil;
     self.completionHandler = completionHandler;
     self.baseURL = kGKPlacesQueryTextSearchURL;
     
     [self performQuery];
 }
 
-- (void)radarSearch:(GKQueryCompletionBlock)completionHandler {
+- (void)radarSearch:(GKPlacesQueryCompletionBlock)completionHandler {
 
-    _pageToken = nil;
+    self.nextPageToken = nil;
     self.completionHandler = completionHandler;
     self.baseURL = kGKPlacesQueryRadarSearchURL;
 
     [self performQuery];
-}
-
-- (BOOL)nextPage {
-    
-    if (!_pageToken) return NO;
-    
-    
-    
-    return YES;
 }
 
 @end

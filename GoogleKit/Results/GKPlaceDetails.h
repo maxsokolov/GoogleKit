@@ -43,6 +43,6 @@
 @property (nonatomic, strong, readonly) NSURL *url;
 @property (nonatomic, strong, readonly) NSURL *website;
 @property (nonatomic, assign, readonly) CGFloat rating;
-@property (nonatomic, assign, readonly) CLLocationCoordinate2D location;
+@property (nonatomic, strong, readonly) CLLocation *location;
 
 @end

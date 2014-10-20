@@ -27,7 +27,7 @@
 @interface GKPlace : GKObject
 
 @property (nonatomic, strong, readonly) NSString *formattedAddress;
-@property (nonatomic, assign, readonly) CLLocationCoordinate2D location;
+@property (nonatomic, strong, readonly) CLLocation *location;
 @property (nonatomic, strong, readonly) NSString *icon;
 @property (nonatomic, strong, readonly) NSString *name;
 @property (nonatomic, assign, readonly) CGFloat rating;

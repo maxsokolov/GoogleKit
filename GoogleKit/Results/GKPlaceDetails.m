@@ -64,13 +64,13 @@
 
         _formattedAddress = [dictionary objectForKey:@"formatted_address"];
         _formattedPhoneNumber = [dictionary objectForKey:@"formatted_phone_number"];
+        _internationalPhoneNumber = [dictionary objectForKey:@"international_phone_number"];
 
         CGFloat lat = [[[[dictionary objectForKey:@"geometry"] objectForKey:@"location"] objectForKey:@"lat"] floatValue];
         CGFloat lng = [[[[dictionary objectForKey:@"geometry"] objectForKey:@"location"] objectForKey:@"lng"] floatValue];
         _location = [[CLLocation alloc] initWithLatitude:lat longitude:lng];
 
         _icon = [dictionary objectForKey:@"icon"];
-        _internationalPhoneNumber = [dictionary objectForKey:@"international_phone_number"];
         _name = [dictionary objectForKey:@"name"];
         _rating = [[dictionary objectForKey:@"rating"] floatValue];
         _vicinity = [dictionary objectForKey:@"vicinity"];
@@ -79,6 +79,16 @@
         _placeId = [dictionary objectForKey:@"place_id"];
     }
     return self;
+}
+
+#pragma mark - Properties
+
+- (NSString *)phoneNumber {
+
+    NSString *phone = self.internationalPhoneNumber == nil ? self.formattedPhoneNumber : self.internationalPhoneNumber;
+    if (!phone)
+        return nil;
+    return [[phone componentsSeparatedByCharactersInSet:[NSMutableCharacterSet characterSetWithCharactersInString:@"()- "]] componentsJoinedByString:@""];
 }
 
 @end

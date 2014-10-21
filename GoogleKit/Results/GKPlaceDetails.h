@@ -35,8 +35,9 @@
 @property (nonatomic, strong, readonly) NSString *postalCode;
 @property (nonatomic, strong, readonly) NSString *formattedAddress;
 @property (nonatomic, strong, readonly) NSString *formattedPhoneNumber;
-@property (nonatomic, strong, readonly) NSString *icon;
 @property (nonatomic, strong, readonly) NSString *internationalPhoneNumber;
+@property (nonatomic, strong, readonly) NSString *phoneNumber;
+@property (nonatomic, strong, readonly) NSString *icon;
 @property (nonatomic, strong, readonly) NSString *name;
 @property (nonatomic, strong, readonly) NSString *vicinity;
 @property (nonatomic, strong, readonly) NSString *placeId;

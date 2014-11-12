@@ -21,7 +21,7 @@
 #import "GKQuery.h"
 #import "GKPlace.h"
 
-typedef NSString* (^GKPlacesQueryCompletionBlock)(NSArray *results, NSString *nextPageToken, NSError *error);
+typedef void (^GKPlacesQueryCompletionBlock)(NSArray *results, NSString *nextPageToken, NSError *error);
 
 /**
  * Description

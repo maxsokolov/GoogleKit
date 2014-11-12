@@ -119,11 +119,7 @@ static NSString *const kGKPlacesQueryRadarSearchURL  = @"https://maps.googleapis
 
     dispatch_async(dispatch_get_main_queue(), ^{
         if (self.completionHandler) {
-            self.nextPageToken = self.completionHandler(places, nextPageToken, nil);
-            if (self.nextPageToken) {
-
-                [self performSelector:@selector(performQuery) withObject:nil afterDelay:2.0f];
-            }
+            self.completionHandler(places, nextPageToken, nil);
         }
     });
 }

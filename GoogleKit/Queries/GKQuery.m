@@ -75,6 +75,8 @@ static NSString *_APIKey = nil;
         // OVER_QUERY_LIMIT, REQUEST_DENIED, INVALID_REQUEST etc.
         [self handleQueryResponse:nil error:[NSError errorWithDomain:GK_ERROR_DOMAIN code:0 userInfo:json]];
     }];
+
+    // start task
     [self.sessionTask resume];
 }
 

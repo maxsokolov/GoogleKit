@@ -25,6 +25,9 @@
 		DAE1861C1A13AEF0001185C9 /* GKRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE1861B1A13AEF0001185C9 /* GKRootViewController.m */; };
 		DAE1861F1A13AFF1001185C9 /* GKMapGeocoderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE1861E1A13AFF1001185C9 /* GKMapGeocoderViewController.m */; };
 		DAE186231A13B18A001185C9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAE186221A13B18A001185C9 /* Default-568h@2x.png */; };
+		DAE186261A13E8F6001185C9 /* GKAutocompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE186251A13E8F6001185C9 /* GKAutocompleteViewController.m */; };
+		DAE186291A13F5DE001185C9 /* GKNearbySearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE186281A13F5DE001185C9 /* GKNearbySearchViewController.m */; };
+		DAE1862C1A140068001185C9 /* GKMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE1862B1A140068001185C9 /* GKMapAnnotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +79,12 @@
 		DAE1861D1A13AFF1001185C9 /* GKMapGeocoderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKMapGeocoderViewController.h; sourceTree = "<group>"; };
 		DAE1861E1A13AFF1001185C9 /* GKMapGeocoderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKMapGeocoderViewController.m; sourceTree = "<group>"; };
 		DAE186221A13B18A001185C9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		DAE186241A13E8F6001185C9 /* GKAutocompleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKAutocompleteViewController.h; sourceTree = "<group>"; };
+		DAE186251A13E8F6001185C9 /* GKAutocompleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKAutocompleteViewController.m; sourceTree = "<group>"; };
+		DAE186271A13F5DE001185C9 /* GKNearbySearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKNearbySearchViewController.h; sourceTree = "<group>"; };
+		DAE186281A13F5DE001185C9 /* GKNearbySearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKNearbySearchViewController.m; sourceTree = "<group>"; };
+		DAE1862A1A140068001185C9 /* GKMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKMapAnnotation.h; sourceTree = "<group>"; };
+		DAE1862B1A140068001185C9 /* GKMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKMapAnnotation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,10 +129,16 @@
 			children = (
 				DAE185D01A13AD67001185C9 /* AppDelegate.h */,
 				DAE185D11A13AD67001185C9 /* AppDelegate.m */,
+				DAE1862A1A140068001185C9 /* GKMapAnnotation.h */,
+				DAE1862B1A140068001185C9 /* GKMapAnnotation.m */,
 				DAE1861A1A13AEF0001185C9 /* GKRootViewController.h */,
 				DAE1861B1A13AEF0001185C9 /* GKRootViewController.m */,
 				DAE1861D1A13AFF1001185C9 /* GKMapGeocoderViewController.h */,
 				DAE1861E1A13AFF1001185C9 /* GKMapGeocoderViewController.m */,
+				DAE186241A13E8F6001185C9 /* GKAutocompleteViewController.h */,
+				DAE186251A13E8F6001185C9 /* GKAutocompleteViewController.m */,
+				DAE186271A13F5DE001185C9 /* GKNearbySearchViewController.h */,
+				DAE186281A13F5DE001185C9 /* GKNearbySearchViewController.m */,
 				DAE185CC1A13AD67001185C9 /* Supporting Files */,
 			);
 			path = GoogleKitDemo;
@@ -194,10 +209,10 @@
 				DAE1860E1A13AE81001185C9 /* GKObject.m */,
 				DAE1860B1A13AE81001185C9 /* GKGeocoderPlace.h */,
 				DAE1860C1A13AE81001185C9 /* GKGeocoderPlace.m */,
-				DAE1860F1A13AE81001185C9 /* GKPlace.h */,
-				DAE186101A13AE81001185C9 /* GKPlace.m */,
 				DAE186111A13AE81001185C9 /* GKPlaceAutocomplete.h */,
 				DAE186121A13AE81001185C9 /* GKPlaceAutocomplete.m */,
+				DAE1860F1A13AE81001185C9 /* GKPlace.h */,
+				DAE186101A13AE81001185C9 /* GKPlace.m */,
 				DAE186131A13AE81001185C9 /* GKPlaceDetails.h */,
 				DAE186141A13AE81001185C9 /* GKPlaceDetails.m */,
 			);
@@ -309,13 +324,16 @@
 				DAE1860A1A13AE76001185C9 /* GKTranslateQuery.m in Sources */,
 				DAE1861C1A13AEF0001185C9 /* GKRootViewController.m in Sources */,
 				DAE185D21A13AD67001185C9 /* AppDelegate.m in Sources */,
+				DAE1862C1A140068001185C9 /* GKMapAnnotation.m in Sources */,
 				DAE186181A13AE81001185C9 /* GKPlaceAutocomplete.m in Sources */,
 				DAE186161A13AE81001185C9 /* GKObject.m in Sources */,
 				DAE186081A13AE76001185C9 /* GKQuery.m in Sources */,
+				DAE186261A13E8F6001185C9 /* GKAutocompleteViewController.m in Sources */,
 				DAE1861F1A13AFF1001185C9 /* GKMapGeocoderViewController.m in Sources */,
 				DAE185CF1A13AD67001185C9 /* main.m in Sources */,
 				DAE186191A13AE81001185C9 /* GKPlaceDetails.m in Sources */,
 				DAE186091A13AE76001185C9 /* GKSuggestQuery.m in Sources */,
+				DAE186291A13F5DE001185C9 /* GKNearbySearchViewController.m in Sources */,
 				DAE186071A13AE76001185C9 /* GKPlacesQuery.m in Sources */,
 				DAE186061A13AE76001185C9 /* GKPlaceDetailsQuery.m in Sources */,
 			);

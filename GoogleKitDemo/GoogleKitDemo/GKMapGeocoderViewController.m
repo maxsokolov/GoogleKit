@@ -13,6 +13,7 @@
 @interface GKMapGeocoderViewController () <MKMapViewDelegate>
 
 @property (nonatomic, strong) UILabel *label;
+@property (nonatomic, strong) UILabel *labelLocation;
 
 @end
 
@@ -21,6 +22,8 @@
 - (void)viewDidLoad {
 
     [super viewDidLoad];
+    
+    self.title = @"Geocoder";
 
     MKMapView *mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
     mapView.delegate = self;
@@ -30,17 +33,25 @@
     self.label.textAlignment = NSTextAlignmentCenter;
     self.label.lineBreakMode = NSLineBreakByWordWrapping;
     self.label.numberOfLines = -1;
+    
+    self.labelLocation = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, self.view.frame.size.height - 50.0f, self.view.frame.size.width, 50.0f)];
+    self.labelLocation.textAlignment = NSTextAlignmentCenter;
 
     [self.view addSubview:mapView];
     [self.view addSubview:self.label];
+    [self.view addSubview:self.labelLocation];
 }
 
 - (void)lookupAddress:(NSString *)address {
     
     GKGeocoderQuery *query = [GKGeocoderQuery query];
+    query.address = address;
     [query lookupAddress:^(NSArray *results, NSError *error) {
        
-        
+        GKGeocoderPlace *place = [results firstObject];
+        if (place) {
+            self.labelLocation.text = [NSString stringWithFormat:@"%f %f", place.location.coordinate.latitude, place.location.coordinate.longitude];
+        }
     }];
 }
 
@@ -57,6 +68,8 @@
         GKGeocoderPlace *place = [result firstObject];
         if (place) {
             self.label.text = place.formattedAddress;
+            
+            [self lookupAddress:place.formattedAddress];
         }
     }];
 }

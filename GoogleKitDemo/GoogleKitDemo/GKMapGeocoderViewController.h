@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  GKMapGeocoderViewController.h
 //  GoogleKitDemo
 //
 //  Created by Max Sokolov on 12/11/14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (nonatomic, strong) UIWindow *window;
+@interface GKMapGeocoderViewController : UIViewController
 
 @end

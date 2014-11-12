@@ -7,6 +7,6 @@ Pod::Spec.new do |s|
   s.author                = { "Username" => "Max Sokolov" }
   s.platform              = :ios, '6.0'
   s.source                = { :git => "https://github.com/maxsokolov/GoogleKit.git", :tag => s.version.to_s }
-  s.source_files          = 'GoogleKit/*.{h,m}', 'GoogleKit/Queries/*.{h,m}', 'GoogleKit/Results/*.{h,m}'
+  s.source_files          = 'GoogleKit/*.{h,m}', 'GoogleKit/Queries/*.{h,m}', 'GoogleKit/Objects/*.{h,m}'
   s.requires_arc          = true
 end

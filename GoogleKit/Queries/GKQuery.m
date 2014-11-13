@@ -57,7 +57,7 @@ static NSString *_APIKey = nil;
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
 
         if (_logging)
-            NSLog(@"GK REQUEST: %@\nGK RESPONSE: %@", url, json);
+            NSLog(@"GK REQUEST: %@\nGK RESPONSE:", url);
 
         if (jsonError) {
 

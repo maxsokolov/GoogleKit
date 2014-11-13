@@ -16,7 +16,6 @@
 		DAE186071A13AE76001185C9 /* GKPlacesQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE185FD1A13AE76001185C9 /* GKPlacesQuery.m */; };
 		DAE186081A13AE76001185C9 /* GKQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE185FF1A13AE76001185C9 /* GKQuery.m */; };
 		DAE186091A13AE76001185C9 /* GKSuggestQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE186011A13AE76001185C9 /* GKSuggestQuery.m */; };
-		DAE1860A1A13AE76001185C9 /* GKTranslateQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE186031A13AE76001185C9 /* GKTranslateQuery.m */; };
 		DAE186151A13AE81001185C9 /* GKGeocoderPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE1860C1A13AE81001185C9 /* GKGeocoderPlace.m */; };
 		DAE186161A13AE81001185C9 /* GKObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE1860E1A13AE81001185C9 /* GKObject.m */; };
 		DAE186171A13AE81001185C9 /* GKPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE186101A13AE81001185C9 /* GKPlace.m */; };
@@ -62,8 +61,6 @@
 		DAE185FF1A13AE76001185C9 /* GKQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKQuery.m; path = ../GoogleKit/Queries/GKQuery.m; sourceTree = "<group>"; };
 		DAE186001A13AE76001185C9 /* GKSuggestQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKSuggestQuery.h; path = ../GoogleKit/Queries/GKSuggestQuery.h; sourceTree = "<group>"; };
 		DAE186011A13AE76001185C9 /* GKSuggestQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKSuggestQuery.m; path = ../GoogleKit/Queries/GKSuggestQuery.m; sourceTree = "<group>"; };
-		DAE186021A13AE76001185C9 /* GKTranslateQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKTranslateQuery.h; path = ../GoogleKit/Queries/GKTranslateQuery.h; sourceTree = "<group>"; };
-		DAE186031A13AE76001185C9 /* GKTranslateQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKTranslateQuery.m; path = ../GoogleKit/Queries/GKTranslateQuery.m; sourceTree = "<group>"; };
 		DAE1860B1A13AE81001185C9 /* GKGeocoderPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKGeocoderPlace.h; path = ../GoogleKit/Objects/GKGeocoderPlace.h; sourceTree = "<group>"; };
 		DAE1860C1A13AE81001185C9 /* GKGeocoderPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKGeocoderPlace.m; path = ../GoogleKit/Objects/GKGeocoderPlace.m; sourceTree = "<group>"; };
 		DAE1860D1A13AE81001185C9 /* GKObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKObject.h; path = ../GoogleKit/Objects/GKObject.h; sourceTree = "<group>"; };
@@ -190,14 +187,12 @@
 				DAE185F71A13AE76001185C9 /* GKGeocoderQuery.m */,
 				DAE185F81A13AE76001185C9 /* GKPlaceAutocompleteQuery.h */,
 				DAE185F91A13AE76001185C9 /* GKPlaceAutocompleteQuery.m */,
-				DAE185FA1A13AE76001185C9 /* GKPlaceDetailsQuery.h */,
-				DAE185FB1A13AE76001185C9 /* GKPlaceDetailsQuery.m */,
 				DAE185FC1A13AE76001185C9 /* GKPlacesQuery.h */,
 				DAE185FD1A13AE76001185C9 /* GKPlacesQuery.m */,
+				DAE185FA1A13AE76001185C9 /* GKPlaceDetailsQuery.h */,
+				DAE185FB1A13AE76001185C9 /* GKPlaceDetailsQuery.m */,
 				DAE186001A13AE76001185C9 /* GKSuggestQuery.h */,
 				DAE186011A13AE76001185C9 /* GKSuggestQuery.m */,
-				DAE186021A13AE76001185C9 /* GKTranslateQuery.h */,
-				DAE186031A13AE76001185C9 /* GKTranslateQuery.m */,
 			);
 			name = Queries;
 			sourceTree = "<group>";
@@ -321,7 +316,6 @@
 				DAE186151A13AE81001185C9 /* GKGeocoderPlace.m in Sources */,
 				DAE186041A13AE76001185C9 /* GKGeocoderQuery.m in Sources */,
 				DAE186171A13AE81001185C9 /* GKPlace.m in Sources */,
-				DAE1860A1A13AE76001185C9 /* GKTranslateQuery.m in Sources */,
 				DAE1861C1A13AEF0001185C9 /* GKRootViewController.m in Sources */,
 				DAE185D21A13AD67001185C9 /* AppDelegate.m in Sources */,
 				DAE1862C1A140068001185C9 /* GKMapAnnotation.m in Sources */,

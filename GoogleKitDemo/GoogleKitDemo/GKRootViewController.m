@@ -27,9 +27,9 @@
     self.title = @"GoogleKit";
     
     [GKQuery provideAPIKey:@"AIzaSyDYSyHklqn-3aFjic9XatFN5fm8b5Uz15M"];
-    //[GKQuery loggingEnabled:YES];
+    [GKQuery loggingEnabled:YES];
     
-    self.dataSource = @[@"Geocoder", @"Autocomplete places", @"Nearby Search"];
+    self.dataSource = @[@"Geocoder", @"Autocomplete places", @"Nearby Search & Place Details"];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
 }

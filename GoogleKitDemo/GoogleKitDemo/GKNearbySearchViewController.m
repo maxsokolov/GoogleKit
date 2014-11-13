@@ -36,28 +36,26 @@
     self.mapView.showsUserLocation = YES;
     [self.view addSubview:self.mapView];
     
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(40.71448f, -74.00598f), 15000.0f, 15000.0f);
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(40.71448f, -74.00598f), 15000.0f, 15000.0f); // New York City
     [self.mapView setRegion:viewRegion];
 
-    [self loadPlacesWithToken:nil];
+    [self loadPlaces];
 }
 
 - (void)handleNextPageButton:(id)sender {
 
-    [self loadPlacesWithToken:self.nextPageToken];
+    [self loadPlaces];
 }
 
-- (void)loadPlacesWithToken:(NSString *)token {
-    
-    NSLog(@"token: %@", token);
+- (void)loadPlaces {
     
     GKPlacesQuery *placesQuery = [GKPlacesQuery query];
-    placesQuery.language = @"ru";
+    placesQuery.language = @"en";
     placesQuery.radius = 3000;
     placesQuery.types = @[ @"library" ];
     placesQuery.rankByDistance = NO;
     placesQuery.location = CLLocationCoordinate2DMake(40.71448f, -74.00598f); // New York City
-    placesQuery.nextPageToken = token;
+    placesQuery.nextPageToken = self.nextPageToken;
     
     [placesQuery nearbySearch:^(NSArray *results, NSString *nextPageToken, NSError *error) {
         

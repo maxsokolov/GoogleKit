@@ -128,7 +128,6 @@ static NSString *const kGKPlacesQueryRadarSearchURL  = @"https://maps.googleapis
 
 - (void)nearbySearch:(GKPlacesQueryCompletionBlock)completionHandler {
 
-    self.nextPageToken = nil;
     self.completionHandler = completionHandler;
     self.baseURL = kGKPlacesQueryNearbySearchURL;
 
@@ -137,7 +136,6 @@ static NSString *const kGKPlacesQueryRadarSearchURL  = @"https://maps.googleapis
 
 - (void)textSearch:(GKPlacesQueryCompletionBlock)completionHandler {
 
-    self.nextPageToken = nil;
     self.completionHandler = completionHandler;
     self.baseURL = kGKPlacesQueryTextSearchURL;
     
@@ -146,7 +144,6 @@ static NSString *const kGKPlacesQueryRadarSearchURL  = @"https://maps.googleapis
 
 - (void)radarSearch:(GKPlacesQueryCompletionBlock)completionHandler {
 
-    self.nextPageToken = nil;
     self.completionHandler = completionHandler;
     self.baseURL = kGKPlacesQueryRadarSearchURL;
 

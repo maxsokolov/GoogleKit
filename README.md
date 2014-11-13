@@ -10,7 +10,7 @@ GoogleKit based on <a href="https://developers.google.com/maps/" target="_blank"
 #### Geocoding (Latitude/Longitude Lookup)
 
 Geocoding is the process of converting addresses (like "1600 Amphitheatre Parkway, Mountain View, CA") into geographic coordinates (like latitude 37.423021 and longitude -122.083739), which you can use to place markers or position the map.
-[See the official google documentation](https://developers.google.com/maps/documentation/geocoding/).
+<a href="https://developers.google.com/maps/documentation/geocoding/" target="_blank">See the official google documentation</a>.
 
 ``` objc
 GKGeocoderQuery *query = [GKGeocoderQuery query];
@@ -34,7 +34,7 @@ query.components = @[ @"country:US" ];
 #### Reverse Geocoding (Address Lookup)
 
 The term geocoding generally refers to translating a human-readable address into a location on a map.
-[See the official google documentation](https://developers.google.com/maps/documentation/geocoding/#ReverseGeocoding).
+<a href="https://developers.google.com/maps/documentation/geocoding/#ReverseGeocoding" target="_blank">See the official google documentation</a>.
 
 ``` objc
 GKGeocoderQuery *query = [GKGeocoderQuery query];
@@ -58,7 +58,7 @@ query.postalCode = @"000000";
 #### Place Autocomplete
 
 The Place Autocomplete service is useful in mobile apps, where you may want to offer users a location-based autocomplete feature.
-[See the official google documentation](https://developers.google.com/maps/documentation/geocoding/#ReverseGeocoding).
+<a href="https://developers.google.com/maps/documentation/geocoding/#ReverseGeocoding" target="_blank">See the official google documentation</a>.
 
 ``` objc
 GKPlaceAutocompleteQuery *query = [GKPlaceAutocompleteQuery query];
@@ -84,7 +84,7 @@ query.language = @"en";
 #### Nearby Search
 
 A Nearby Search lets you search for places within a specified area. You can refine your search request by supplying keywords or specifying the type of place you are searching for.
-[See the official google documentation](https://developers.google.com/places/documentation/search#PlaceSearchRequests).
+<a href="https://developers.google.com/places/documentation/search#PlaceSearchRequests" target="_blank">See the official google documentation</a>.
 
 ``` objc
 GKPlacesQuery *query = [GKPlacesQuery query];
@@ -114,7 +114,7 @@ query.nextPageToken = @"token";
 #### Text Search
 
 A Nearby Search lets you search for places within a specified area. You can refine your search request by supplying keywords or specifying the type of place you are searching for.
-[See the official google documentation](https://developers.google.com/places/documentation/search#TextSearchRequests).
+<a href="https://developers.google.com/places/documentation/search#TextSearchRequests" target="_blank">See the official google documentation</a>.
 
 ``` objc
 GKPlacesQuery *query = [GKPlacesQuery query];
@@ -141,7 +141,7 @@ query.types = @[ @"library" ];
 #### Radar Search
 
 The Google Places API Radar Search Service allows you to search for up to 200 places at once, but with less detail than is typically returned from a Text Search or Nearby Search request. With Radar Search, you can create applications that help users identify specific areas of interest within a geographic area.
-[See the official google documentation](https://developers.google.com/places/documentation/search#RadarSearchRequests).
+<a href="https://developers.google.com/places/documentation/search#RadarSearchRequests" target="_blank">See the official google documentation</a>.
 
 ``` objc
 GKPlacesQuery *query = [GKPlacesQuery query];
@@ -168,8 +168,8 @@ query.types = @[ @"library" ];
 ```
 #### Place Details
 
-The Google Places API Radar Search Service allows you to search for up to 200 places at once, but with less detail than is typically returned from a Text Search or Nearby Search request. With Radar Search, you can create applications that help users identify specific areas of interest within a geographic area.
-[See the official google documentation](https://developers.google.com/places/documentation/details).
+The Google Places API Radar Search Service allows you to search for up to 200 places at once, but with less detail than is typically returned from a Text Search or Nearby Search request. With Radar Search, you can create applications that help users identify specific areas of interest within a geographic area. 
+<a href="https://developers.google.com/places/documentation/details" target="_blank">See the official google documentation</a>.
 
 ``` objc
 GKPlaceDetailsQuery *query = [GKPlaceDetailsQuery query];

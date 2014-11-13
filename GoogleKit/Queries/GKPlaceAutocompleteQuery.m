@@ -24,7 +24,7 @@ static NSString *const kGoogleKitPlaceAutocompleteURL = @"https://maps.googleapi
 
 @interface GKPlaceAutocompleteQuery ()
 
-@property (nonatomic, strong) NSCache *cache;
+@property (nonatomic, strong, readonly) NSCache *cache;
 
 @end
 
@@ -35,11 +35,19 @@ static NSString *const kGoogleKitPlaceAutocompleteURL = @"https://maps.googleapi
     self = [super init];
     if (self) {
 
-        self.cache = [[NSCache alloc] init];        
         self.radius = 10000.0f;
         self.offset = 0;
     }
     return self;
+}
+
+- (NSCache *)cache {
+
+    static NSCache *_cache;
+    if (!_cache) {
+        _cache = [[NSCache alloc] init];
+    }
+    return _cache;
 }
 
 #pragma mark - Query
@@ -90,6 +98,11 @@ static NSString *const kGoogleKitPlaceAutocompleteURL = @"https://maps.googleapi
     for (NSDictionary *place in array) {
         [places addObject:[[GKPlaceAutocomplete alloc] initWithDictionary:place]];
     }
+    
+    if (array) {
+
+        [self.cache setObject:array forKey:self.input];
+    }
 
     dispatch_async(dispatch_get_main_queue(), ^{
         if (self.completionHandler)
@@ -113,6 +126,8 @@ static NSString *const kGoogleKitPlaceAutocompleteURL = @"https://maps.googleapi
 
     NSArray *array = [self.cache objectForKey:self.input];
     if (array) {
+        
+        NSLog(@"from array");
 
         if (self.completionHandler)
             self.completionHandler(array, nil);

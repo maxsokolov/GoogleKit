@@ -1,6 +1,6 @@
 # GoogleKit
 
-GoogleKit based on [Google Maps API](https://developers.google.com/maps/).
+GoogleKit based on <a href="https://developers.google.com/maps/" target="_blank">Google Maps API</a>.
 
 #### Usage
 

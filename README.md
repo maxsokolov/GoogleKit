@@ -7,31 +7,49 @@ GoogleKit based on [Google Maps API](https://developers.google.com/maps/).
 1. Install
 2. `#import "GoogleKit.h"` in your controller or .pch file.
 
-#### Geocoding
+#### Geocoding (Latitude/Longitude Lookup)
 
 Geocoding is the process of converting addresses (like "1600 Amphitheatre Parkway, Mountain View, CA") into geographic coordinates (like latitude 37.423021 and longitude -122.083739), which you can use to place markers or position the map.
-See [docs](https://developers.google.com/maps/documentation/geocoding/).
+[See the official google documentation](https://developers.google.com/maps/documentation/geocoding/).
 
 ``` objc
 GKGeocoderQuery *query = [GKGeocoderQuery query];
-query.key = @"your_google_api_key";
-query.language = @"lang";
-query.location = CLLocationCoordinate2DMake(0.0f, 0.0f);
-    
-[query lookupLocation:^(NSArray *result, NSError *error) {
-        
+
+// required parameters
+query.key = @"key"; // or client and signature parameters if you are using Maps for Work
+query.address = @"some address";
+
+// optional parameters
+query.language = @"en";
+query.region = @"us";
+query.components = @[ @"country:US" ];
+
+// perform query
+[query lookupLocation:^(NSArray *results, NSError *error) {
+
     GKGeocoderPlace *place = [result firstObject];
     //place.formattedAddress;
 }];
 ```
-#### Reverse Geocoding
+#### Reverse Geocoding (Address Lookup)
 
-The term geocoding generally refers to translating a human-readable address into a location on a map
-See [docs](https://developers.google.com/maps/documentation/geocoding/#ReverseGeocoding).
+The term geocoding generally refers to translating a human-readable address into a location on a map.
+[See the official google documentation](https://developers.google.com/maps/documentation/geocoding/#ReverseGeocoding).
 
 ``` objc
 GKGeocoderQuery *query = [GKGeocoderQuery query];
-query.address = address;
+
+// required parameters
+query.key = @"key";
+query.location = CLLocationCoordinate2DMake(0.0f, 0.0f);
+
+// optional parameters
+query.language = @"en";
+query.resultType = @[ @"street_address" ];
+query.locationType = @[ @"ROOFTOP" ];
+query.postalCode = @"000000";
+
+// perform query
 [query lookupAddress:^(NSArray *results, NSError *error) {
 
     GKGeocoderPlace *place = [results firstObject];
@@ -40,14 +58,24 @@ query.address = address;
 #### Place Autocomplete
 
 The Place Autocomplete service is useful in mobile apps, where you may want to offer users a location-based autocomplete feature.
-See [docs](https://developers.google.com/maps/documentation/geocoding/#ReverseGeocoding).
+[See the official google documentation](https://developers.google.com/maps/documentation/geocoding/#ReverseGeocoding).
 
 ``` objc
 GKPlaceAutocompleteQuery *query = [GKPlaceAutocompleteQuery query];
+
+// required parameters
+query.key = @"key";
 query.input = @"wall street";
+
+// optional parameters
 query.location = CLLocationCoordinate2DMake(55.738407f, 37.612306f); // New York City
 query.types = @[ @"geocode" ];
+query.components = @[ @"country:us" ];
 query.radius = 10000;
+query.offset = 3;
+query.language = @"en";
+
+// perform query
 [query fetchPlaces:^(NSArray *results, NSError *error) {
 
 	GKPlaceAutocomplete *place = [results firstObject];
@@ -56,31 +84,56 @@ query.radius = 10000;
 #### Nearby Search
 
 A Nearby Search lets you search for places within a specified area. You can refine your search request by supplying keywords or specifying the type of place you are searching for.
-See [docs](https://developers.google.com/places/documentation/search#PlaceSearchRequests).
+[See the official google documentation](https://developers.google.com/places/documentation/search#PlaceSearchRequests).
 
 ``` objc
-GKPlacesQuery *placesQuery = [GKPlacesQuery query];
-placesQuery.language = @"en";
-placesQuery.radius = 3000;
-placesQuery.types = @[ @"library" ];
-placesQuery.rankByDistance = NO;
-placesQuery.location = CLLocationCoordinate2DMake(40.71448f, -74.00598f); // New York City
-placesQuery.nextPageToken = self.nextPageToken;
-    
-[placesQuery nearbySearch:^(NSArray *results, NSString *nextPageToken, NSError *error) {
+GKPlacesQuery *query = [GKPlacesQuery query];
+
+// required parameters
+query.key = @"key";
+query.location = CLLocationCoordinate2DMake(40.71448f, -74.00598f); // New York City
+query.rankByDistance = NO; // if rankByDistance sets to YES radius will be ignored
+query.radius = 3000;
+
+// optional parameters
+query.language = @"en";
+query.keyword = @"keyword";
+query.minprice = 0;
+query.maxprice = 4;
+query.name = @"name";
+query.opennow = YES;
+query.types = @[ @"library" ];
+query.nextPageToken = @"token";
+
+// perform query
+[query nearbySearch:^(NSArray *results, NSString *nextPageToken, NSError *error) {
         
-	
+	GKPlace *place = [results firstObject];
 }];
 ```
 #### Text Search
 
 A Nearby Search lets you search for places within a specified area. You can refine your search request by supplying keywords or specifying the type of place you are searching for.
-See [docs](https://developers.google.com/places/documentation/search#TextSearchRequests).
+[See the official google documentation](https://developers.google.com/places/documentation/search#TextSearchRequests).
 
 ``` objc
-GKPlacesQuery *placesQuery = [GKPlacesQuery query];
+GKPlacesQuery *query = [GKPlacesQuery query];
 
-[placesQuery textSearch:^(NSArray *results, NSString *nextPageToken, NSError *error) {
+// required parameters
+query.key = @"key";
+query.text = @"the query string on which to search";
+
+// optional parameters
+query.language = @"en";
+query.location = CLLocationCoordinate2DMake(40.71448f, -74.00598f);
+query.radius = 3000;
+query.minprice = 0;
+query.maxprice = 4;
+query.opennow = YES;
+query.types = @[ @"library" ];
+
+// perform query
+[query textSearch:^(NSArray *results, NSString *nextPageToken, NSError *error) {
        
         
 }];
@@ -88,17 +141,18 @@ GKPlacesQuery *placesQuery = [GKPlacesQuery query];
 #### Radar Search
 
 The Google Places API Radar Search Service allows you to search for up to 200 places at once, but with less detail than is typically returned from a Text Search or Nearby Search request. With Radar Search, you can create applications that help users identify specific areas of interest within a geographic area.
-See [docs](https://developers.google.com/places/documentation/search#RadarSearchRequests).
+[See the official google documentation](https://developers.google.com/places/documentation/search#RadarSearchRequests).
 
 ``` objc
 GKPlacesQuery *query = [GKPlacesQuery query];
     
-// Required parameters
+// required parameters
 query.key = @"key";
 query.location = CLLocationCoordinate2DMake(40.71448f, -74.00598f); // New York City
 query.radius = 3000;
-    
-// Optional parameters
+
+// optional parameters
+query.language = @"en";
 query.keyword = @"";
 query.minprice = 0;
 query.maxprice = 4;
@@ -106,20 +160,28 @@ query.name = @"";
 query.opennow = YES;
 query.types = @[ @"library" ];
     
-// Perform query
+// perform query
 [query radarSearch:^(NSArray *results, NSString *nextPageToken, NSError *error) {
-       
+
 	GKPlace *place = [results firstObject];
 }];
 ```
 #### Place Details
 
 The Google Places API Radar Search Service allows you to search for up to 200 places at once, but with less detail than is typically returned from a Text Search or Nearby Search request. With Radar Search, you can create applications that help users identify specific areas of interest within a geographic area.
-See [docs](https://developers.google.com/places/documentation/details).
+[See the official google documentation](https://developers.google.com/places/documentation/details).
 
 ``` objc
 GKPlaceDetailsQuery *query = [GKPlaceDetailsQuery query];
+
+// required parameters
 query.placeId = @"id";
+
+// optional parameters
+query.language = @"en";
+query.extensions = @"review_summary";
+
+// perform query
 [query fetchDetails:^(GKPlaceDetails *place, NSError *error) {
 
 }];

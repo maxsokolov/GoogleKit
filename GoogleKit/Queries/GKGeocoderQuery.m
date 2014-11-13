@@ -35,26 +35,43 @@ static NSString *const kGKGeocoderURL = @"https://maps.googleapis.com/maps/api/g
 - (NSURL *)queryURL {
 
     NSMutableString *url = [NSMutableString stringWithFormat:kGKGeocoderURL, self.key];
-    
+
     if (self.isReverseGeocoding) {
 
-        if (self.location.latitude != -1) {
+        if (CLLocationCoordinate2DIsValid(self.location)) {
             [url appendFormat:@"&latlng=%f,%f", self.location.latitude, self.location.longitude];
+        }
+        if (self.resultType && self.resultType.count > 0) {
+            [url appendFormat:@"&result_type=%@", [self.resultType componentsJoinedByString:@"|"]];
+        }
+        if (self.postalCode) {
+            [url appendFormat:@"&postal_code=%@", self.postalCode];
+        }
+        if (self.locationType) {
+            [url appendFormat:@"&location_type=%@", [self.locationType componentsJoinedByString:@"|"]];
         }
     }
     else {
-        
+
         if (self.address) {
-            [url appendFormat:@"&address=%@", self.address];
+            [url appendFormat:@"&address=%@", [self.address stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
         }
+        if (self.components ) {
+            [url appendFormat:@"&components=%@", [self.components componentsJoinedByString:@"|"]];
+        }
+        if (self.region ) {
+            [url appendFormat:@"&region=%@", self.region];
+        }
+        /*if (self.bounds && self.bounds.count == 4) {
+            [url appendFormat:@"&bounds=%@,%@|%@,%@", self.bounds[0], self.bounds[1], self.bounds[2], self.bounds[3]];
+        }*/
     }
 
     if (self.language) {
         [url appendFormat:@"&language=%@", self.language];
     }
-    if (self.components ) {
-        [url appendFormat:@"&components=%@", self.components];
-    }
+    
+    NSLog(@"URL %@", [NSURL URLWithString:url]);
 
     return [NSURL URLWithString:url];
 }
@@ -87,10 +104,10 @@ static NSString *const kGKGeocoderURL = @"https://maps.googleapis.com/maps/api/g
 #pragma mark - Public methods
 
 - (void)lookupLocation:(GKQueryCompletionBlock)completionHandler {
-    
+
     [self cancelQuery];
 
-    self.reverseGeocoding = YES;
+    self.reverseGeocoding = NO;
     self.completionHandler = completionHandler;
 
     [self performQuery];
@@ -100,7 +117,7 @@ static NSString *const kGKGeocoderURL = @"https://maps.googleapis.com/maps/api/g
     
     [self cancelQuery];
     
-    self.reverseGeocoding = NO;
+    self.reverseGeocoding = YES;
     self.completionHandler = completionHandler;
 
     [self performQuery];

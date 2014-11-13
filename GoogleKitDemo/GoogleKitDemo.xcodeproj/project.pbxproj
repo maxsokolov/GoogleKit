@@ -27,6 +27,7 @@
 		DAE186261A13E8F6001185C9 /* GKAutocompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE186251A13E8F6001185C9 /* GKAutocompleteViewController.m */; };
 		DAE186291A13F5DE001185C9 /* GKNearbySearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE186281A13F5DE001185C9 /* GKNearbySearchViewController.m */; };
 		DAE1862C1A140068001185C9 /* GKMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE1862B1A140068001185C9 /* GKMapAnnotation.m */; };
+		DAE1862E1A14C7FF001185C9 /* Pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAE1862D1A14C7FF001185C9 /* Pin@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		DAE186281A13F5DE001185C9 /* GKNearbySearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKNearbySearchViewController.m; sourceTree = "<group>"; };
 		DAE1862A1A140068001185C9 /* GKMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKMapAnnotation.h; sourceTree = "<group>"; };
 		DAE1862B1A140068001185C9 /* GKMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKMapAnnotation.m; sourceTree = "<group>"; };
+		DAE1862D1A14C7FF001185C9 /* Pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pin@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 		DAE185CC1A13AD67001185C9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DAE1862D1A14C7FF001185C9 /* Pin@2x.png */,
 				DAE186221A13B18A001185C9 /* Default-568h@2x.png */,
 				DAE185CD1A13AD67001185C9 /* Info.plist */,
 				DAE185CE1A13AD67001185C9 /* main.m */,
@@ -295,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAE186231A13B18A001185C9 /* Default-568h@2x.png in Resources */,
+				DAE1862E1A14C7FF001185C9 /* Pin@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

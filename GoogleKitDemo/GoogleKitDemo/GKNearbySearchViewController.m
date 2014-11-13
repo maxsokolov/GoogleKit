@@ -49,41 +49,20 @@
 
 - (void)loadPlaces {
     
-    GKPlacesQuery *placesQuery = [GKPlacesQuery query];
-    placesQuery.language = @"en";
-    placesQuery.radius = 3000;
-    placesQuery.types = @[ @"library" ];
-    placesQuery.rankByDistance = NO;
-    placesQuery.location = CLLocationCoordinate2DMake(40.71448f, -74.00598f); // New York City
-    placesQuery.nextPageToken = self.nextPageToken;
+    GKPlacesQuery *query = [GKPlacesQuery query];
+    query.language = @"en";
+    query.radius = 3000;
+    query.types = @[ @"library" ];
+    query.rankByDistance = NO;
+    query.location = CLLocationCoordinate2DMake(40.71448f, -74.00598f); // New York City
+    query.nextPageToken = self.nextPageToken;
     
-    [placesQuery nearbySearch:^(NSArray *results, NSString *nextPageToken, NSError *error) {
+    [query nearbySearch:^(NSArray *results, NSString *nextPageToken, NSError *error) {
         
         [self.dataSource addObjectsFromArray:results];
         [self buildAnnotations:results];
         
         self.nextPageToken = nextPageToken;
-    }];
-    
-    GKPlacesQuery *query = [GKPlacesQuery query];
-    
-    // Required parameters
-    query.key = @"key";
-    query.location = CLLocationCoordinate2DMake(40.71448f, -74.00598f); // New York City
-    query.radius = 3000;
-    
-    // Optional parameters
-    query.keyword = @"";
-    query.minprice = 0;
-    query.maxprice = 4;
-    query.name = @"";
-    query.opennow = YES;
-    query.types = @[ @"library" ];
-    
-    /// Perform query
-    [query radarSearch:^(NSArray *results, NSString *nextPageToken, NSError *error) {
-       
-        GKPlace *place = [results firstObject];
     }];
 }
 

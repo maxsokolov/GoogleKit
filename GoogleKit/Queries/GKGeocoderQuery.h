@@ -27,12 +27,19 @@
  */
 @interface GKGeocoderQuery : GKQuery
 
-@property (nonatomic, strong) NSString *address;
-@property (nonatomic, assign) CLLocationCoordinate2D location;
-@property (nonatomic, assign) CGSize bounds;
 @property (nonatomic, strong) NSString *language;
+
+// Geocoding (Latitude/Longitude Lookup)
+@property (nonatomic, strong) NSString *address;
+@property (nonatomic, strong) NSArray *components;
 @property (nonatomic, strong) NSString *region;
-@property (nonatomic, strong) NSString *components;
+//@property (nonatomic, strong) NSArray *bounds;
+
+// Reverse Geocoding (Address Lookup)
+@property (nonatomic, assign) CLLocationCoordinate2D location;
+@property (nonatomic, strong) NSArray *locationType;
+@property (nonatomic, strong) NSArray *resultType;
+@property (nonatomic, strong) NSString *postalCode;
 
 - (void)lookupLocation:(GKQueryCompletionBlock)completionHandler;
 - (void)lookupAddress:(GKQueryCompletionBlock)completionHandler;

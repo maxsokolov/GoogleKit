@@ -64,6 +64,27 @@
         
         self.nextPageToken = nextPageToken;
     }];
+    
+    GKPlacesQuery *query = [GKPlacesQuery query];
+    
+    // Required parameters
+    query.key = @"key";
+    query.location = CLLocationCoordinate2DMake(40.71448f, -74.00598f); // New York City
+    query.radius = 3000;
+    
+    // Optional parameters
+    query.keyword = @"";
+    query.minprice = 0;
+    query.maxprice = 4;
+    query.name = @"";
+    query.opennow = YES;
+    query.types = @[ @"library" ];
+    
+    /// Perform query
+    [query radarSearch:^(NSArray *results, NSString *nextPageToken, NSError *error) {
+       
+        GKPlace *place = [results firstObject];
+    }];
 }
 
 - (void)buildAnnotations:(NSArray *)places {

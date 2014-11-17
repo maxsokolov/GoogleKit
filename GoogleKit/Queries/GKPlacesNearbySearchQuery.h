@@ -19,21 +19,36 @@
 //    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import "GKQuery.h"
-#import "GKPlaceDetails.h"
+#import "GKPlace.h"
 
-typedef void (^GKPlaceDetailsQueryCompletionBlock)(GKPlaceDetails *place, NSError *error);
+typedef void (^GKPlacesNearbySearchQueryCompletionBlock)(NSArray *results, NSString *nextPageToken, NSError *error);
+
+/**
+ * Description
+ * @see https://developers.google.com/places/documentation/search#PlaceSearchRequests
+ */
+@interface GKPlacesNearbySearchQuery : GKQuery
+
+// required parameters
+@property (nonatomic, assign) CLLocationCoordinate2D location;
+@property (nonatomic, assign) NSUInteger radius;
+
+// optional parameters
+@property (nonatomic, strong) NSString *keyword;
+@property (nonatomic, assign) NSUInteger minprice; // 0...4
+@property (nonatomic, assign) NSUInteger maxprice; // 0...4
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, assign) BOOL opennow;
+@property (nonatomic, assign) BOOL rankByDistance;
 
 /*
  * Description
- * @see https://developers.google.com/places/documentation/details
+ * @see https://developers.google.com/places/documentation/supported_types
  */
-@interface GKPlaceDetailsQuery : GKQuery
+@property (nonatomic, strong) NSArray *types;
 
-@property (nonatomic, copy) GKPlaceDetailsQueryCompletionBlock completionHandler;
+@property (nonatomic, strong) NSString *nextPageToken;
 
-@property (nonatomic, strong) NSString *placeId;
-@property (nonatomic, strong) NSString *extensions;
-
-- (void)fetchDetails:(GKPlaceDetailsQueryCompletionBlock)completionHandler;
+- (void)searchPlaces:(GKPlacesNearbySearchQueryCompletionBlock)completionHandler;
 
 @end

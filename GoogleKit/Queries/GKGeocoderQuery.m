@@ -30,6 +30,16 @@ static NSString *const kGKGeocoderURL = @"https://maps.googleapis.com/maps/api/g
 
 @implementation GKGeocoderQuery
 
+- (id)init {
+    
+    self = [super init];
+    if (self) {
+
+        self.location = kCLLocationCoordinate2DInvalid;
+    }
+    return self;
+}
+
 #pragma mark - GKQueryProtocol
 
 - (NSURL *)queryURL {
@@ -47,7 +57,7 @@ static NSString *const kGKGeocoderURL = @"https://maps.googleapis.com/maps/api/g
         if (self.postalCode) {
             [url appendFormat:@"&postal_code=%@", self.postalCode];
         }
-        if (self.locationType) {
+        if (self.locationType && self.locationType.count > 0) {
             [url appendFormat:@"&location_type=%@", [self.locationType componentsJoinedByString:@"|"]];
         }
     }
@@ -56,7 +66,7 @@ static NSString *const kGKGeocoderURL = @"https://maps.googleapis.com/maps/api/g
         if (self.address) {
             [url appendFormat:@"&address=%@", [self.address stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
         }
-        if (self.components ) {
+        if (self.components && self.components.count > 0) {
             [url appendFormat:@"&components=%@", [self.components componentsJoinedByString:@"|"]];
         }
         if (self.region ) {

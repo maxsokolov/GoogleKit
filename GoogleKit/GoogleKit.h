@@ -21,7 +21,8 @@
 #ifndef GoogleKit_h
 #define GoogleKit_h
 
-#import "GKPlacesQuery.h"
+#import "GKPlacesNearbySearchQuery.h"
+#import "GKPlacesTextSearchQuery.h"
 #import "GKPlaceAutocompleteQuery.h"
 #import "GKGeocoderQuery.h"
 #import "GKPlaceDetailsQuery.h"

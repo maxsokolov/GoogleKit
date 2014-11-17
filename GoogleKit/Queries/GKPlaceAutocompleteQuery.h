@@ -22,8 +22,8 @@
 #import "GKPlaceAutocomplete.h"
 
 /*
- Description
- @see https://developers.google.com/places/documentation/autocomplete
+ * Description
+ * @see https://developers.google.com/places/documentation/autocomplete
  */
 @interface GKPlaceAutocompleteQuery : GKQuery
 
@@ -33,14 +33,8 @@
 @property (nonatomic, assign) CLLocationCoordinate2D location;
 
 /*
- Description
- @see https://developers.google.com/maps/faq#languagesupport
- */
-@property (nonatomic, strong) NSString *language;
-
-/*
- Description
- @see https://developers.google.com/places/documentation/autocomplete#place_types
+ * Description
+ * @see https://developers.google.com/places/documentation/autocomplete#place_types
  */
 @property (nonatomic, strong) NSArray *types;
 @property (nonatomic, strong) NSArray *components;

@@ -18,67 +18,56 @@
 //    IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 //    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "GKPlaceAutocompleteQuery.h"
+#import "GKPlacesTextSearchQuery.h"
 
-static NSString *const kGoogleKitPlaceAutocompleteURL = @"https://maps.googleapis.com/maps/api/place/autocomplete/json?input=%@&key=%@";
+static NSString *const kGKPlacesTextSearchQueryTextSearchURL   = @"https://maps.googleapis.com/maps/api/place/textsearch/json?key=%@";
 
-@interface GKPlaceAutocompleteQuery ()
-
-@property (nonatomic, strong, readonly) NSCache *cache;
-
-@end
-
-@implementation GKPlaceAutocompleteQuery
+@implementation GKPlacesTextSearchQuery
 
 - (id)init {
     
     self = [super init];
     if (self) {
-
-        self.radius = 10000.0f;
-        self.offset = 0;
+        
+        self.minprice = -1;
+        self.maxprice = -1;
+        self.radius = -1;
         self.location = kCLLocationCoordinate2DInvalid;
     }
     return self;
 }
 
-- (NSCache *)cache {
-
-    static NSCache *_cache;
-    if (!_cache) {
-        _cache = [[NSCache alloc] init];
-    }
-    return _cache;
-}
-
-#pragma mark - Query
+#pragma mark - GKQueryProtocol
 
 - (NSURL *)queryURL {
+    
+    NSMutableString *url = [NSMutableString stringWithFormat:kGKPlacesTextSearchQueryTextSearchURL, self.key];
 
-    NSMutableString *url = [NSMutableString stringWithFormat:kGoogleKitPlaceAutocompleteURL, [self.input stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], self.key];
-
-    if (self.offset != 0) {
-        [url appendFormat:@"&offset=%@", @(self.offset)];
+    if (self.text) {
+        [url appendFormat:@"&query=%@", [self.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     }
-    if (self.location.latitude != -1) {
+    if (CLLocationCoordinate2DIsValid(self.location)) {
         [url appendFormat:@"&location=%f,%f", self.location.latitude, self.location.longitude];
     }
-    if (self.radius != 0) {
+    if (self.radius != -1) {
         [url appendFormat:@"&radius=%@", @(self.radius)];
     }
     if (self.language) {
         [url appendFormat:@"&language=%@", self.language];
     }
+    if (self.minprice != -1) {
+        [url appendFormat:@"&minprice=%@", @(self.minprice)];
+    }
+    if (self.maxprice != -1) {
+        [url appendFormat:@"&maxprice=%@", @(self.maxprice)];
+    }
+    if (self.opennow) {
+        [url appendString:@"&opennow=true"];
+    }
     if (self.types && self.types.count > 0) {
         [url appendFormat:@"&types=%@", [self.types componentsJoinedByString:@"|"]];
     }
-    else {
-        [url appendString:@"&types=geocode"];
-    }
-    if (self.components && self.components.count > 0) {
-        [url appendFormat:@"&components=%@", [self.components componentsJoinedByString:@"|"]];
-    }
-
+    
     return [NSURL URLWithString:url];
 }
 
@@ -92,50 +81,27 @@ static NSString *const kGoogleKitPlaceAutocompleteURL = @"https://maps.googleapi
         });
         return;
     }
-
-    NSArray *array = [response objectForKey:@"predictions"];
-
-    NSMutableArray *places = [NSMutableArray array];
-    for (NSDictionary *place in array) {
-        [places addObject:[[GKPlaceAutocomplete alloc] initWithDictionary:place]];
-    }
     
-    if (array) {
-
-        [self.cache setObject:array forKey:self.input];
+    NSArray *results = response[@"results"];
+    NSMutableArray *places = [NSMutableArray array];
+    
+    for (NSDictionary *dictionary in results) {
+        
+        [places addObject:[[GKPlace alloc] initWithDictionary:dictionary]];
     }
 
     dispatch_async(dispatch_get_main_queue(), ^{
-        if (self.completionHandler)
+        if (self.completionHandler) {
             self.completionHandler(places, nil);
+        }
     });
 }
 
 #pragma mark - Public methods
 
-- (void)fetchPlaces:(GKQueryCompletionBlock)completionHandler {
+- (void)searchPlaces:(GKPlacesTextSearchQueryCompletionBlock)completionHandler {
     
     self.completionHandler = completionHandler;
-    
-    if (!self.input || !self.input.length) {
-        
-        if (self.completionHandler)
-            self.completionHandler([NSArray array], nil);
-        
-        return;
-    }
-
-    NSArray *array = [self.cache objectForKey:self.input];
-    if (array) {
-        
-        NSLog(@"from array");
-
-        if (self.completionHandler)
-            self.completionHandler(array, nil);
-
-        return;
-    }
-    
     [self performQuery];
 }
 

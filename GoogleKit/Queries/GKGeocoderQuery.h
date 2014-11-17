@@ -27,12 +27,12 @@
  */
 @interface GKGeocoderQuery : GKQuery
 
-@property (nonatomic, strong) NSString *language;
-
 // Geocoding (Latitude/Longitude Lookup)
 @property (nonatomic, strong) NSString *address;
 @property (nonatomic, strong) NSArray *components;
 @property (nonatomic, strong) NSString *region;
+
+// implementation in progress
 //@property (nonatomic, strong) NSArray *bounds;
 
 // Reverse Geocoding (Address Lookup)

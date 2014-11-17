@@ -18,30 +18,27 @@
 //    IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 //    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "GKPlacesQuery.h"
+#import "GKPlacesRadarSearchQuery.h"
 
-static NSString *const kGKPlacesQueryNearbySearchURL = @"https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=%@";
-static NSString *const kGKPlacesQueryTextSearchURL   = @"https://maps.googleapis.com/maps/api/place/textsearch/json?key=%@";
-static NSString *const kGKPlacesQueryRadarSearchURL  = @"https://maps.googleapis.com/maps/api/place/radarsearch/json?key=%@";
+static NSString *const kGKPlacesRadarSearchQueryURL  = @"https://maps.googleapis.com/maps/api/place/radarsearch/json?key=%@";
 
-@interface GKPlacesQuery ()
+@interface GKPlacesRadarSearchQuery ()
 
-@property (nonatomic, copy) GKPlacesQueryCompletionBlock completionHandler;
-@property (nonatomic, strong) NSString *baseURL;
+@property (nonatomic, copy) GKPlacesRadarSearchQueryCompletionBlock completionHandler;
 
 @end
 
-@implementation GKPlacesQuery
+@implementation GKPlacesRadarSearchQuery
 
 - (id)init {
     
     self = [super init];
     if (self) {
-
+        
         self.minprice = -1;
         self.maxprice = -1;
-        self.radius = 1000;
-        self.rankByDistance = NO;
+        self.radius = -1;
+        self.location = kCLLocationCoordinate2DInvalid;
     }
     return self;
 }
@@ -50,29 +47,10 @@ static NSString *const kGKPlacesQueryRadarSearchURL  = @"https://maps.googleapis
 
 - (NSURL *)queryURL {
 
-    NSMutableString *url = [NSMutableString stringWithFormat:self.baseURL, self.key];
-
-    if (self.nextPageToken && self.nextPageToken.length > 0) {
-
-        [url appendFormat:@"&pagetoken=%@", self.nextPageToken];
-        return [NSURL URLWithString:url];
-    }
-
-    if (self.text) {
-        [url appendFormat:@"&query=%@", [self.keyword stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    }
+    NSMutableString *url = [NSMutableString stringWithFormat:kGKPlacesRadarSearchQueryURL, self.key];
+    
     if (CLLocationCoordinate2DIsValid(self.location)) {
         [url appendFormat:@"&location=%f,%f", self.location.latitude, self.location.longitude];
-    }
-    if (self.rankByDistance) {
-        [url appendString:@"&rankby=distance"];
-    }
-    else {
-        [url appendString:@"&rankby=prominence"];
-
-        if (self.radius != 0) {
-            [url appendFormat:@"&radius=%@", @(self.radius)];
-        }
     }
     if (self.keyword) {
         [url appendFormat:@"&keyword=%@", [self.keyword stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
@@ -95,61 +73,41 @@ static NSString *const kGKPlacesQueryRadarSearchURL  = @"https://maps.googleapis
     if (self.types && self.types.count > 0) {
         [url appendFormat:@"&types=%@", [self.types componentsJoinedByString:@"|"]];
     }
-
+    
     return [NSURL URLWithString:url];
 }
 
 - (void)handleQueryResponse:(NSDictionary *)response error:(NSError *)error {
     
     if (error) {
-
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             if (self.completionHandler)
-                self.completionHandler(nil, nil, error);
+                self.completionHandler(nil, error);
         });
         return;
     }
     
-    NSString *nextPageToken = [response objectForKey:@"next_page_token"];
-    
-    NSArray *results = [response objectForKey:@"results"];
+    NSArray *results = response[@"results"];
     NSMutableArray *places = [NSMutableArray array];
-
+    
     for (NSDictionary *dictionary in results) {
-
+        
         [places addObject:[[GKPlace alloc] initWithDictionary:dictionary]];
     }
-
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         if (self.completionHandler) {
-            self.completionHandler(places, nextPageToken, nil);
+            self.completionHandler(places, nil);
         }
     });
 }
 
 #pragma mark - Public methods
 
-- (void)nearbySearch:(GKPlacesQueryCompletionBlock)completionHandler {
+- (void)searchPlaces:(GKPlacesRadarSearchQueryCompletionBlock)completionHandler {
 
     self.completionHandler = completionHandler;
-    self.baseURL = kGKPlacesQueryNearbySearchURL;
-
-    [self performQuery];
-}
-
-- (void)textSearch:(GKPlacesQueryCompletionBlock)completionHandler {
-
-    self.completionHandler = completionHandler;
-    self.baseURL = kGKPlacesQueryTextSearchURL;
-    
-    [self performQuery];
-}
-
-- (void)radarSearch:(GKPlacesQueryCompletionBlock)completionHandler {
-
-    self.completionHandler = completionHandler;
-    self.baseURL = kGKPlacesQueryRadarSearchURL;
-
     [self performQuery];
 }
 

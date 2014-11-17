@@ -33,7 +33,7 @@ static NSString *_APIKey = nil;
 
 + (instancetype)query {
 
-    return [[self alloc] init];
+    return [self new];
 }
 
 - (void)performQuery {

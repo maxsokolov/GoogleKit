@@ -10,6 +10,7 @@
 #import "GKMapGeocoderViewController.h"
 #import "GKAutocompleteViewController.h"
 #import "GKNearbySearchViewController.h"
+#import "GKTextSearchViewController.h"
 #import "GoogleKit.h"
 
 @interface GKRootViewController ()
@@ -23,13 +24,13 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
+
     self.title = @"GoogleKit";
-    
+
     [GKQuery provideAPIKey:@"AIzaSyDYSyHklqn-3aFjic9XatFN5fm8b5Uz15M"];
     [GKQuery loggingEnabled:YES];
     
-    self.dataSource = @[@"Geocoder", @"Autocomplete places", @"Nearby Search & Place Details"];
+    self.dataSource = @[@"Geocoder", @"Autocomplete places", @"Nearby Search & Place Details", @"Text search"];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
 }
@@ -67,6 +68,11 @@
         case 2: {
 
             [self.navigationController pushViewController:[GKNearbySearchViewController new] animated:YES];
+            break;
+        }
+        case 3: {
+
+            [self.navigationController pushViewController:[GKTextSearchViewController new] animated:YES];
             break;
         }
         default:

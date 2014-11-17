@@ -49,15 +49,15 @@
 
 - (void)loadPlaces {
     
-    GKPlacesQuery *query = [GKPlacesQuery query];
+    GKPlacesNearbySearchQuery *query = [GKPlacesNearbySearchQuery query];
     query.language = @"en";
     query.radius = 3000;
     query.types = @[ @"library" ];
     query.rankByDistance = NO;
     query.location = CLLocationCoordinate2DMake(40.71448f, -74.00598f); // New York City
     query.nextPageToken = self.nextPageToken;
-    
-    [query nearbySearch:^(NSArray *results, NSString *nextPageToken, NSError *error) {
+
+    [query searchPlaces:^(NSArray *results, NSString *nextPageToken, NSError *error) {
         
         [self.dataSource addObjectsFromArray:results];
         [self buildAnnotations:results];

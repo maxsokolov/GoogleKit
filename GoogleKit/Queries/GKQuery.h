@@ -42,6 +42,12 @@ typedef void (^GKQueryCompletionBlock)(id results, NSError *error);
 @property (nonatomic, copy) GKQueryCompletionBlock completionHandler;
 @property (nonatomic, strong) NSString *key;
 
+/*
+ * Description
+ * @see https://developers.google.com/maps/faq#languagesupport
+ */
+@property (nonatomic, strong) NSString *language;
+
 /**
  * Description
  * @see maps api for business https://developers.google.com/maps/documentation/business/webservices/

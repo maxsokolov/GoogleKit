@@ -21,56 +21,25 @@
 #import "GKQuery.h"
 #import "GKPlace.h"
 
-typedef void (^GKPlacesQueryCompletionBlock)(NSArray *results, NSString *nextPageToken, NSError *error);
+typedef void (^GKPlacesTextSearchQueryCompletionBlock)(NSArray *results, NSError *error);
 
 /**
  * Description
- * @see https://developers.google.com/places/documentation/search
+ * @see https://developers.google.com/places/documentation/search#TextSearchRequests
  */
-@interface GKPlacesQuery : GKQuery
+@interface GKPlacesTextSearchQuery : GKQuery
 
-// required
+// required parameters
+@property (nonatomic, strong) NSString *text; // becomes "query" param in request url
 
+// optional parameters
 @property (nonatomic, assign) CLLocationCoordinate2D location;
 @property (nonatomic, assign) NSUInteger radius;
-@property (nonatomic, assign) BOOL rankByDistance;
-
-// optional
-
-@property (nonatomic, strong) NSString *keyword;
-@property (nonatomic, strong) NSString *text;
-@property (nonatomic, strong) NSString *language;
-@property (nonatomic, strong) NSString *name;
+@property (nonatomic, assign) NSUInteger minprice; // 0...4
+@property (nonatomic, assign) NSUInteger maxprice; // 0...4
 @property (nonatomic, assign) BOOL opennow;
-
-@property (nonatomic, strong) NSString *nextPageToken;
-
-/*
- Description
- @see https://developers.google.com/places/documentation/supported_types
- */
 @property (nonatomic, strong) NSArray *types;
 
-// 0...4
-@property (nonatomic, assign) NSUInteger minprice;
-@property (nonatomic, assign) NSUInteger maxprice;
-
-/*
- Description
- @see https://developers.google.com/places/documentation/search#PlaceSearchRequests
- */
-- (void)nearbySearch:(GKPlacesQueryCompletionBlock)completionHandler;
-
-/*
- Description
- @see https://developers.google.com/places/documentation/search#TextSearchRequests
- */
-- (void)textSearch:(GKPlacesQueryCompletionBlock)completionHandler;
-
-/*
- Description
- @see https://developers.google.com/places/documentation/search#RadarSearchRequests
- */
-- (void)radarSearch:(GKPlacesQueryCompletionBlock)completionHandler;
+- (void)searchPlaces:(GKPlacesTextSearchQueryCompletionBlock)completionHandler;
 
 @end

@@ -21,7 +21,11 @@
 
     [query searchPlaces:^(NSArray *results, NSError *error) {
        
-        
+        if (results) {
+            
+            GKPlace *place = [results firstObject];
+            NSLog(@"Result: %@", place.formattedAddress);
+        }
     }];
 }
 

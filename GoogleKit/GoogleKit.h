@@ -23,6 +23,7 @@
 
 #import "GKPlacesNearbySearchQuery.h"
 #import "GKPlacesTextSearchQuery.h"
+#import "GKPlacesRadarSearchQuery.h"
 #import "GKPlaceAutocompleteQuery.h"
 #import "GKGeocoderQuery.h"
 #import "GKPlaceDetailsQuery.h"

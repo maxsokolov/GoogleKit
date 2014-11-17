@@ -33,7 +33,6 @@
     
     self.mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
     self.mapView.delegate = self;
-    self.mapView.showsUserLocation = YES;
     [self.view addSubview:self.mapView];
     
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(40.71448f, -74.00598f), 15000.0f, 15000.0f); // New York City
@@ -88,6 +87,8 @@
         if (error) return;
         
         if (place.phoneNumber) {
+            
+            NSLog(@"PHONE NUMBER: %@", place.phoneNumber);
 
             NSString *phoneNumber = [@"telprompt://" stringByAppendingString:place.phoneNumber];
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];

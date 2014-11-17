@@ -80,8 +80,6 @@ static NSString *const kGKGeocoderURL = @"https://maps.googleapis.com/maps/api/g
     if (self.language) {
         [url appendFormat:@"&language=%@", self.language];
     }
-    
-    NSLog(@"URL %@", [NSURL URLWithString:url]);
 
     return [NSURL URLWithString:url];
 }

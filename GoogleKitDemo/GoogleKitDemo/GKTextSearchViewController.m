@@ -15,7 +15,14 @@
     
     [super viewDidLoad];
   
-    
+    GKPlacesTextSearchQuery *query = [GKPlacesTextSearchQuery query];
+    query.language = @"en";
+    query.text = @"london";
+
+    [query searchPlaces:^(NSArray *results, NSError *error) {
+       
+        
+    }];
 }
 
 @end

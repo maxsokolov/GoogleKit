@@ -87,7 +87,7 @@ A Nearby Search lets you search for places within a specified area. You can refi
 <a href="https://developers.google.com/places/documentation/search#PlaceSearchRequests" target="_blank">See the official google documentation</a>.
 
 ``` objc
-GKPlacesQuery *query = [GKPlacesQuery query];
+GKPlacesNearbySearchQuery *query = [GKPlacesNearbySearchQuery query];
 
 // required parameters
 query.key = @"key";
@@ -106,7 +106,7 @@ query.types = @[ @"library" ];
 query.nextPageToken = @"token";
 
 // perform query
-[query nearbySearch:^(NSArray *results, NSString *nextPageToken, NSError *error) {
+[query searchPlaces:^(NSArray *results, NSString *nextPageToken, NSError *error) {
         
 	GKPlace *place = [results firstObject];
 }];
@@ -117,7 +117,7 @@ A Nearby Search lets you search for places within a specified area. You can refi
 <a href="https://developers.google.com/places/documentation/search#TextSearchRequests" target="_blank">See the official google documentation</a>.
 
 ``` objc
-GKPlacesQuery *query = [GKPlacesQuery query];
+GKPlacesTextSearchQuery *query = [GKPlacesTextSearchQuery query];
 
 // required parameters
 query.key = @"key";
@@ -133,9 +133,9 @@ query.opennow = YES;
 query.types = @[ @"library" ];
 
 // perform query
-[query textSearch:^(NSArray *results, NSString *nextPageToken, NSError *error) {
+[query searchPlaces:^(NSArray *results, NSError *error) {
        
-        
+	GKPlace *place = [results firstObject]; 
 }];
 ```
 #### Radar Search
@@ -144,7 +144,7 @@ The Google Places API Radar Search Service allows you to search for up to 200 pl
 <a href="https://developers.google.com/places/documentation/search#RadarSearchRequests" target="_blank">See the official google documentation</a>.
 
 ``` objc
-GKPlacesQuery *query = [GKPlacesQuery query];
+GKPlacesRadarSearchQuery *query = [GKPlacesRadarSearchQuery query];
     
 // required parameters
 query.key = @"key";
@@ -161,7 +161,7 @@ query.opennow = YES;
 query.types = @[ @"library" ];
     
 // perform query
-[query radarSearch:^(NSArray *results, NSString *nextPageToken, NSError *error) {
+[query searchPlaces:^(NSArray *results, NSError *error) {
 
 	GKPlace *place = [results firstObject];
 }];

@@ -44,10 +44,19 @@ static NSString *_APIKey = nil;
         [self handleQueryResponse:nil error:[NSError errorWithDomain:GK_ERROR_DOMAIN code:42 userInfo:@{ NSLocalizedDescriptionKey: @"bad url" }]];
         return;
     }
+    
+    if (_logging) {
+        NSLog(@"GOOGLE KIT REQUEST URL: %@\n\n", url);
+    }
 
+    // performs in background thread
     self.sessionTask = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 
         if (error) {
+            
+            if (_logging) {
+                NSLog(@"GOOGLE KIT CONNECTION ERROR: %@\n\n", error);
+            }
 
             [self handleQueryResponse:nil error:error];
             return;
@@ -56,13 +65,18 @@ static NSString *_APIKey = nil;
         NSError *jsonError = nil;
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
 
-        if (_logging)
-            NSLog(@"GK REQUEST: %@\nGK RESPONSE:", url);
-
         if (jsonError) {
+            
+            if (_logging) {
+                NSLog(@"GOOGLE KIT PARSING ERROR: %@\n\n", error);
+            }
 
             [self handleQueryResponse:nil error:jsonError];
             return;
+        }
+        
+        if (_logging) {
+            NSLog(@"GOOGLE KIT RESPONSE: %@\n\n", json);
         }
 
         if ([[json objectForKey:@"status"] isEqualToString:@"OK"] ||
@@ -76,7 +90,7 @@ static NSString *_APIKey = nil;
         [self handleQueryResponse:nil error:[NSError errorWithDomain:GK_ERROR_DOMAIN code:23 userInfo:json]];
     }];
 
-    // start task
+    // start the task
     [self.sessionTask resume];
 }
 

@@ -1,0 +1,363 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DAC347A31A23D9E300B1752C /* GoogleKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC347A21A23D9E300B1752C /* GoogleKitTests.m */; };
+		DAC347B81A23E06F00B1752C /* GKGeocoderPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC347AF1A23E06F00B1752C /* GKGeocoderPlace.m */; };
+		DAC347B91A23E06F00B1752C /* GKObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC347B11A23E06F00B1752C /* GKObject.m */; };
+		DAC347BA1A23E06F00B1752C /* GKPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC347B31A23E06F00B1752C /* GKPlace.m */; };
+		DAC347BB1A23E06F00B1752C /* GKPlaceAutocomplete.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC347B51A23E06F00B1752C /* GKPlaceAutocomplete.m */; };
+		DAC347BC1A23E06F00B1752C /* GKPlaceDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC347B71A23E06F00B1752C /* GKPlaceDetails.m */; };
+		DAC347CD1A23E07900B1752C /* GKGeocoderQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC347BE1A23E07900B1752C /* GKGeocoderQuery.m */; };
+		DAC347CE1A23E07900B1752C /* GKPlaceAutocompleteQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC347C01A23E07900B1752C /* GKPlaceAutocompleteQuery.m */; };
+		DAC347CF1A23E07900B1752C /* GKPlaceDetailsQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC347C21A23E07900B1752C /* GKPlaceDetailsQuery.m */; };
+		DAC347D01A23E07900B1752C /* GKPlacesNearbySearchQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC347C41A23E07900B1752C /* GKPlacesNearbySearchQuery.m */; };
+		DAC347D11A23E07900B1752C /* GKPlacesRadarSearchQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC347C61A23E07900B1752C /* GKPlacesRadarSearchQuery.m */; };
+		DAC347D21A23E07900B1752C /* GKPlacesTextSearchQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC347C81A23E07900B1752C /* GKPlacesTextSearchQuery.m */; };
+		DAC347D31A23E07900B1752C /* GKQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC347CA1A23E07900B1752C /* GKQuery.m */; };
+		DAC347D41A23E07900B1752C /* GKSuggestQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC347CC1A23E07900B1752C /* GKSuggestQuery.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DAC3479C1A23D9E300B1752C /* GoogleKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoogleKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAC347A11A23D9E300B1752C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAC347A21A23D9E300B1752C /* GoogleKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoogleKitTests.m; sourceTree = "<group>"; };
+		DAC347AD1A23E06400B1752C /* GoogleKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoogleKit.h; path = ../GoogleKit/GoogleKit.h; sourceTree = "<group>"; };
+		DAC347AE1A23E06F00B1752C /* GKGeocoderPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKGeocoderPlace.h; path = ../GoogleKit/Objects/GKGeocoderPlace.h; sourceTree = "<group>"; };
+		DAC347AF1A23E06F00B1752C /* GKGeocoderPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKGeocoderPlace.m; path = ../GoogleKit/Objects/GKGeocoderPlace.m; sourceTree = "<group>"; };
+		DAC347B01A23E06F00B1752C /* GKObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKObject.h; path = ../GoogleKit/Objects/GKObject.h; sourceTree = "<group>"; };
+		DAC347B11A23E06F00B1752C /* GKObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKObject.m; path = ../GoogleKit/Objects/GKObject.m; sourceTree = "<group>"; };
+		DAC347B21A23E06F00B1752C /* GKPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPlace.h; path = ../GoogleKit/Objects/GKPlace.h; sourceTree = "<group>"; };
+		DAC347B31A23E06F00B1752C /* GKPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPlace.m; path = ../GoogleKit/Objects/GKPlace.m; sourceTree = "<group>"; };
+		DAC347B41A23E06F00B1752C /* GKPlaceAutocomplete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPlaceAutocomplete.h; path = ../GoogleKit/Objects/GKPlaceAutocomplete.h; sourceTree = "<group>"; };
+		DAC347B51A23E06F00B1752C /* GKPlaceAutocomplete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPlaceAutocomplete.m; path = ../GoogleKit/Objects/GKPlaceAutocomplete.m; sourceTree = "<group>"; };
+		DAC347B61A23E06F00B1752C /* GKPlaceDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPlaceDetails.h; path = ../GoogleKit/Objects/GKPlaceDetails.h; sourceTree = "<group>"; };
+		DAC347B71A23E06F00B1752C /* GKPlaceDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPlaceDetails.m; path = ../GoogleKit/Objects/GKPlaceDetails.m; sourceTree = "<group>"; };
+		DAC347BD1A23E07900B1752C /* GKGeocoderQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKGeocoderQuery.h; path = ../GoogleKit/Queries/GKGeocoderQuery.h; sourceTree = "<group>"; };
+		DAC347BE1A23E07900B1752C /* GKGeocoderQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKGeocoderQuery.m; path = ../GoogleKit/Queries/GKGeocoderQuery.m; sourceTree = "<group>"; };
+		DAC347BF1A23E07900B1752C /* GKPlaceAutocompleteQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPlaceAutocompleteQuery.h; path = ../GoogleKit/Queries/GKPlaceAutocompleteQuery.h; sourceTree = "<group>"; };
+		DAC347C01A23E07900B1752C /* GKPlaceAutocompleteQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPlaceAutocompleteQuery.m; path = ../GoogleKit/Queries/GKPlaceAutocompleteQuery.m; sourceTree = "<group>"; };
+		DAC347C11A23E07900B1752C /* GKPlaceDetailsQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPlaceDetailsQuery.h; path = ../GoogleKit/Queries/GKPlaceDetailsQuery.h; sourceTree = "<group>"; };
+		DAC347C21A23E07900B1752C /* GKPlaceDetailsQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPlaceDetailsQuery.m; path = ../GoogleKit/Queries/GKPlaceDetailsQuery.m; sourceTree = "<group>"; };
+		DAC347C31A23E07900B1752C /* GKPlacesNearbySearchQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPlacesNearbySearchQuery.h; path = ../GoogleKit/Queries/GKPlacesNearbySearchQuery.h; sourceTree = "<group>"; };
+		DAC347C41A23E07900B1752C /* GKPlacesNearbySearchQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPlacesNearbySearchQuery.m; path = ../GoogleKit/Queries/GKPlacesNearbySearchQuery.m; sourceTree = "<group>"; };
+		DAC347C51A23E07900B1752C /* GKPlacesRadarSearchQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPlacesRadarSearchQuery.h; path = ../GoogleKit/Queries/GKPlacesRadarSearchQuery.h; sourceTree = "<group>"; };
+		DAC347C61A23E07900B1752C /* GKPlacesRadarSearchQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPlacesRadarSearchQuery.m; path = ../GoogleKit/Queries/GKPlacesRadarSearchQuery.m; sourceTree = "<group>"; };
+		DAC347C71A23E07900B1752C /* GKPlacesTextSearchQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPlacesTextSearchQuery.h; path = ../GoogleKit/Queries/GKPlacesTextSearchQuery.h; sourceTree = "<group>"; };
+		DAC347C81A23E07900B1752C /* GKPlacesTextSearchQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPlacesTextSearchQuery.m; path = ../GoogleKit/Queries/GKPlacesTextSearchQuery.m; sourceTree = "<group>"; };
+		DAC347C91A23E07900B1752C /* GKQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKQuery.h; path = ../GoogleKit/Queries/GKQuery.h; sourceTree = "<group>"; };
+		DAC347CA1A23E07900B1752C /* GKQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKQuery.m; path = ../GoogleKit/Queries/GKQuery.m; sourceTree = "<group>"; };
+		DAC347CB1A23E07900B1752C /* GKSuggestQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKSuggestQuery.h; path = ../GoogleKit/Queries/GKSuggestQuery.h; sourceTree = "<group>"; };
+		DAC347CC1A23E07900B1752C /* GKSuggestQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKSuggestQuery.m; path = ../GoogleKit/Queries/GKSuggestQuery.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DAC347991A23D9E300B1752C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DAC3477A1A23D9E300B1752C = {
+			isa = PBXGroup;
+			children = (
+				DAC347AC1A23E04D00B1752C /* GoogleKit */,
+				DAC3479F1A23D9E300B1752C /* GoogleKitTests */,
+				DAC347841A23D9E300B1752C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DAC347841A23D9E300B1752C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DAC3479C1A23D9E300B1752C /* GoogleKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DAC3479F1A23D9E300B1752C /* GoogleKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				DAC347A21A23D9E300B1752C /* GoogleKitTests.m */,
+				DAC347A01A23D9E300B1752C /* Supporting Files */,
+			);
+			path = GoogleKitTests;
+			sourceTree = "<group>";
+		};
+		DAC347A01A23D9E300B1752C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DAC347A11A23D9E300B1752C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DAC347AC1A23E04D00B1752C /* GoogleKit */ = {
+			isa = PBXGroup;
+			children = (
+				DAC347BD1A23E07900B1752C /* GKGeocoderQuery.h */,
+				DAC347BE1A23E07900B1752C /* GKGeocoderQuery.m */,
+				DAC347BF1A23E07900B1752C /* GKPlaceAutocompleteQuery.h */,
+				DAC347C01A23E07900B1752C /* GKPlaceAutocompleteQuery.m */,
+				DAC347C11A23E07900B1752C /* GKPlaceDetailsQuery.h */,
+				DAC347C21A23E07900B1752C /* GKPlaceDetailsQuery.m */,
+				DAC347C31A23E07900B1752C /* GKPlacesNearbySearchQuery.h */,
+				DAC347C41A23E07900B1752C /* GKPlacesNearbySearchQuery.m */,
+				DAC347C51A23E07900B1752C /* GKPlacesRadarSearchQuery.h */,
+				DAC347C61A23E07900B1752C /* GKPlacesRadarSearchQuery.m */,
+				DAC347C71A23E07900B1752C /* GKPlacesTextSearchQuery.h */,
+				DAC347C81A23E07900B1752C /* GKPlacesTextSearchQuery.m */,
+				DAC347C91A23E07900B1752C /* GKQuery.h */,
+				DAC347CA1A23E07900B1752C /* GKQuery.m */,
+				DAC347CB1A23E07900B1752C /* GKSuggestQuery.h */,
+				DAC347CC1A23E07900B1752C /* GKSuggestQuery.m */,
+				DAC347AE1A23E06F00B1752C /* GKGeocoderPlace.h */,
+				DAC347AF1A23E06F00B1752C /* GKGeocoderPlace.m */,
+				DAC347B01A23E06F00B1752C /* GKObject.h */,
+				DAC347B11A23E06F00B1752C /* GKObject.m */,
+				DAC347B21A23E06F00B1752C /* GKPlace.h */,
+				DAC347B31A23E06F00B1752C /* GKPlace.m */,
+				DAC347B41A23E06F00B1752C /* GKPlaceAutocomplete.h */,
+				DAC347B51A23E06F00B1752C /* GKPlaceAutocomplete.m */,
+				DAC347B61A23E06F00B1752C /* GKPlaceDetails.h */,
+				DAC347B71A23E06F00B1752C /* GKPlaceDetails.m */,
+				DAC347AD1A23E06400B1752C /* GoogleKit.h */,
+			);
+			name = GoogleKit;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DAC3479B1A23D9E300B1752C /* GoogleKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAC347A91A23D9E300B1752C /* Build configuration list for PBXNativeTarget "GoogleKitTests" */;
+			buildPhases = (
+				DAC347981A23D9E300B1752C /* Sources */,
+				DAC347991A23D9E300B1752C /* Frameworks */,
+				DAC3479A1A23D9E300B1752C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GoogleKitTests;
+			productName = GoogleKitTestsTests;
+			productReference = DAC3479C1A23D9E300B1752C /* GoogleKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DAC3477B1A23D9E300B1752C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Max Sokolov";
+				TargetAttributes = {
+					DAC3479B1A23D9E300B1752C = {
+						CreatedOnToolsVersion = 6.1;
+					};
+				};
+			};
+			buildConfigurationList = DAC3477E1A23D9E300B1752C /* Build configuration list for PBXProject "GoogleKitTests" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DAC3477A1A23D9E300B1752C;
+			productRefGroup = DAC347841A23D9E300B1752C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DAC3479B1A23D9E300B1752C /* GoogleKitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DAC3479A1A23D9E300B1752C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DAC347981A23D9E300B1752C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAC347BB1A23E06F00B1752C /* GKPlaceAutocomplete.m in Sources */,
+				DAC347D41A23E07900B1752C /* GKSuggestQuery.m in Sources */,
+				DAC347B91A23E06F00B1752C /* GKObject.m in Sources */,
+				DAC347BC1A23E06F00B1752C /* GKPlaceDetails.m in Sources */,
+				DAC347D11A23E07900B1752C /* GKPlacesRadarSearchQuery.m in Sources */,
+				DAC347D01A23E07900B1752C /* GKPlacesNearbySearchQuery.m in Sources */,
+				DAC347A31A23D9E300B1752C /* GoogleKitTests.m in Sources */,
+				DAC347CE1A23E07900B1752C /* GKPlaceAutocompleteQuery.m in Sources */,
+				DAC347CF1A23E07900B1752C /* GKPlaceDetailsQuery.m in Sources */,
+				DAC347B81A23E06F00B1752C /* GKGeocoderPlace.m in Sources */,
+				DAC347CD1A23E07900B1752C /* GKGeocoderQuery.m in Sources */,
+				DAC347D31A23E07900B1752C /* GKQuery.m in Sources */,
+				DAC347BA1A23E06F00B1752C /* GKPlace.m in Sources */,
+				DAC347D21A23E07900B1752C /* GKPlacesTextSearchQuery.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		DAC347A41A23D9E300B1752C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DAC347A51A23D9E300B1752C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DAC347AA1A23D9E300B1752C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
+				INFOPLIST_FILE = GoogleKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DAC347AB1A23D9E300B1752C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
+				INFOPLIST_FILE = GoogleKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DAC3477E1A23D9E300B1752C /* Build configuration list for PBXProject "GoogleKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAC347A41A23D9E300B1752C /* Debug */,
+				DAC347A51A23D9E300B1752C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DAC347A91A23D9E300B1752C /* Build configuration list for PBXNativeTarget "GoogleKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAC347AA1A23D9E300B1752C /* Debug */,
+				DAC347AB1A23D9E300B1752C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DAC3477B1A23D9E300B1752C /* Project object */;
+}

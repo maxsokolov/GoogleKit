@@ -102,7 +102,7 @@ static NSString *const kGoogleKitPlaceAutocompleteURL = @"https://maps.googleapi
     
     if (array) {
 
-        [self.cache setObject:array forKey:self.input];
+        [self.cache setObject:places forKey:self.input];
     }
 
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -127,15 +127,13 @@ static NSString *const kGoogleKitPlaceAutocompleteURL = @"https://maps.googleapi
 
     NSArray *array = [self.cache objectForKey:self.input];
     if (array) {
-        
-        NSLog(@"from array");
 
         if (self.completionHandler)
             self.completionHandler(array, nil);
 
         return;
     }
-    
+
     [self performQuery];
 }
 

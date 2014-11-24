@@ -52,6 +52,9 @@ static NSString *const kGKPlacesRadarSearchQueryURL  = @"https://maps.googleapis
     if (CLLocationCoordinate2DIsValid(self.location)) {
         [url appendFormat:@"&location=%f,%f", self.location.latitude, self.location.longitude];
     }
+    if (self.radius != -1) {
+        [url appendFormat:@"&radius=%@", @(self.radius)];
+    }
     if (self.keyword) {
         [url appendFormat:@"&keyword=%@", [self.keyword stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     }

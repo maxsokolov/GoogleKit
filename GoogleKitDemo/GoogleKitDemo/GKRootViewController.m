@@ -28,9 +28,7 @@
     [super viewDidLoad];
     
     self.title = @"GoogleKit";
-    
-    NSLog(@"%@", GOOGLE_API_KEY);
-    
+
     if ([GOOGLE_API_KEY isEqualToString:@"YOUR_KEY"]) {
         
         @throw [NSException exceptionWithName:@"API_KEY" reason:@"NEED API KEY" userInfo:nil];

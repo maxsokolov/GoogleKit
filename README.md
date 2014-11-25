@@ -1,6 +1,6 @@
 # GoogleKit
 
-GoogleKit is Objective-C wrapper for <a href="https://developers.google.com/maps/" target="_blank">Google Maps API</a>.
+GoogleKit is an Objective-C wrapper for <a href="https://developers.google.com/maps/" target="_blank">Google Maps API</a>.
 
 #### Usage
 

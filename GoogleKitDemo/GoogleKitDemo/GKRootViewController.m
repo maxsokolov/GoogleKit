@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Max Sokolov. All rights reserved.
 //
 
-#define GOOGLE_API_KEY @"AIzaSyDYSyHklqn-3aFjic9XatFN5fm8b5Uz15M"
+#define GOOGLE_API_KEY @"YOUR_KEY"
 
 #import "GKRootViewController.h"
 #import "GKMapGeocoderViewController.h"

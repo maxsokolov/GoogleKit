@@ -1,6 +1,6 @@
 # GoogleKit
 
-GoogleKit is an Objective-C wrapper for <a href="https://developers.google.com/maps/" target="_blank">Google Maps API</a>.
+GoogleKit is an Objective-C wrapper for <a href="https://developers.google.com/maps/" target="_blank">Google Maps API</a>. Are you gonna make an Uber for X? So, GoogleKit is for you!
 
 ## Requirements
 
@@ -222,7 +222,7 @@ query.extensions = @"review_summary";
 
 ## Support
 
-<a href="https://twitter.com/max_sokolov" target="_blank">Let me know</a> if you faced a problem.
+<a href="https://twitter.com/max_sokolov" target="_blank">Let me know in twitter</a> if you faced a problem.
 
 ## License
 

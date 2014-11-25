@@ -27,6 +27,5 @@
 #import "GKPlaceAutocompleteQuery.h"
 #import "GKGeocoderQuery.h"
 #import "GKPlaceDetailsQuery.h"
-#import "GKSuggestQuery.h"
 
 #endif

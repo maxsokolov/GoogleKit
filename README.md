@@ -2,20 +2,29 @@
 
 GoogleKit is an Objective-C wrapper for <a href="https://developers.google.com/maps/" target="_blank">Google Maps API</a>.
 
-#### Usage
+## Requirements
 
-1. Install
-2. `#import "GoogleKit.h"` in your controller or .pch file.
+Supports iOS 7 and higher. ARC is required.
 
-#### API KEY
+## Installation
+
+GoogleKit is available via CocoaPods. Simply add the following line to your Podfile:
+
+	pod "GoogleKit", "0.3"
+
+## Usage
+
+Simply import `GoogleKit.h` into your controller or .pch file.
+
+## API key
 
 1. Follow <a href="https://code.google.com/apis/console" target="_blank">this link</a>.
-2. Check the left menu for "APIs & auth -> Credentials".
-3. Look at the "Public API access" section and click the "Create a new key" button, then select "iOS key".
+2. Check the left menu for `APIs & auth -> Credentials`.
+3. Look at the `Public API access` section and click the `Create a new key` button, then select `iOS key`.
 
-Do not forget to enable Geocoding API and Places API in the "APIs & auth -> APIs" section.
+Make sure that Geocoding API and Places API are enabled in the `APIs & auth -> APIs` section.
 
-#### Settings
+## Settings
 
 Provide an API key globally for each request:
 ``` objc
@@ -31,7 +40,7 @@ Enable logging to check for raw requests and responses.
 [GKQuery loggingEnabled:YES];
 ```
 
-#### Geocoding (Latitude/Longitude Lookup)
+## Geocoding (Latitude/Longitude Lookup)
 
 Geocoding lets you convert addresses like "1600 Amphitheatre Parkway, Mountain View, CA" into geographic coordinates like latitude 37.423021 and longitude -122.083739, which you can use to place markers or position the map.
 <a href="https://developers.google.com/maps/documentation/geocoding/" target="_blank">See the official google documentation</a>.
@@ -51,11 +60,11 @@ query.components = @[ @"country:US" ];
 // perform query
 [query lookupLocation:^(NSArray *results, NSError *error) {
 
-    GKGeocoderPlace *place = [result firstObject];
+    GKGeocoderPlace *place = [results firstObject];
     //place.formattedAddress;
 }];
 ```
-#### Reverse Geocoding (Address Lookup)
+## Reverse Geocoding (Address Lookup)
 
 Reverse Geocoding lets you convert a location on the map into a human-readable address. <a href="https://developers.google.com/maps/documentation/geocoding/#ReverseGeocoding" target="_blank">See the official google documentation</a>.
 
@@ -78,7 +87,7 @@ query.postalCode = @"000000";
     GKGeocoderPlace *place = [results firstObject];
 }];
 ```
-#### Place Autocomplete
+## Place Autocomplete
 
 The Place Autocomplete provides a location-based autocomplete feature.
 <a href="https://developers.google.com/places/documentation/autocomplete" target="_blank">See the official google documentation</a>.
@@ -104,7 +113,7 @@ query.language = @"en";
 	GKPlaceAutocomplete *place = [results firstObject];
 }];
 ```
-#### Nearby Search
+## Nearby Search
 
 A Nearby Search lets you search for places within a specified area. You can refine your search request by supplying keywords or specifying the type of place you are searching for.
 <a href="https://developers.google.com/places/documentation/search#PlaceSearchRequests" target="_blank">See the official google documentation</a>.
@@ -134,7 +143,7 @@ query.nextPageToken = @"token";
 	GKPlace *place = [results firstObject];
 }];
 ```
-#### Text Search
+## Text Search
 
 A Text Search returns information about a set of places based on a string — for example "pizza in New York" or "shoe stores near Ottawa". The service responds with a list of places matching the text string and any location bias that has been set. The search response will include a list of places, you can send a Place Details request for more information about any of the places in the response.
 <a href="https://developers.google.com/places/documentation/search#TextSearchRequests" target="_blank">See the official google documentation</a>.
@@ -161,7 +170,7 @@ query.types = @[ @"cafe" ];
 	GKPlace *place = [results firstObject]; 
 }];
 ```
-#### Radar Search
+## Radar Search
 
 A Radar Search allows you to search for up to 200 places at once, but with less detail than is typically returned from a Text Search or Nearby Search request.
 <a href="https://developers.google.com/places/documentation/search#RadarSearchRequests" target="_blank">See the official google documentation</a>.
@@ -190,7 +199,7 @@ query.types = @[ @"library" ];
 	// place.place_id
 }];
 ```
-#### Place Details
+## Place Details
 
 Once you have a place_id from a Place Search, you can request more details about a particular establishment or point of interest by initiating a Place Details request. A Place Details request returns more comprehensive information about the indicated place such as its complete address, phone number, etc.
 <a href="https://developers.google.com/places/documentation/details" target="_blank">See the official google documentation</a>.
@@ -210,6 +219,10 @@ query.extensions = @"review_summary";
 
 }];
 ```
+
+## Support
+
+<a href="https://twitter.com/max_sokolov" target="_blank">Let me know</a> if you faced a problem.
 
 ## License
 

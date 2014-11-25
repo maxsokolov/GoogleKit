@@ -8,21 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		DA7958501A1A99C50069C790 /* GKTextSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA79584F1A1A99C50069C790 /* GKTextSearchViewController.m */; };
-		DA7958531A1AB0870069C790 /* GKPlacesNearbySearchQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7958521A1AB0870069C790 /* GKPlacesNearbySearchQuery.m */; };
-		DA7958561A1AB50C0069C790 /* GKPlacesTextSearchQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7958551A1AB50C0069C790 /* GKPlacesTextSearchQuery.m */; };
-		DA7958591A1AB7270069C790 /* GKPlacesRadarSearchQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7958581A1AB7270069C790 /* GKPlacesRadarSearchQuery.m */; };
+		DAC347DF1A249BCF00B1752C /* GKGeocoderPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC347D61A249BCF00B1752C /* GKGeocoderPlace.m */; };
+		DAC347E01A249BCF00B1752C /* GKObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC347D81A249BCF00B1752C /* GKObject.m */; };
+		DAC347E11A249BCF00B1752C /* GKPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC347DA1A249BCF00B1752C /* GKPlace.m */; };
+		DAC347E21A249BCF00B1752C /* GKPlaceAutocomplete.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC347DC1A249BCF00B1752C /* GKPlaceAutocomplete.m */; };
+		DAC347E31A249BCF00B1752C /* GKPlaceDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC347DE1A249BCF00B1752C /* GKPlaceDetails.m */; };
+		DAC347F21A249BE400B1752C /* GKGeocoderQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC347E51A249BE400B1752C /* GKGeocoderQuery.m */; };
+		DAC347F31A249BE400B1752C /* GKPlaceAutocompleteQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC347E71A249BE400B1752C /* GKPlaceAutocompleteQuery.m */; };
+		DAC347F41A249BE400B1752C /* GKPlaceDetailsQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC347E91A249BE400B1752C /* GKPlaceDetailsQuery.m */; };
+		DAC347F51A249BE400B1752C /* GKPlacesNearbySearchQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC347EB1A249BE400B1752C /* GKPlacesNearbySearchQuery.m */; };
+		DAC347F61A249BE400B1752C /* GKPlacesRadarSearchQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC347ED1A249BE400B1752C /* GKPlacesRadarSearchQuery.m */; };
+		DAC347F71A249BE400B1752C /* GKPlacesTextSearchQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC347EF1A249BE400B1752C /* GKPlacesTextSearchQuery.m */; };
+		DAC347F81A249BE400B1752C /* GKQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC347F11A249BE400B1752C /* GKQuery.m */; };
 		DAE185CF1A13AD67001185C9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE185CE1A13AD67001185C9 /* main.m */; };
 		DAE185D21A13AD67001185C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE185D11A13AD67001185C9 /* AppDelegate.m */; };
 		DAE185E91A13AD67001185C9 /* GoogleKitDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE185E81A13AD67001185C9 /* GoogleKitDemoTests.m */; };
-		DAE186041A13AE76001185C9 /* GKGeocoderQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE185F71A13AE76001185C9 /* GKGeocoderQuery.m */; };
-		DAE186051A13AE76001185C9 /* GKPlaceAutocompleteQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE185F91A13AE76001185C9 /* GKPlaceAutocompleteQuery.m */; };
-		DAE186061A13AE76001185C9 /* GKPlaceDetailsQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE185FB1A13AE76001185C9 /* GKPlaceDetailsQuery.m */; };
-		DAE186081A13AE76001185C9 /* GKQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE185FF1A13AE76001185C9 /* GKQuery.m */; };
-		DAE186151A13AE81001185C9 /* GKGeocoderPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE1860C1A13AE81001185C9 /* GKGeocoderPlace.m */; };
-		DAE186161A13AE81001185C9 /* GKObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE1860E1A13AE81001185C9 /* GKObject.m */; };
-		DAE186171A13AE81001185C9 /* GKPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE186101A13AE81001185C9 /* GKPlace.m */; };
-		DAE186181A13AE81001185C9 /* GKPlaceAutocomplete.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE186121A13AE81001185C9 /* GKPlaceAutocomplete.m */; };
-		DAE186191A13AE81001185C9 /* GKPlaceDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE186141A13AE81001185C9 /* GKPlaceDetails.m */; };
 		DAE1861C1A13AEF0001185C9 /* GKRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE1861B1A13AEF0001185C9 /* GKRootViewController.m */; };
 		DAE1861F1A13AFF1001185C9 /* GKMapGeocoderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE1861E1A13AFF1001185C9 /* GKMapGeocoderViewController.m */; };
 		DAE186231A13B18A001185C9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAE186221A13B18A001185C9 /* Default-568h@2x.png */; };
@@ -45,12 +45,30 @@
 /* Begin PBXFileReference section */
 		DA79584E1A1A99C50069C790 /* GKTextSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKTextSearchViewController.h; sourceTree = "<group>"; };
 		DA79584F1A1A99C50069C790 /* GKTextSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKTextSearchViewController.m; sourceTree = "<group>"; };
-		DA7958511A1AB0870069C790 /* GKPlacesNearbySearchQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPlacesNearbySearchQuery.h; path = ../GoogleKit/Queries/GKPlacesNearbySearchQuery.h; sourceTree = "<group>"; };
-		DA7958521A1AB0870069C790 /* GKPlacesNearbySearchQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPlacesNearbySearchQuery.m; path = ../GoogleKit/Queries/GKPlacesNearbySearchQuery.m; sourceTree = "<group>"; };
-		DA7958541A1AB50C0069C790 /* GKPlacesTextSearchQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPlacesTextSearchQuery.h; path = ../GoogleKit/Queries/GKPlacesTextSearchQuery.h; sourceTree = "<group>"; };
-		DA7958551A1AB50C0069C790 /* GKPlacesTextSearchQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPlacesTextSearchQuery.m; path = ../GoogleKit/Queries/GKPlacesTextSearchQuery.m; sourceTree = "<group>"; };
-		DA7958571A1AB7270069C790 /* GKPlacesRadarSearchQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPlacesRadarSearchQuery.h; path = ../GoogleKit/Queries/GKPlacesRadarSearchQuery.h; sourceTree = "<group>"; };
-		DA7958581A1AB7270069C790 /* GKPlacesRadarSearchQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPlacesRadarSearchQuery.m; path = ../GoogleKit/Queries/GKPlacesRadarSearchQuery.m; sourceTree = "<group>"; };
+		DAC347D51A249BCF00B1752C /* GKGeocoderPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKGeocoderPlace.h; path = ../GoogleKit/GKGeocoderPlace.h; sourceTree = "<group>"; };
+		DAC347D61A249BCF00B1752C /* GKGeocoderPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKGeocoderPlace.m; path = ../GoogleKit/GKGeocoderPlace.m; sourceTree = "<group>"; };
+		DAC347D71A249BCF00B1752C /* GKObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKObject.h; path = ../GoogleKit/GKObject.h; sourceTree = "<group>"; };
+		DAC347D81A249BCF00B1752C /* GKObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKObject.m; path = ../GoogleKit/GKObject.m; sourceTree = "<group>"; };
+		DAC347D91A249BCF00B1752C /* GKPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPlace.h; path = ../GoogleKit/GKPlace.h; sourceTree = "<group>"; };
+		DAC347DA1A249BCF00B1752C /* GKPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPlace.m; path = ../GoogleKit/GKPlace.m; sourceTree = "<group>"; };
+		DAC347DB1A249BCF00B1752C /* GKPlaceAutocomplete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPlaceAutocomplete.h; path = ../GoogleKit/GKPlaceAutocomplete.h; sourceTree = "<group>"; };
+		DAC347DC1A249BCF00B1752C /* GKPlaceAutocomplete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPlaceAutocomplete.m; path = ../GoogleKit/GKPlaceAutocomplete.m; sourceTree = "<group>"; };
+		DAC347DD1A249BCF00B1752C /* GKPlaceDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPlaceDetails.h; path = ../GoogleKit/GKPlaceDetails.h; sourceTree = "<group>"; };
+		DAC347DE1A249BCF00B1752C /* GKPlaceDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPlaceDetails.m; path = ../GoogleKit/GKPlaceDetails.m; sourceTree = "<group>"; };
+		DAC347E41A249BE400B1752C /* GKGeocoderQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKGeocoderQuery.h; path = ../GoogleKit/GKGeocoderQuery.h; sourceTree = "<group>"; };
+		DAC347E51A249BE400B1752C /* GKGeocoderQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKGeocoderQuery.m; path = ../GoogleKit/GKGeocoderQuery.m; sourceTree = "<group>"; };
+		DAC347E61A249BE400B1752C /* GKPlaceAutocompleteQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPlaceAutocompleteQuery.h; path = ../GoogleKit/GKPlaceAutocompleteQuery.h; sourceTree = "<group>"; };
+		DAC347E71A249BE400B1752C /* GKPlaceAutocompleteQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPlaceAutocompleteQuery.m; path = ../GoogleKit/GKPlaceAutocompleteQuery.m; sourceTree = "<group>"; };
+		DAC347E81A249BE400B1752C /* GKPlaceDetailsQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPlaceDetailsQuery.h; path = ../GoogleKit/GKPlaceDetailsQuery.h; sourceTree = "<group>"; };
+		DAC347E91A249BE400B1752C /* GKPlaceDetailsQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPlaceDetailsQuery.m; path = ../GoogleKit/GKPlaceDetailsQuery.m; sourceTree = "<group>"; };
+		DAC347EA1A249BE400B1752C /* GKPlacesNearbySearchQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPlacesNearbySearchQuery.h; path = ../GoogleKit/GKPlacesNearbySearchQuery.h; sourceTree = "<group>"; };
+		DAC347EB1A249BE400B1752C /* GKPlacesNearbySearchQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPlacesNearbySearchQuery.m; path = ../GoogleKit/GKPlacesNearbySearchQuery.m; sourceTree = "<group>"; };
+		DAC347EC1A249BE400B1752C /* GKPlacesRadarSearchQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPlacesRadarSearchQuery.h; path = ../GoogleKit/GKPlacesRadarSearchQuery.h; sourceTree = "<group>"; };
+		DAC347ED1A249BE400B1752C /* GKPlacesRadarSearchQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPlacesRadarSearchQuery.m; path = ../GoogleKit/GKPlacesRadarSearchQuery.m; sourceTree = "<group>"; };
+		DAC347EE1A249BE400B1752C /* GKPlacesTextSearchQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPlacesTextSearchQuery.h; path = ../GoogleKit/GKPlacesTextSearchQuery.h; sourceTree = "<group>"; };
+		DAC347EF1A249BE400B1752C /* GKPlacesTextSearchQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPlacesTextSearchQuery.m; path = ../GoogleKit/GKPlacesTextSearchQuery.m; sourceTree = "<group>"; };
+		DAC347F01A249BE400B1752C /* GKQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKQuery.h; path = ../GoogleKit/GKQuery.h; sourceTree = "<group>"; };
+		DAC347F11A249BE400B1752C /* GKQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKQuery.m; path = ../GoogleKit/GKQuery.m; sourceTree = "<group>"; };
 		DAE185C91A13AD67001185C9 /* GoogleKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoogleKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAE185CD1A13AD67001185C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAE185CE1A13AD67001185C9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -60,24 +78,6 @@
 		DAE185E71A13AD67001185C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAE185E81A13AD67001185C9 /* GoogleKitDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoogleKitDemoTests.m; sourceTree = "<group>"; };
 		DAE185F51A13AE6C001185C9 /* GoogleKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoogleKit.h; path = ../GoogleKit/GoogleKit.h; sourceTree = "<group>"; };
-		DAE185F61A13AE76001185C9 /* GKGeocoderQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKGeocoderQuery.h; path = ../GoogleKit/Queries/GKGeocoderQuery.h; sourceTree = "<group>"; };
-		DAE185F71A13AE76001185C9 /* GKGeocoderQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKGeocoderQuery.m; path = ../GoogleKit/Queries/GKGeocoderQuery.m; sourceTree = "<group>"; };
-		DAE185F81A13AE76001185C9 /* GKPlaceAutocompleteQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPlaceAutocompleteQuery.h; path = ../GoogleKit/Queries/GKPlaceAutocompleteQuery.h; sourceTree = "<group>"; };
-		DAE185F91A13AE76001185C9 /* GKPlaceAutocompleteQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPlaceAutocompleteQuery.m; path = ../GoogleKit/Queries/GKPlaceAutocompleteQuery.m; sourceTree = "<group>"; };
-		DAE185FA1A13AE76001185C9 /* GKPlaceDetailsQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPlaceDetailsQuery.h; path = ../GoogleKit/Queries/GKPlaceDetailsQuery.h; sourceTree = "<group>"; };
-		DAE185FB1A13AE76001185C9 /* GKPlaceDetailsQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPlaceDetailsQuery.m; path = ../GoogleKit/Queries/GKPlaceDetailsQuery.m; sourceTree = "<group>"; };
-		DAE185FE1A13AE76001185C9 /* GKQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKQuery.h; path = ../GoogleKit/Queries/GKQuery.h; sourceTree = "<group>"; };
-		DAE185FF1A13AE76001185C9 /* GKQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKQuery.m; path = ../GoogleKit/Queries/GKQuery.m; sourceTree = "<group>"; };
-		DAE1860B1A13AE81001185C9 /* GKGeocoderPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKGeocoderPlace.h; path = ../GoogleKit/Objects/GKGeocoderPlace.h; sourceTree = "<group>"; };
-		DAE1860C1A13AE81001185C9 /* GKGeocoderPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKGeocoderPlace.m; path = ../GoogleKit/Objects/GKGeocoderPlace.m; sourceTree = "<group>"; };
-		DAE1860D1A13AE81001185C9 /* GKObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKObject.h; path = ../GoogleKit/Objects/GKObject.h; sourceTree = "<group>"; };
-		DAE1860E1A13AE81001185C9 /* GKObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKObject.m; path = ../GoogleKit/Objects/GKObject.m; sourceTree = "<group>"; };
-		DAE1860F1A13AE81001185C9 /* GKPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPlace.h; path = ../GoogleKit/Objects/GKPlace.h; sourceTree = "<group>"; };
-		DAE186101A13AE81001185C9 /* GKPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPlace.m; path = ../GoogleKit/Objects/GKPlace.m; sourceTree = "<group>"; };
-		DAE186111A13AE81001185C9 /* GKPlaceAutocomplete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPlaceAutocomplete.h; path = ../GoogleKit/Objects/GKPlaceAutocomplete.h; sourceTree = "<group>"; };
-		DAE186121A13AE81001185C9 /* GKPlaceAutocomplete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPlaceAutocomplete.m; path = ../GoogleKit/Objects/GKPlaceAutocomplete.m; sourceTree = "<group>"; };
-		DAE186131A13AE81001185C9 /* GKPlaceDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKPlaceDetails.h; path = ../GoogleKit/Objects/GKPlaceDetails.h; sourceTree = "<group>"; };
-		DAE186141A13AE81001185C9 /* GKPlaceDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKPlaceDetails.m; path = ../GoogleKit/Objects/GKPlaceDetails.m; sourceTree = "<group>"; };
 		DAE1861A1A13AEF0001185C9 /* GKRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKRootViewController.h; sourceTree = "<group>"; };
 		DAE1861B1A13AEF0001185C9 /* GKRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKRootViewController.m; sourceTree = "<group>"; };
 		DAE1861D1A13AFF1001185C9 /* GKMapGeocoderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKMapGeocoderViewController.h; sourceTree = "<group>"; };
@@ -192,20 +192,20 @@
 		DAE185F31A13AE5D001185C9 /* Queries */ = {
 			isa = PBXGroup;
 			children = (
-				DAE185FE1A13AE76001185C9 /* GKQuery.h */,
-				DAE185FF1A13AE76001185C9 /* GKQuery.m */,
-				DAE185F61A13AE76001185C9 /* GKGeocoderQuery.h */,
-				DAE185F71A13AE76001185C9 /* GKGeocoderQuery.m */,
-				DA7958511A1AB0870069C790 /* GKPlacesNearbySearchQuery.h */,
-				DA7958521A1AB0870069C790 /* GKPlacesNearbySearchQuery.m */,
-				DA7958541A1AB50C0069C790 /* GKPlacesTextSearchQuery.h */,
-				DA7958551A1AB50C0069C790 /* GKPlacesTextSearchQuery.m */,
-				DA7958571A1AB7270069C790 /* GKPlacesRadarSearchQuery.h */,
-				DA7958581A1AB7270069C790 /* GKPlacesRadarSearchQuery.m */,
-				DAE185FA1A13AE76001185C9 /* GKPlaceDetailsQuery.h */,
-				DAE185FB1A13AE76001185C9 /* GKPlaceDetailsQuery.m */,
-				DAE185F81A13AE76001185C9 /* GKPlaceAutocompleteQuery.h */,
-				DAE185F91A13AE76001185C9 /* GKPlaceAutocompleteQuery.m */,
+				DAC347F01A249BE400B1752C /* GKQuery.h */,
+				DAC347F11A249BE400B1752C /* GKQuery.m */,
+				DAC347E41A249BE400B1752C /* GKGeocoderQuery.h */,
+				DAC347E51A249BE400B1752C /* GKGeocoderQuery.m */,
+				DAC347E61A249BE400B1752C /* GKPlaceAutocompleteQuery.h */,
+				DAC347E71A249BE400B1752C /* GKPlaceAutocompleteQuery.m */,
+				DAC347E81A249BE400B1752C /* GKPlaceDetailsQuery.h */,
+				DAC347E91A249BE400B1752C /* GKPlaceDetailsQuery.m */,
+				DAC347EA1A249BE400B1752C /* GKPlacesNearbySearchQuery.h */,
+				DAC347EB1A249BE400B1752C /* GKPlacesNearbySearchQuery.m */,
+				DAC347EC1A249BE400B1752C /* GKPlacesRadarSearchQuery.h */,
+				DAC347ED1A249BE400B1752C /* GKPlacesRadarSearchQuery.m */,
+				DAC347EE1A249BE400B1752C /* GKPlacesTextSearchQuery.h */,
+				DAC347EF1A249BE400B1752C /* GKPlacesTextSearchQuery.m */,
 			);
 			name = Queries;
 			sourceTree = "<group>";
@@ -213,16 +213,16 @@
 		DAE185F41A13AE63001185C9 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				DAE1860D1A13AE81001185C9 /* GKObject.h */,
-				DAE1860E1A13AE81001185C9 /* GKObject.m */,
-				DAE1860B1A13AE81001185C9 /* GKGeocoderPlace.h */,
-				DAE1860C1A13AE81001185C9 /* GKGeocoderPlace.m */,
-				DAE186111A13AE81001185C9 /* GKPlaceAutocomplete.h */,
-				DAE186121A13AE81001185C9 /* GKPlaceAutocomplete.m */,
-				DAE1860F1A13AE81001185C9 /* GKPlace.h */,
-				DAE186101A13AE81001185C9 /* GKPlace.m */,
-				DAE186131A13AE81001185C9 /* GKPlaceDetails.h */,
-				DAE186141A13AE81001185C9 /* GKPlaceDetails.m */,
+				DAC347D51A249BCF00B1752C /* GKGeocoderPlace.h */,
+				DAC347D61A249BCF00B1752C /* GKGeocoderPlace.m */,
+				DAC347D71A249BCF00B1752C /* GKObject.h */,
+				DAC347D81A249BCF00B1752C /* GKObject.m */,
+				DAC347D91A249BCF00B1752C /* GKPlace.h */,
+				DAC347DA1A249BCF00B1752C /* GKPlace.m */,
+				DAC347DB1A249BCF00B1752C /* GKPlaceAutocomplete.h */,
+				DAC347DC1A249BCF00B1752C /* GKPlaceAutocomplete.m */,
+				DAC347DD1A249BCF00B1752C /* GKPlaceDetails.h */,
+				DAC347DE1A249BCF00B1752C /* GKPlaceDetails.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -326,26 +326,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAE186051A13AE76001185C9 /* GKPlaceAutocompleteQuery.m in Sources */,
-				DAE186151A13AE81001185C9 /* GKGeocoderPlace.m in Sources */,
-				DA7958561A1AB50C0069C790 /* GKPlacesTextSearchQuery.m in Sources */,
-				DA7958591A1AB7270069C790 /* GKPlacesRadarSearchQuery.m in Sources */,
-				DAE186041A13AE76001185C9 /* GKGeocoderQuery.m in Sources */,
-				DAE186171A13AE81001185C9 /* GKPlace.m in Sources */,
+				DAC347F31A249BE400B1752C /* GKPlaceAutocompleteQuery.m in Sources */,
 				DAE1861C1A13AEF0001185C9 /* GKRootViewController.m in Sources */,
 				DAE185D21A13AD67001185C9 /* AppDelegate.m in Sources */,
+				DAC347F71A249BE400B1752C /* GKPlacesTextSearchQuery.m in Sources */,
+				DAC347F61A249BE400B1752C /* GKPlacesRadarSearchQuery.m in Sources */,
+				DAC347F41A249BE400B1752C /* GKPlaceDetailsQuery.m in Sources */,
+				DAC347E11A249BCF00B1752C /* GKPlace.m in Sources */,
 				DAE1862C1A140068001185C9 /* GKMapAnnotation.m in Sources */,
+				DAC347F81A249BE400B1752C /* GKQuery.m in Sources */,
 				DA7958501A1A99C50069C790 /* GKTextSearchViewController.m in Sources */,
-				DAE186181A13AE81001185C9 /* GKPlaceAutocomplete.m in Sources */,
-				DAE186161A13AE81001185C9 /* GKObject.m in Sources */,
-				DAE186081A13AE76001185C9 /* GKQuery.m in Sources */,
-				DA7958531A1AB0870069C790 /* GKPlacesNearbySearchQuery.m in Sources */,
+				DAC347E21A249BCF00B1752C /* GKPlaceAutocomplete.m in Sources */,
+				DAC347F51A249BE400B1752C /* GKPlacesNearbySearchQuery.m in Sources */,
+				DAC347DF1A249BCF00B1752C /* GKGeocoderPlace.m in Sources */,
 				DAE186261A13E8F6001185C9 /* GKAutocompleteViewController.m in Sources */,
 				DAE1861F1A13AFF1001185C9 /* GKMapGeocoderViewController.m in Sources */,
 				DAE185CF1A13AD67001185C9 /* main.m in Sources */,
-				DAE186191A13AE81001185C9 /* GKPlaceDetails.m in Sources */,
+				DAC347E01A249BCF00B1752C /* GKObject.m in Sources */,
 				DAE186291A13F5DE001185C9 /* GKNearbySearchViewController.m in Sources */,
-				DAE186061A13AE76001185C9 /* GKPlaceDetailsQuery.m in Sources */,
+				DAC347F21A249BE400B1752C /* GKGeocoderQuery.m in Sources */,
+				DAC347E31A249BCF00B1752C /* GKPlaceDetails.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

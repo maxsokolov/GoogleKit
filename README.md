@@ -10,7 +10,7 @@ Supports iOS 7 and higher. ARC is required.
 
 GoogleKit is available via CocoaPods. Simply add the following line to your Podfile:
 
-	pod "GoogleKit", "0.3"
+	pod "GoogleKit", "~> 0.3"
 
 ## Usage
 
@@ -73,7 +73,7 @@ GKGeocoderQuery *query = [GKGeocoderQuery query];
 
 // required parameters
 query.key = @"key";
-query.location = CLLocationCoordinate2DMake(0.0f, 0.0f);
+query.coordinate = CLLocationCoordinate2DMake(0.0f, 0.0f);
 
 // optional parameters
 query.language = @"en";
@@ -100,7 +100,7 @@ query.key = @"key";
 query.input = @"wall street";
 
 // optional parameters
-query.location = CLLocationCoordinate2DMake(55.738407f, 37.612306f); // New York City
+query.coordinate = CLLocationCoordinate2DMake(55.738407f, 37.612306f); // New York City
 query.types = @[ @"geocode" ];
 query.components = @[ @"country:us" ];
 query.radius = 10000;
@@ -123,7 +123,7 @@ GKPlacesNearbySearchQuery *query = [GKPlacesNearbySearchQuery query];
 
 // required parameters
 query.key = @"key";
-query.location = CLLocationCoordinate2DMake(40.71448f, -74.00598f); // New York City
+query.coordinate = CLLocationCoordinate2DMake(40.71448f, -74.00598f); // New York City
 query.rankByDistance = NO; // if rankByDistance sets to YES radius will be ignored
 query.radius = 3000;
 
@@ -157,7 +157,7 @@ query.text = @"pizza in New York";
 
 // optional parameters
 query.language = @"en";
-query.location = CLLocationCoordinate2DMake(40.71448f, -74.00598f);
+query.coordinate = CLLocationCoordinate2DMake(40.71448f, -74.00598f);
 query.radius = 3000;
 query.minprice = 0;
 query.maxprice = 4;
@@ -180,7 +180,7 @@ GKPlacesRadarSearchQuery *query = [GKPlacesRadarSearchQuery query];
     
 // required parameters
 query.key = @"key";
-query.location = CLLocationCoordinate2DMake(40.71448f, -74.00598f); // New York City
+query.coordinate = CLLocationCoordinate2DMake(40.71448f, -74.00598f); // New York City
 query.radius = 3000;
 
 // optional parameters

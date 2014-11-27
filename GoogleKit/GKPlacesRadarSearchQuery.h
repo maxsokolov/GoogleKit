@@ -30,7 +30,7 @@ typedef void (^GKPlacesRadarSearchQueryCompletionBlock)(NSArray *results, NSErro
 @interface GKPlacesRadarSearchQuery : GKQuery
 
 // required parameters
-@property (nonatomic, assign) CLLocationCoordinate2D location;
+@property (nonatomic, assign) CLLocationCoordinate2D coordinate;
 @property (nonatomic, assign) NSUInteger radius;
 
 // optional parameters

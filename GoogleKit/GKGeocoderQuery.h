@@ -36,7 +36,7 @@
 //@property (nonatomic, strong) NSArray *bounds;
 
 // Reverse Geocoding (Address Lookup)
-@property (nonatomic, assign) CLLocationCoordinate2D location;
+@property (nonatomic, assign) CLLocationCoordinate2D coordinate;
 @property (nonatomic, strong) NSArray *locationType;
 @property (nonatomic, strong) NSArray *resultType;
 @property (nonatomic, strong) NSString *postalCode;

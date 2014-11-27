@@ -37,7 +37,7 @@ static NSString *const kGoogleKitPlaceAutocompleteURL = @"https://maps.googleapi
 
         self.radius = 10000.0f;
         self.offset = 0;
-        self.location = kCLLocationCoordinate2DInvalid;
+        self.coordinate = kCLLocationCoordinate2DInvalid;
     }
     return self;
 }
@@ -60,8 +60,8 @@ static NSString *const kGoogleKitPlaceAutocompleteURL = @"https://maps.googleapi
     if (self.offset != 0) {
         [url appendFormat:@"&offset=%@", @(self.offset)];
     }
-    if (self.location.latitude != -1) {
-        [url appendFormat:@"&location=%f,%f", self.location.latitude, self.location.longitude];
+    if (self.coordinate.latitude != -1) {
+        [url appendFormat:@"&location=%f,%f", self.coordinate.latitude, self.coordinate.longitude];
     }
     if (self.radius != 0) {
         [url appendFormat:@"&radius=%@", @(self.radius)];

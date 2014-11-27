@@ -33,7 +33,7 @@ typedef void (^GKPlacesTextSearchQueryCompletionBlock)(NSArray *results, NSError
 @property (nonatomic, strong) NSString *text; // becomes "query" param in request url
 
 // optional parameters
-@property (nonatomic, assign) CLLocationCoordinate2D location;
+@property (nonatomic, assign) CLLocationCoordinate2D coordinate;
 @property (nonatomic, assign) NSUInteger radius;
 @property (nonatomic, assign) NSUInteger minprice; // 0...4
 @property (nonatomic, assign) NSUInteger maxprice; // 0...4

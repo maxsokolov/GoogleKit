@@ -35,7 +35,7 @@ static NSString *const kGKGeocoderURL = @"https://maps.googleapis.com/maps/api/g
     self = [super init];
     if (self) {
 
-        self.location = kCLLocationCoordinate2DInvalid;
+        self.coordinate = kCLLocationCoordinate2DInvalid;
     }
     return self;
 }
@@ -48,8 +48,8 @@ static NSString *const kGKGeocoderURL = @"https://maps.googleapis.com/maps/api/g
 
     if (self.isReverseGeocoding) {
 
-        if (CLLocationCoordinate2DIsValid(self.location)) {
-            [url appendFormat:@"&latlng=%f,%f", self.location.latitude, self.location.longitude];
+        if (CLLocationCoordinate2DIsValid(self.coordinate)) {
+            [url appendFormat:@"&latlng=%f,%f", self.coordinate.latitude, self.coordinate.longitude];
         }
         if (self.resultType && self.resultType.count > 0) {
             [url appendFormat:@"&result_type=%@", [self.resultType componentsJoinedByString:@"|"]];

@@ -51,6 +51,6 @@
 @property (nonatomic, strong, readonly) NSString *streetNumber;
 @property (nonatomic, strong, readonly) NSString *floor;
 @property (nonatomic, strong, readonly) NSString *room;
-@property (nonatomic, strong, readonly) CLLocation *location;
+@property (nonatomic, assign, readonly) CLLocationCoordinate2D coordinate;
 
 @end

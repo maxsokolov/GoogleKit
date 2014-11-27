@@ -39,7 +39,7 @@ static NSString *const kGKPlacesNearbySearchQueryURL = @"https://maps.googleapis
         self.maxprice = -1;
         self.radius = -1;
         self.rankByDistance = NO;
-        self.location = kCLLocationCoordinate2DInvalid;
+        self.coordinate = kCLLocationCoordinate2DInvalid;
     }
     return self;
 }
@@ -56,8 +56,8 @@ static NSString *const kGKPlacesNearbySearchQueryURL = @"https://maps.googleapis
         return [NSURL URLWithString:url];
     }
 
-    if (CLLocationCoordinate2DIsValid(self.location)) {
-        [url appendFormat:@"&location=%f,%f", self.location.latitude, self.location.longitude];
+    if (CLLocationCoordinate2DIsValid(self.coordinate)) {
+        [url appendFormat:@"&location=%f,%f", self.coordinate.latitude, self.coordinate.longitude];
     }
     if (self.rankByDistance) {
         [url appendString:@"&rankby=distance"];

@@ -36,7 +36,7 @@
     
     [GKQuery provideAPIKey:GOOGLE_API_KEY];
     [GKQuery loggingEnabled:YES];
-    
+
     self.dataSource = @[@"Geocoder", @"Autocomplete places", @"Nearby Search & Place Details", @"Text search"];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];

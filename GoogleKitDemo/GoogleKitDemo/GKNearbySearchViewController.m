@@ -53,7 +53,7 @@
     query.radius = 3000;
     query.types = @[ @"library" ];
     query.rankByDistance = NO;
-    query.location = CLLocationCoordinate2DMake(40.71448f, -74.00598f); // New York City
+    query.coordinate = CLLocationCoordinate2DMake(40.71448f, -74.00598f); // New York City
     query.nextPageToken = self.nextPageToken;
 
     [query searchPlaces:^(NSArray *results, NSString *nextPageToken, NSError *error) {
@@ -69,7 +69,7 @@
     
     for (GKPlace *place in places) {
 
-        GKMapAnnotation *annotation = [[GKMapAnnotation alloc] initWithCoordinate:place.location.coordinate placeId:place.placeId];
+        GKMapAnnotation *annotation = [[GKMapAnnotation alloc] initWithCoordinate:place.coordinate placeId:place.placeId];
         [self.mapView addAnnotation:annotation];
     }
 }

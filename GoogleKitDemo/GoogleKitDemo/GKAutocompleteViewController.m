@@ -43,7 +43,7 @@
 
     GKPlaceAutocompleteQuery *query = [GKPlaceAutocompleteQuery query];
     query.input = textField.text;
-    query.location = CLLocationCoordinate2DMake(55.738407f, 37.612306f); // New York City
+    query.coordinate = CLLocationCoordinate2DMake(55.738407f, 37.612306f); // New York City
     query.types = @[ @"geocode" ];
     query.radius = 10000;
     [query fetchPlaces:^(NSArray *results, NSError *error) {

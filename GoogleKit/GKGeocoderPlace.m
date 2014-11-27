@@ -132,7 +132,7 @@
         CGFloat lat = [[[[dictionary objectForKey:@"geometry"] objectForKey:@"location"] objectForKey:@"lat"] floatValue];
         CGFloat lng = [[[[dictionary objectForKey:@"geometry"] objectForKey:@"location"] objectForKey:@"lng"] floatValue];
         
-        _location = [[CLLocation alloc] initWithLatitude:lat longitude:lng];
+        _coordinate = CLLocationCoordinate2DMake(lat, lng);
     }
     return self;
 }

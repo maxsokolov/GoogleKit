@@ -74,7 +74,7 @@
     CLLocationCoordinate2D coord = [mapView convertPoint:self.view.center toCoordinateFromView:self.view];
 
     GKGeocoderQuery *query = [GKGeocoderQuery query];
-    query.location = coord;
+    query.coordinate = coord;
     query.language = @"en";
     [query lookupAddress:^(NSArray *result, NSError *error) {
         

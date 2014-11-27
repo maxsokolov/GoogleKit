@@ -70,7 +70,7 @@
     
     GKGeocoderQuery *query = [GKGeocoderQuery query];
     query.key = kGoogleKitKey;
-    query.location = CLLocationCoordinate2DMake(55.738407f, 37.612306f);
+    query.coordinate = CLLocationCoordinate2DMake(55.738407f, 37.612306f);
     query.language = @"en";
     query.resultType = @[ @"street_address" ];
     query.locationType = @[ @"ROOFTOP" ];
@@ -92,7 +92,7 @@
 
     GKPlacesNearbySearchQuery *query = [GKPlacesNearbySearchQuery query];
     query.key = kGoogleKitKey;
-    query.location = CLLocationCoordinate2DMake(40.71448f, -74.00598f);
+    query.coordinate = CLLocationCoordinate2DMake(40.71448f, -74.00598f);
     query.rankByDistance = NO;
     query.radius = 3000;
     query.language = @"en";
@@ -122,7 +122,7 @@
     query.key = kGoogleKitKey;
     query.text = @"library";
     query.language = @"en";
-    query.location = CLLocationCoordinate2DMake(40.71448f, -74.00598f);
+    query.coordinate = CLLocationCoordinate2DMake(40.71448f, -74.00598f);
     query.radius = 3000;
     query.minprice = 0;
     query.maxprice = 4;
@@ -146,7 +146,7 @@
 
     GKPlacesRadarSearchQuery *query = [GKPlacesRadarSearchQuery query];
     query.key = kGoogleKitKey;
-    query.location = CLLocationCoordinate2DMake(40.71448f, -74.00598f);
+    query.coordinate = CLLocationCoordinate2DMake(40.71448f, -74.00598f);
     query.radius = 3000;
     query.language = @"en";
     query.keyword = @"library";
@@ -174,7 +174,7 @@
     GKPlaceAutocompleteQuery *query = [GKPlaceAutocompleteQuery query];
     query.key = kGoogleKitKey;
     query.input = @"wall street";
-    query.location = CLLocationCoordinate2DMake(55.738407f, 37.612306f);
+    query.coordinate = CLLocationCoordinate2DMake(55.738407f, 37.612306f);
     query.types = @[ @"geocode" ];
     query.components = @[ @"country:us" ];
     query.radius = 10000;
@@ -199,7 +199,7 @@
     GKPlaceAutocompleteQuery *query = [GKPlaceAutocompleteQuery query];
     query.key = kGoogleKitKey;
     query.input = @"wall street";
-    query.location = CLLocationCoordinate2DMake(55.738407f, 37.612306f);
+    query.coordinate = CLLocationCoordinate2DMake(55.738407f, 37.612306f);
     query.types = @[ @"geocode" ];
     query.components = @[ @"country:us" ];
     query.radius = 10000;
@@ -208,6 +208,10 @@
     [query fetchPlaces:^(NSArray *results, NSError *error) {
         
         GKPlaceAutocomplete *place = [results firstObject];
+        
+        XCTAssertNil(error);
+        XCTAssertTrue(results.count > 0);
+        XCTAssertTrue([place isKindOfClass:[GKPlaceAutocomplete class]]);
 
         GKPlaceDetailsQuery *query = [GKPlaceDetailsQuery query];
         query.key = kGoogleKitKey;

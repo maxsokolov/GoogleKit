@@ -38,7 +38,7 @@ static NSString *const kGKPlacesRadarSearchQueryURL  = @"https://maps.googleapis
         self.minprice = -1;
         self.maxprice = -1;
         self.radius = -1;
-        self.location = kCLLocationCoordinate2DInvalid;
+        self.coordinate = kCLLocationCoordinate2DInvalid;
     }
     return self;
 }
@@ -49,8 +49,8 @@ static NSString *const kGKPlacesRadarSearchQueryURL  = @"https://maps.googleapis
 
     NSMutableString *url = [NSMutableString stringWithFormat:kGKPlacesRadarSearchQueryURL, self.key];
     
-    if (CLLocationCoordinate2DIsValid(self.location)) {
-        [url appendFormat:@"&location=%f,%f", self.location.latitude, self.location.longitude];
+    if (CLLocationCoordinate2DIsValid(self.coordinate)) {
+        [url appendFormat:@"&location=%f,%f", self.coordinate.latitude, self.coordinate.longitude];
     }
     if (self.radius != -1) {
         [url appendFormat:@"&radius=%@", @(self.radius)];

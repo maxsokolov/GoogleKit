@@ -22,7 +22,7 @@ Simply import `GoogleKit.h` into your controller or .pch file.
 2. Check the left menu for `APIs & auth -> Credentials`.
 3. Look at the `Public API access` section and click the `Create a new key` button, then select `iOS key`.
 
-Make sure that Geocoding API and Places API are enabled in the `APIs & auth -> APIs` section.
+Make sure that Geocoding API and Places API are enabled in the `APIs & auth -> APIs` section. If you face some issues with `iOS key` use `Browser key` instead.
 
 ## Settings
 

@@ -21,7 +21,7 @@
 #import "GKQuery.h"
 
 static BOOL _logging;
-static NSString *_APIKey = nil;
+static NSString *_APIKey = @"default";
 
 @interface GKQuery ()
 

@@ -9,5 +9,6 @@ Pod::Spec.new do |s|
   s.platform              = :ios, "7.0"
   s.source                = { :git => "https://github.com/maxsokolov/GoogleKit.git", :tag => "0.3.1" }
   s.source_files          = "GoogleKit"
+  s.framework             = 'Foundation', 'UIKit', 'CoreLocation'
   s.requires_arc          = true
 end

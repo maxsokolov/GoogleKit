@@ -113,6 +113,7 @@ query.language = @"en";
 	GKPlaceAutocomplete *place = [results firstObject];
 }];
 ```
+`GKPlaceAutocompleteQuery` has built-in cache, so you don't need to worry about queries with same inputs.
 ## Nearby Search
 
 A Nearby Search lets you search for places within a specified area. You can refine your search request by supplying keywords or specifying the type of place you are searching for.

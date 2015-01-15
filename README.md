@@ -223,7 +223,7 @@ query.extensions = @"review_summary";
 
 ## Support
 
-<a href="https://twitter.com/max_sokolov" target="_blank">Let me know in twitter</a> if you faced a problem.
+Feel free to open an issue if you faced a problem.
 
 ## License
 

@@ -126,6 +126,7 @@
             }
         }
         
+        _placeId = [dictionary objectForKey:@"place_id"];
         _formattedAddress = [dictionary objectForKey:@"formatted_address"];
         _name = [dictionary objectForKey:@"name"];
         

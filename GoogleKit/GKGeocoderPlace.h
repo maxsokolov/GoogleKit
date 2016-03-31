@@ -27,6 +27,7 @@
 @interface GKGeocoderPlace : GKObject
 
 @property (nonatomic, strong, readonly) NSString *formattedAddress;
+@property (nonatomic, strong, readonly) NSString *placeId;
 @property (nonatomic, strong, readonly) NSString *name;
 @property (nonatomic, strong, readonly) NSString *streetAddress;
 @property (nonatomic, strong, readonly) NSString *route;

@@ -62,7 +62,7 @@
        
         GKGeocoderPlace *place = [results firstObject];
         if (place) {
-            self.labelLocation.text = [NSString stringWithFormat:@"%f %f", place.location.coordinate.latitude, place.location.coordinate.longitude];
+            self.labelLocation.text = [NSString stringWithFormat:@"%f %f", place.coordinate.latitude, place.coordinate.longitude];
         }
     }];
 }
